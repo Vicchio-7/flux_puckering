@@ -75,30 +75,34 @@ elif [ ${status_build} == 0 ] ; then
 
 	    cd ${directory}
 
-#	    mkdir 0_initial-coordinates
-#	    mkdir 1_sample-files
-#	    mkdir 2_freeze
-#	    mkdir 3_BLANK
-#	    mkdir 4_opt_localmin
-#	    mkdir 5_opt_TS
-#	    mkdir 6_norm_analysis
-#	    mkdir 7_irc_run
-#		mkdir 8_irc_localmin
-#		mkdir 9_all_lm_logs
-#		mkdir 10_ts_viz_logs
+	    mkdir 0_initial-coordinates
+	    mkdir 1_sample-files
+	    mkdir 2_freeze
+	    mkdir 3_BLANK
+	    mkdir 4_opt_localmin
+	    mkdir 5_opt_TS
+	    mkdir 6_norm_analysis
+	    mkdir 7_irc_run
+		mkdir 8_irc_localmin
+		mkdir 9_all_lm_logs
+		mkdir 10_ts_viz_logs
 
     fi
 
-    raw_coords=${main}/puckering/${folder}/z_folder_raw-coordinates
+    raw_coords=${main}/${folder}/z_folder_raw-coordinates
 
     coordinate_directory=${directory}/0_initial-coordinates
 
     if [ -n "$(find ${coordinate_directory} -prune -empty)" ] ; then
 
-		cp ${raw_coords}/*${ext} ${directory}/0_initial-coordinates/.
+        ls ${raw_coords}/*${ext}
 
-		cd ${directory}/0_initial-coordinates/
-		ls *${ext} > ../y0-input_list.txt
+        echo ${directory}/0_initial-coordinates
+
+#		cp ${raw_coords}/*${ext} ${directory}/0_initial-coordinates/.
+#
+#		cd ${directory}/0_initial-coordinates/
+#		ls *${ext} > ../y0-input_list.txt
 
 	fi
 
