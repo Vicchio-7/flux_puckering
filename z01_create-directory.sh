@@ -32,7 +32,7 @@ main=/home/${user}/1_puckering
 if [ "${molecule_type}" == 'oxane' ] ; then
 	folder=1_oxane
 	status_build=0
-	ext=.com
+	ext=.xyz
 elif [ "${molecule_type}" == 'bxyl' ] ;  then
 	folder=2_bxyl
 	status_build=0
