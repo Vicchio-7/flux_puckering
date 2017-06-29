@@ -102,7 +102,7 @@ elif [ ${status_build} == 0 ] ; then
 
         for file_unedit in $( <$input_list); do
 
-            file=${file_unedit%.com}
+            file=${file_unedit%.xyz}
 
             tpl_file=${tpl}/${tpl_folder}/run_oxane_freeze.tpl
 
