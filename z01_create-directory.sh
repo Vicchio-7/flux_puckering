@@ -24,7 +24,7 @@ user=vicchio
 # Additional information such as folder location that is required for the code to run properly.
 
 scratch=/scratch/${account}/${user}
-main=/pylon2/${account}/${user}/1_puckering
+main=/home/${user}/1_puckering
 
 # --------------------------------------------------------------------------------------
 
@@ -75,17 +75,17 @@ elif [ ${status_build} == 0 ] ; then
 
 	    cd ${directory}
 
-	    mkdir 0_initial-coordinates
-	    mkdir 1_sample-files
-	    mkdir 2_freeze
-	    mkdir 3_BLANK
-	    mkdir 4_opt_localmin
-	    mkdir 5_opt_TS
-	    mkdir 6_norm_analysis
-	    mkdir 7_irc_run
-		mkdir 8_irc_localmin
-		mkdir 9_all_lm_logs
-		mkdir 10_ts_viz_logs
+#	    mkdir 0_initial-coordinates
+#	    mkdir 1_sample-files
+#	    mkdir 2_freeze
+#	    mkdir 3_BLANK
+#	    mkdir 4_opt_localmin
+#	    mkdir 5_opt_TS
+#	    mkdir 6_norm_analysis
+#	    mkdir 7_irc_run
+#		mkdir 8_irc_localmin
+#		mkdir 9_all_lm_logs
+#		mkdir 10_ts_viz_logs
 
     fi
 
