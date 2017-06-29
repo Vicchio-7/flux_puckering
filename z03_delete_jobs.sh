@@ -25,6 +25,6 @@ list_delete=$(seq ${total_files_to_delete})
 
 for file_number in ${list_delete}; do
     current_file_delete=$( echo "${lowerbound}+${file_number}-1" | bc )
-    scancel ${current_file_delete}
+    qdel ${current_file_delete}
 done
 

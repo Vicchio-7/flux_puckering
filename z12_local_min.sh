@@ -118,20 +118,19 @@ elif [ ${status_build} == 0 ] ; then
             mv temp8.temp ${file}.com
             rm *.temp
 
-        ######## The section below creates the Slurm file for submission on Bridges
+        ######## The section below creates the PBS file for submission on Bridges
 
-            sed -e "s/\$num_proc/${cores_per_node}/g" ${tpl}/gaussian_slurm_script.job > temp1.txt
-            sed -e "s/conform/${file}/g" temp1.txt >> temp2.txt
-            sed -e "s/gauss-log/${1}-${file}-freeze_${3}-${2}_${3}/g" temp2.txt >> temp3.txt
-            sed -e "s/\$molecule/${molecule_type}/g" temp3.txt >> temp4.txt
-            sed -e "s/\$test/${job_type}/g" temp4.txt >> temp5.txt
-            sed -e "s/\$level/${level_short}/g" temp5.txt >> temp6.txt
-            sed -e "s/\$hours/${hours}/g" temp6.txt >> temp7.txt
-            sed -e "s/\$minutes/${minutes}/g" temp7.txt >> temp8.txt
+                sed -e "s/\$num_proc/${cores_per_node}/g" ${tpl}/gaussian_pbs_script.job > temp1.txt
+                sed -i "s/\$memory/${total_memory}/g" temp1.txt
+                sed -i "s/conform/${file}/g" temp1.txt
+                sed -i "s/gauss-log/${file}-freeze_${3}/g" temp1.txt
+                sed -i "s/\$molecule/${molecule_type}/g" temp1.txt
+                sed -i "s/\$test/${job_type}/g" temp1.txt
+                sed -i "s/\$level/${level_short}/g" temp1.txt
+                sed -i "s/\$hours/${hours}/g" temp1.txt
+                sed -i "s/\$minutes/${minutes}/g" temp1.txt
 
-
-            mv temp8.txt slurm-${file}.job
-            rm temp*.txt
+                mv temp1.txt pbs-${file}.job
         done
 
     else
@@ -155,18 +154,19 @@ elif [ ${status_build} == 0 ] ; then
                 mv temp1.temp ${file}.com
 
 
-            ######## The section below creates the Slurm file for submission on Bridges
+            ######## The section below creates the PBS file for submission on Bridges
 
-                sed -e "s/\$num_proc/${cores_per_node}/g" ${tpl}/gaussian_slurm_script.job > temp1.txt
+                sed -e "s/\$num_proc/${cores_per_node}/g" ${tpl}/gaussian_pbs_script.job > temp1.txt
+                sed -i "s/\$memory/${total_memory}/g" temp1.txt
                 sed -i "s/conform/${file}/g" temp1.txt
-                sed -i "s/gauss-log/${file}-${2}_${3}/g" temp1.txt
+                sed -i "s/gauss-log/${file}-freeze_${3}/g" temp1.txt
                 sed -i "s/\$molecule/${molecule_type}/g" temp1.txt
                 sed -i "s/\$test/${job_type}/g" temp1.txt
                 sed -i "s/\$level/${level_short}/g" temp1.txt
                 sed -i "s/\$hours/${hours}/g" temp1.txt
                 sed -i "s/\$minutes/${minutes}/g" temp1.txt
 
-                mv temp1.txt slurm-${file}.job
+                mv temp1.txt pbs-${file}.job
             fi
         done
     fi

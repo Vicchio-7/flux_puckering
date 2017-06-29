@@ -131,7 +131,7 @@ elif [ ${status_build} == 0 ] ; then
             sed -i '$s/$/\n/' ${file}.com
 
 
-        ######## The section below creates the Slurm file for submission on Bridges
+        ######## The section below creates the PBS file for submission on Bridges
 
             sed -e "s/\$num_proc/${cores_per_node}/g" ${tpl}/gaussian_pbs_script.job > temp1.txt
             sed -i "s/\$memory/${total_memory}/g" temp1.txt
@@ -186,9 +186,10 @@ elif [ ${status_build} == 0 ] ; then
                     sed -i "s/\$chkfile/${file}-freeze_${level_short}.chk/g"  ${file}.com
                     sed -i "s/\level_of_theory/${level_theory}/g" ${file}.com
 
-                ######## The section below creates the Slurm file for submission on Bridges
+        ######## The section below creates the PBS file for submission on Bridges
 
-                    sed -e "s/\$num_proc/${cores_per_node}/g" ${tpl}/gaussian_slurm_script.job > temp1.txt
+                    sed -e "s/\$num_proc/${cores_per_node}/g" ${tpl}/gaussian_pbs_script.job > temp1.txt
+                    sed -i "s/\$memory/${total_memory}/g" temp1.txt
                     sed -i "s/conform/${file}/g" temp1.txt
                     sed -i "s/gauss-log/${file}-freeze_${3}/g" temp1.txt
                     sed -i "s/\$molecule/${molecule_type}/g" temp1.txt
@@ -196,7 +197,8 @@ elif [ ${status_build} == 0 ] ; then
                     sed -i "s/\$level/${level_short}/g" temp1.txt
                     sed -i "s/\$hours/${hours}/g" temp1.txt
                     sed -i "s/\$minutes/${minutes}/g" temp1.txt
-                    mv temp1.txt slurm-${file}.job
+
+                    mv temp1.txt pbs-${file}.job
             fi
         done
 
@@ -241,9 +243,10 @@ elif [ ${status_build} == 0 ] ; then
                     sed -i "s/\$chkfile/${file}-freeze_${level_short}.chk/g"  ${file}.com
                     sed -i "s/\level_of_theory/${level_theory}/g" ${file}.com
 
-                ######## The section below creates the Slurm file for submission on Bridges
+        ######## The section below creates the PBS file for submission on Bridges
 
-                    sed -e "s/\$num_proc/${cores_per_node}/g" ${tpl}/gaussian_slurm_script.job > temp1.txt
+                    sed -e "s/\$num_proc/${cores_per_node}/g" ${tpl}/gaussian_pbs_script.job > temp1.txt
+                    sed -i "s/\$memory/${total_memory}/g" temp1.txt
                     sed -i "s/conform/${file}/g" temp1.txt
                     sed -i "s/gauss-log/${file}-freeze_${3}/g" temp1.txt
                     sed -i "s/\$molecule/${molecule_type}/g" temp1.txt
@@ -251,7 +254,8 @@ elif [ ${status_build} == 0 ] ; then
                     sed -i "s/\$level/${level_short}/g" temp1.txt
                     sed -i "s/\$hours/${hours}/g" temp1.txt
                     sed -i "s/\$minutes/${minutes}/g" temp1.txt
-                    mv temp1.txt slurm-${file}.job
+
+                    mv temp1.txt pbs-${file}.job
 
             fi
         done
