@@ -17,15 +17,14 @@ level_short=$2
 ## Input - Codes ##
 # Please update the following input commands depending on the user.
 
-account=ct560hp
+account=hbmayes_fluxod
 user=vicchio
 
 ## Additional Required Information ##
 # Additional information such as folder location that is required for the code to run properly.
 
-tpl=${p2}/y_template_files
-p1=/pylon1/${account}/${user}
-p2=/pylon2/${account}/${user}
+scratch=/scratch/${account}/${user}
+main=/pylon2/${account}/${user}/1_puckering
 
 # --------------------------------------------------------------------------------------
 
@@ -61,7 +60,7 @@ if [ ${status_build} == 1 ]; then
 	exit
 elif [ ${status_build} == 0 ] ; then
 
-    directory=${p2}/puckering/${folder}/${level_short}
+    directory=${main}/puckering/${folder}/${level_short}
 
     if [ -d ${directory} ] ; then
 		echo
@@ -79,7 +78,7 @@ elif [ ${status_build} == 0 ] ; then
 	    mkdir 0_initial-coordinates
 	    mkdir 1_sample-files
 	    mkdir 2_freeze
-	    mkdir 3_blank
+	    mkdir 3_BLANK
 	    mkdir 4_opt_localmin
 	    mkdir 5_opt_TS
 	    mkdir 6_norm_analysis
@@ -90,7 +89,7 @@ elif [ ${status_build} == 0 ] ; then
 
     fi
 
-    raw_coords=${p2}/puckering/${folder}/z_folder_raw-coordinates
+    raw_coords=${main}/puckering/${folder}/z_folder_raw-coordinates
 
     coordinate_directory=${directory}/0_initial-coordinates
 
