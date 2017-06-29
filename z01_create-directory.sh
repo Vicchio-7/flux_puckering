@@ -60,7 +60,7 @@ if [ ${status_build} == 1 ]; then
 	exit
 elif [ ${status_build} == 0 ] ; then
 
-    directory=${main}/puckering/${folder}/${level_short}
+    directory=${main}/${folder}/${level_short}
 
     if [ -d ${directory} ] ; then
 		echo
