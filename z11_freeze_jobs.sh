@@ -29,16 +29,16 @@ total_memory=$(echo ${cores_per_node} ${memory_job} | awk '{ print $1*$2 }' )
 ## Input - Codes ##
 # Please update the following input commands depending on the user.
 
-account=ct560hp
+account=hbmayes_fluxod
 user=vicchio
 
 ## Additional Required Information ##
 # Additional information such as folder location that is required for the code to run properly.
 
-p1=/pylon5/${account}/${user}
-p2=/pylon2/${account}/${user}
+scratch=/scratch/${account}/${user}
+main=/home/${user}/1_puckering
 folder_type=2_freeze
-tpl=${p2}/puckering/y_tpl
+tpl=${main}/y_tpl
 
 # --------------------------------------------------------------------------------------
 
@@ -90,12 +90,12 @@ elif [ ${status_build} == 0 ] ; then
         break
     fi
 
-    directory=${p2}/puckering/${folder}/${level_short}
+    directory=${main}/${folder}/${level_short}
 
     dir_job=${directory}/${folder_type}
 
-    if [ ! -d ${p1}/puckering/${folder}/${molecule_type}-freeze_${level_short} ]; then
-        mkdir ${p1}/puckering/${folder}/${molecule_type}-freeze_${level_short}
+    if [ ! -d ${scratch}/puckering/${folder}/${molecule_type}-freeze_${level_short} ]; then
+        mkdir ${scratch}/puckering/${folder}/${molecule_type}-freeze_${level_short}
     fi
 
     if [ ${molecule_type} == "oxane" ] ; then
