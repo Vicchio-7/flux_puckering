@@ -18,16 +18,16 @@ keyword=$2
 ## Main Code ##
 
 if [[ ${run_type} == 'rerun' ]]; then
-	for file_sub in $(find . \( ! -name . -prune \) -type f -iname 'slurm-*_rerun*'); do
+	for file_sub in $(find . \( ! -name . -prune \) -type f -iname 'pbs-*_rerun*'); do
         sbatch ${file_sub}
 	done
 elif [[ ${run_type} == 'none' ]]; then
     keyword=$2
-	for file_sub in $(find . \( ! -name . -prune \) -type f -iname "slurm-*${keyword}*.job"); do
+	for file_sub in $(find . \( ! -name . -prune \) -type f -iname "pbs-*-${keyword}*.job"); do
         sbatch ${file_sub}
 	done
 else
-	for file_sub in $(find . \( ! -name . -prune \) -type f -iname 'slurm-*.job'); do
+	for file_sub in $(find . \( ! -name . -prune \) -type f -iname 'pbs-*.job'); do
 		sbatch ${file_sub}
 	done
 fi
