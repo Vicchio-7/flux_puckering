@@ -109,7 +109,7 @@ elif [ ${status_build} == 0 ] ; then
         ######## The section below updates the Gaussian Input File
 
             head -n 4 ${tpl_file} >> temp1.temp
-            tail -n 22 ../0_initial-coordinates/${file}.com >> temp1.temp
+            tail -n 22 ../0_initial-coordinates/${file}.xyz >> temp1.temp
 
             sed -i "s/\$memory/${total_memory}/g" temp1.temp
             sed -i "s/\$num_procs/${cores_per_node}/g" temp1.temp
