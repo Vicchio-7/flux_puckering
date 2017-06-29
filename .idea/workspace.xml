@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="6016564a-cc6d-43ee-9fcf-b702c3f51d9c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/z03_delete_jobs.sh" afterPath="$PROJECT_DIR$/z03_delete_jobs.sh" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/z11_freeze_jobs.sh" afterPath="$PROJECT_DIR$/z11_freeze_jobs.sh" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/z12_local_min.sh" afterPath="$PROJECT_DIR$/z12_local_min.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/z14_norm_analysis.sh" afterPath="$PROJECT_DIR$/z14_norm_analysis.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/z15_irc_run.sh" afterPath="$PROJECT_DIR$/z15_irc_run.sh" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,11 +37,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="z12_local_min.sh" pinned="false" current-in-tab="true">
+      <file leaf-file-name="z12_local_min.sh" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/z12_local_min.sh">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="423">
               <caret line="156" column="12" lean-forward="false" selection-start-line="156" selection-start-column="12" selection-end-line="156" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="z13_TS_run.sh" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/z13_TS_run.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="153" column="0" lean-forward="false" selection-start-line="153" selection-start-column="0" selection-end-line="165" selection-end-column="48" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="z14_norm_analysis.sh" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/z14_norm_analysis.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="537">
+              <caret line="129" column="48" lean-forward="false" selection-start-line="129" selection-start-column="48" selection-end-line="129" selection-end-column="48" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="z15_irc_run.sh" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/z15_irc_run.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="491">
+              <caret line="162" column="0" lean-forward="false" selection-start-line="162" selection-start-column="0" selection-end-line="166" selection-end-column="59" />
               <folding />
             </state>
           </provider>
@@ -88,16 +117,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="z02_level_replace_script.sh" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/z02_level_replace_script.sh">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="83">
-              <caret line="34" column="18" lean-forward="true" selection-start-line="34" selection-start-column="18" selection-end-line="34" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="Git.Settings">
@@ -116,6 +135,9 @@
         <option value="$PROJECT_DIR$/z03_delete_jobs.sh" />
         <option value="$PROJECT_DIR$/z11_freeze_jobs.sh" />
         <option value="$PROJECT_DIR$/z12_local_min.sh" />
+        <option value="$PROJECT_DIR$/z13_TS_run.sh" />
+        <option value="$PROJECT_DIR$/z14_norm_analysis.sh" />
+        <option value="$PROJECT_DIR$/z15_irc_run.sh" />
       </list>
     </option>
   </component>
@@ -658,12 +680,12 @@
       <option name="presentableId" value="Default" />
       <updated>1498756286953</updated>
       <workItem from="1498756288526" duration="20000" />
-      <workItem from="1498756346572" duration="5614000" />
+      <workItem from="1498756346572" duration="5954000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5634000" />
+    <option name="totallyTimeSpent" value="5974000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1920" height="1131" extended-state="6" />
@@ -773,6 +795,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="423">
           <caret line="156" column="12" lean-forward="false" selection-start-line="156" selection-start-column="12" selection-end-line="156" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/z13_TS_run.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="153" column="0" lean-forward="false" selection-start-line="153" selection-start-column="0" selection-end-line="165" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/z14_norm_analysis.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="537">
+          <caret line="129" column="48" lean-forward="false" selection-start-line="129" selection-start-column="48" selection-end-line="129" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/z15_irc_run.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="491">
+          <caret line="162" column="0" lean-forward="false" selection-start-line="162" selection-start-column="0" selection-end-line="166" selection-end-column="59" />
           <folding />
         </state>
       </provider>
