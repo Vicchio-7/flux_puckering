@@ -95,14 +95,10 @@ elif [ ${status_build} == 0 ] ; then
 
     if [ -n "$(find ${coordinate_directory} -prune -empty)" ] ; then
 
-        ls ${raw_coords}/*${ext}
+		cp ${raw_coords}/*${ext} ${directory}/0_initial-coordinates/.
 
-        echo ${directory}/0_initial-coordinates
-
-#		cp ${raw_coords}/*${ext} ${directory}/0_initial-coordinates/.
-#
-#		cd ${directory}/0_initial-coordinates/
-#		ls *${ext} > ../y0-input_list.txt
+		cd ${directory}/0_initial-coordinates/
+		ls *${ext} > ../y0-input_list.txt
 
 	fi
 
