@@ -28,7 +28,7 @@ total_memory=$(echo ${cores_per_node} ${memory_job} | awk '{ print $1*$2 }' )
 ## Input - Codes ##
 # Please update the following input commands depending on the user.
 
-account=ct560hp
+account=hbmayes_fluxod
 user=vicchio
 
 ## Additional Required Information ##
