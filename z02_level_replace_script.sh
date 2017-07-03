@@ -69,7 +69,7 @@ elif [ ${status_build} == 0 ] ; then
     elif [ ${level_short} == 'hsp_b3lyp' ] ; then
         echo 'b3lyp\/6-311+G(2df,p)'
     elif [ ${level_short} == 'm062x' ] ; then
-        echo 'M06-2X\/6-311+G(2df,p)'
+        echo 'm062x\/6-311+G(2df,p)'
     else
         echo "# # # ERROR # # #"
     fi
