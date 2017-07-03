@@ -121,7 +121,7 @@ elif [ ${status_build} == 0 ] ; then
             mv temp8.temp ${file}.com
             rm *.temp
 
-        ######## The section below creates the PBS file for submission on Bridges
+        ######## The section below creates the PBS file for submission on Flux
 
             sed -e "s/\$num_proc/${cores_per_node}/g" ${tpl}/gaussian_pbs_script.job > temp1.txt
             sed -i "s/\$memory/${total_memory}/g" temp1.txt
@@ -175,14 +175,6 @@ elif [ ${status_build} == 2 ] ; then
 
     level_theory=$(z02_level_replace_script.sh ${molecule_type} ${level_short})
 
-    if [ ${level_theory} == '# # # ERROR # # #' ] ; then
-        echo ''
-        echo 'The level of theory being studied is not found in z02_level_replace_script.sh'
-        echo ''
-        echo 'Please add the correct level of theory before restarting'
-        echo ''
-        break
-    fi
 
     if [ ${level_short} == 'm062x' ] ; then
         echo 'roger roger'
@@ -190,5 +182,20 @@ elif [ ${status_build} == 2 ] ; then
     else
         echo 'Hi mom!'
     fi
+
+    ######## The section below creates the PBS file for submission on Flux
+
+    sed -e "s/\$num_proc/${cores_per_node}/g" ${tpl}/gaussian_pbs_script.job > temp1.txt
+    sed -i "s/\$memory/${total_memory}/g" temp1.txt
+    sed -i "s/conform/${file}/g" temp1.txt
+    sed -i "s/gauss-log/${file}-freeze_${3}/g" temp1.txt
+    sed -i "s/\$molecule/${molecule_type}/g" temp1.txt
+    sed -i "s/\$test/${job_type}/g" temp1.txt
+    sed -i "s/\$level/${level_short}/g" temp1.txt
+    sed -i "s/\$hours/${hours}/g" temp1.txt
+    sed -i "s/\$minutes/${minutes}/g" temp1.txt
+
+    mv temp1.txt pbs-${file}.job
+
 
 fi
