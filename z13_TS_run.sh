@@ -176,7 +176,14 @@ elif [ ${status_build} == 2 ] ; then
 
     level_theory=$(z02_level_replace_script.sh ${molecule_type} ${level_short})
 
-    echo ${level_theory}
+    directory=${main}/1_puckering/${folder}/${level_short}
+
+    dir_job=${directory}/${folder_type}
+
+    if [ ! -d ${scratch}/puckering/${folder}/${molecule_type}-TS_${level_short} ]; then
+        mkdir ${scratch}/puckering/${folder}/${molecule_type}-TS_${level_short}
+    fi
+
 
     for file_unedit in $( <$input_list); do
 
@@ -195,7 +202,6 @@ elif [ ${status_build} == 2 ] ; then
                 sed -i "s/\level_of_theory/${level_theory}/g" temp1.temp
 
                 mv temp1.temp ${file}.com
-                rm *.temp
 
         else
                 tpl_file=${tpl}/${tpl_folder}/TS_levo_from_checkpoint.tpl
