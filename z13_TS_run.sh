@@ -194,7 +194,7 @@ elif [ ${status_build} == 2 ] ; then
                 sed -i "s/\level_of_theory/${level_theory}/g" temp1.temp
 
                 mv temp1.temp ${file}.com
-                rm *.temp
+#                rm *.temp
 
         else
                 tpl_file=${tpl}/${tpl_folder}/TS_levo_from_checkpoint.tpl
