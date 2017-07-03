@@ -91,8 +91,8 @@ elif [ ${status_build} == 0 ] ; then
 
     dir_job=${directory}/${folder_type}
 
-    if [ ! -d ${scratch}/puckering/${folder}/${molecule_type}-optall_${level_short} ]; then
-        mkdir ${scratch}/puckering/${folder}/${molecule_type}-optall_${level_short}
+    if [ ! -d ${scratch}/puckering/${folder}/${molecule_type}-TS_${level_short} ]; then
+        mkdir ${scratch}/puckering/${folder}/${molecule_type}-TS_${level_short}
     fi
 
     if [ ${molecule_type} == "oxane" ] ; then
