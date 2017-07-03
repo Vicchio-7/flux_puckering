@@ -127,7 +127,7 @@ elif [ ${status_build} == 0 ] ; then
             sed -e "s/\$num_proc/${cores_per_node}/g" ${tpl}/gaussian_pbs_script.job > temp1.txt
             sed -i "s/\$memory/${total_memory}/g" temp1.txt
             sed -i "s/conform/${file}/g" temp1.txt
-            sed -i "s/gauss-log/${file}-freeze_${3}/g" temp1.txt
+            sed -i "s/gauss-log/${file}-freeze_${3}-TS_${3}/g" temp1.txt
             sed -i "s/\$molecule/${molecule_type}/g" temp1.txt
             sed -i "s/\$test/${job_type}/g" temp1.txt
             sed -i "s/\$level/${level_short}/g" temp1.txt
