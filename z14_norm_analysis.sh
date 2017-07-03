@@ -56,6 +56,10 @@ elif [ "${molecule_type}" == 'bglc' ] ;  then
 	folder=3_betagluc
 	tpl_folder=2_bxyl_tpl
 	status_build=0
+elif [ "${molecule_type}" == 'levo' ] ; then
+    folder=7_levo
+    tpl_folder=7_levo_tpl
+    status_build=2
 else
 	echo
 	echo "The molecule type is not found in this script"
@@ -130,4 +134,8 @@ elif [ ${status_build} == 0 ] ; then
                     mv temp1.txt pbs-${file}.job
         fi
     done
+elif [ ${status_build} == 2 ] ; then
+    echo 'WE RUNNING THIS BITCH'
+
+
 fi
