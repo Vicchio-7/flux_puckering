@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6016564a-cc6d-43ee-9fcf-b702c3f51d9c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/z13_TS_run.sh" afterPath="$PROJECT_DIR$/z13_TS_run.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/z15_irc_run.sh" afterPath="$PROJECT_DIR$/z15_irc_run.sh" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,11 +26,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="z13_TS_run.sh" pinned="false" current-in-tab="true">
+      <file leaf-file-name="z13_TS_run.sh" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/z13_TS_run.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="545">
-              <caret line="129" column="42" lean-forward="false" selection-start-line="129" selection-start-column="42" selection-end-line="129" selection-end-column="42" />
+            <state relative-caret-position="365">
+              <caret line="117" column="70" lean-forward="false" selection-start-line="117" selection-start-column="70" selection-end-line="117" selection-end-column="70" />
               <folding />
             </state>
           </provider>
@@ -46,11 +46,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="z15_irc_run.sh" pinned="false" current-in-tab="false">
+      <file leaf-file-name="z15_irc_run.sh" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/z15_irc_run.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="566">
-              <caret line="147" column="42" lean-forward="true" selection-start-line="147" selection-start-column="42" selection-end-line="147" selection-end-column="42" />
+            <state relative-caret-position="508">
+              <caret line="142" column="70" lean-forward="true" selection-start-line="142" selection-start-column="70" selection-end-line="142" selection-end-column="70" />
               <folding />
             </state>
           </provider>
@@ -76,8 +76,8 @@
         <option value="$PROJECT_DIR$/z14_norm_analysis.sh" />
         <option value="$PROJECT_DIR$/z01_create-directory.sh" />
         <option value="$PROJECT_DIR$/z02_level_replace_script.sh" />
-        <option value="$PROJECT_DIR$/z15_irc_run.sh" />
         <option value="$PROJECT_DIR$/z13_TS_run.sh" />
+        <option value="$PROJECT_DIR$/z15_irc_run.sh" />
       </list>
     </option>
   </component>
@@ -620,12 +620,12 @@
       <option name="presentableId" value="Default" />
       <updated>1498756286953</updated>
       <workItem from="1498756288526" duration="20000" />
-      <workItem from="1498756346572" duration="15604000" />
+      <workItem from="1498756346572" duration="15981000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15624000" />
+    <option name="totallyTimeSpent" value="16001000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="960" height="1131" extended-state="0" />
@@ -772,18 +772,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/z15_irc_run.sh">
+    <entry file="file://$PROJECT_DIR$/z13_TS_run.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="566">
-          <caret line="147" column="42" lean-forward="true" selection-start-line="147" selection-start-column="42" selection-end-line="147" selection-end-column="42" />
+        <state relative-caret-position="365">
+          <caret line="117" column="70" lean-forward="false" selection-start-line="117" selection-start-column="70" selection-end-line="117" selection-end-column="70" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/z13_TS_run.sh">
+    <entry file="file://$PROJECT_DIR$/z15_irc_run.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="545">
-          <caret line="129" column="42" lean-forward="false" selection-start-line="129" selection-start-column="42" selection-end-line="129" selection-end-column="42" />
+        <state relative-caret-position="508">
+          <caret line="142" column="70" lean-forward="true" selection-start-line="142" selection-start-column="70" selection-end-line="142" selection-end-column="70" />
           <folding />
         </state>
       </provider>
