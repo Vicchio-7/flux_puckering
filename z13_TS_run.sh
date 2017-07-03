@@ -172,5 +172,22 @@ elif [ ${status_build} == 0 ] ; then
         done
     fi
 elif [ ${status_build} == 2 ] ; then
-    echo 'WE RUNNING THIS BITCH'
+
+    level_theory=$(z02_level_replace_script.sh ${molecule_type} ${level_short})
+
+    if [ ${level_theory} == '# # # ERROR # # #' ] ; then
+        echo ''
+        echo 'The level of theory being studied is not found in z02_level_replace_script.sh'
+        echo ''
+        echo 'Please add the correct level of theory before restarting'
+        echo ''
+        break
+    fi
+
+    if [ ${level_short} == 'm062x' ] ; then
+        echo 'roger roger'
+
+    else
+        echo 'Hi mom!'
+
 fi
