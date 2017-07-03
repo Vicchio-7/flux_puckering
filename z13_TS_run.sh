@@ -209,12 +209,8 @@ elif [ ${status_build} == 2 ] ; then
 
                 tail -n 24 ../0_initial-coordinates/${file_unedit} >> temp1.temp
 
-                echo '' >> temp1.temp
-
-
                 mv temp1.temp ${file}.com
 
-                echo '' >> ${file}.com
         else
                 tpl_file=${tpl}/${tpl_folder}/TS_levo_from_checkpoint.tpl
 
