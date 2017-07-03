@@ -128,6 +128,8 @@ elif [ ${status_build} == 0 ] ; then
 	    mkdir 2_TS_method
 	    mkdir 3_irc_localmin
 
+    fi
+
     if [ -n "$(find ${coordinate_directory} -prune -empty)" ] ; then
 
 		cp ${raw_coords}/*${ext} ${directory}/0_initial-coordinates/.
