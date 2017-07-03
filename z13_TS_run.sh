@@ -189,5 +189,6 @@ elif [ ${status_build} == 2 ] ; then
 
     else
         echo 'Hi mom!'
+    fi
 
 fi
