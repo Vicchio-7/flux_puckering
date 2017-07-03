@@ -201,7 +201,7 @@ elif [ ${status_build} == 2 ] ; then
                 sed -i "s/\$chkfile/${file}-${job_type}_${level_short}.chk/g" temp1.temp
                 sed -i "s/\level_of_theory/${level_theory}/g" temp1.temp
 
-                sed -n '2p' < ../0_initial-coordinates/${file_unedit}
+                sed -n '2p' < ../0_initial-coordinates/${file_unedit} >> temp1.temp
 
                 tail -n 24 ../0_initial-coordinates/${file_unedit} >> temp1.temp
 
