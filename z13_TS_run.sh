@@ -64,6 +64,7 @@ elif [ "${molecule_type}" == 'bglc' ] ;  then
 elif [ "${molecule_type}" == 'levo' ] ; then
     folder=7_levo
     tpl_folder=7_levo_tpl
+   	input_list=../y0-input_list.txt
     status_build=2
 else
 	echo
@@ -178,7 +179,6 @@ elif [ ${status_build} == 2 ] ; then
     for file_unedit in $( <$input_list); do
 
                 file=${file_unedit%.xyz}
-
 
         if [ ${level_short} == 'm062x' ] ; then
              echo 'roger roger'
