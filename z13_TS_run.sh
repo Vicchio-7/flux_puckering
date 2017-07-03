@@ -194,8 +194,6 @@ elif [ ${status_build} == 2 ] ; then
 
                 tpl_file=${tpl}/${tpl_folder}/TS_levo_m062x.tpl
 
-
-
                 head -n 5 ${tpl_file} > temp1.temp
                 sed -n '2p' < ../0_initial-coordinates/${file_unedit} >> temp1.temp
                 echo '' >> temp1.temp
@@ -204,15 +202,12 @@ elif [ ${status_build} == 2 ] ; then
                 sed -i '$s/$/\n\n/' temp1.temp
                 tail -n 5 ${tpl_file} >> temp1.temp
 
-
                 sed -i "s/\$memory/${total_memory}/g"  temp1.temp
                 sed -i "s/\$num_procs/${cores_per_node}/g" temp1.temp
                 sed -i "s/\$folder_1/${folder}/g" temp1.temp
                 sed -i "s/\$folder_new/${molecule_type}-TS_${level_short}/g" temp1.temp
                 sed -i "s/\$chkfile/${file}-${job_type}_${level_short}.chk/g" temp1.temp
                 sed -i "s/\level_of_theory/${level_theory}/g" temp1.temp
-
-
 
                 sed -i '$s/$/\n\n/' temp1.temp
 

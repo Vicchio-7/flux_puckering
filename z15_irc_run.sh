@@ -28,16 +28,16 @@ total_memory=$(echo ${cores_per_node} ${memory_job} | awk '{ print $1*$2 }' )
 ## Input - Codes ##
 # Please update the following input commands depending on the user.
 
-account=ct560hp
+account=hbmayes_fluxod
 user=vicchio
 
 ## Additional Required Information ##
 # Additional information such as folder location that is required for the code to run properly.
 
-p1=/pylon5/${account}/${user}
-p2=/pylon2/${account}/${user}
-folder_type=4_opt_localmin
-tpl=${p2}/puckering/y_tpl
+scratch=/scratch/${account}/${user}
+main=/home/${user}/1_puckering
+folder_type=5_opt_TS
+tpl=${main}/y_tpl
 
 # --------------------------------------------------------------------------------------
 
@@ -83,8 +83,8 @@ elif [ ${status_build} == 0 ] ; then
         break
     fi
 
-    irc_forward=${p1}/puckering/${folder}/${1}-${2}_${3}-forward
-    irc_backward=${p1}/puckering/${folder}/${1}-${2}_${3}-reverse
+    irc_forward=${main}/1_puckering/${folder}/${1}-${2}_${3}-forward
+    irc_backward=${main}/1_puckering/${folder}/${1}-${2}_${3}-reverse
 
     if [ ! -d ${irc_forward} ]; then
         mkdir ${irc_forward}
@@ -95,8 +95,7 @@ elif [ ${status_build} == 0 ] ; then
     fi
 
     if [ ${molecule_type} == "oxane" ] ; then
-
-        irc_file_list=${p2}/puckering/z_results/${folder}/${level_short}/z_cluster-sorted-TS-${molecule_type}-${level_short}.csv
+        irc_file_list=${main}/1_puckering/z_results/${folder}/${level_short}/z_cluster-sorted-TS-${molecule_type}-${level_short}.csv
         input_list=$( column -t -s ',' ${irc_file_list} | awk '{print $1}' )
 
     else
@@ -104,7 +103,7 @@ elif [ ${status_build} == 0 ] ; then
 #        irc_file_list=${p2}/puckering/z_results/${folder}/${level_short}/z_norm-analysis_TS-${level_short}_ring_puckers.txt
 #        input_list=$( column -t -s ' ' ${irc_file_list} | awk '{print $1}' )$1
 
-        irc_file_list=${p2}/puckering/z_results/${folder}/${level_short}/z_cluster_ring_pucker-sorted-TS-${molecule_type}-${level_short}.csv
+        irc_file_list=${main}/1_puckering/z_results/${folder}/${level_short}/z_cluster_ring_pucker-sorted-TS-${molecule_type}-${level_short}.csv
         input_list=$( column -t -s ',' ${irc_file_list} | awk '{print $1}' )
     fi
 
@@ -145,19 +144,6 @@ elif [ ${status_build} == 0 ] ; then
                 ######## The section below creates the PBS file for submission on Bridges
 
                 sed -e "s/\$num_proc/${cores_per_node}/g" ${tpl}/gaussian_pbs_script.job > temp1.txt
-                sed -i "s/\$memory/${total_memory}/g" temp1.txt
-                sed -i "s/conform/${file}/g" temp1.txt
-                sed -i "s/gauss-log/${file}-freeze_${3}/g" temp1.txt
-                sed -i "s/\$molecule/${molecule_type}/g" temp1.txt
-                sed -i "s/\$test/${job_type}/g" temp1.txt
-                sed -i "s/\$level/${level_short}/g" temp1.txt
-                sed -i "s/\$hours/${hours}/g" temp1.txt
-                sed -i "s/\$minutes/${minutes}/g" temp1.txt
-
-                mv temp1.txt pbs-${file}.job
-
-                ######## The section below creates the Slurm file for submission on Bridges
-                sed -e "s/\$num_proc/${cores_per_node}/g" ${tpl}/gaussian_slurm_script.job > temp1.txt
                 sed -i "s/conform/${new_filenamef}/g" temp1.txt
                 sed -i "s/gauss-log/${new_filenamef}-${level_short}/g" temp1.txt
                 sed -i "s/\$molecule/${molecule_type}/g" temp1.txt
@@ -166,7 +152,7 @@ elif [ ${status_build} == 0 ] ; then
                 sed -i "s/\$hours/${hours}/g" temp1.txt
                 sed -i "s/\$minutes/${minutes}/g" temp1.txt
 
-                mv temp1.txt slurm-${new_filenamef}.job
+                mv temp1.txt pbs-${file}.job
 
                 ##### IRC - Reverse Direction! #####
 
