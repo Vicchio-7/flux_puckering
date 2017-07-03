@@ -209,8 +209,8 @@ elif [ ${status_build} == 2 ] ; then
 
                 tail -n 24 ../0_initial-coordinates/${file_unedit} >> temp1.temp
 
-                sed -i '$s/$/\n/' temp1.temp
-                sed -i '$s/$/\n/' temp1.temp
+#                sed -i '$s/$/\n/' temp1.temp
+#                sed -i '$s/$/\n/' temp1.temp
 
                 mv temp1.temp ${file}.com
 
