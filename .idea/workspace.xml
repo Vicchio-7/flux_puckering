@@ -30,7 +30,7 @@
         <entry file="file://$PROJECT_DIR$/z13_TS_run.sh">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="523">
-              <caret line="211" column="0" lean-forward="false" selection-start-line="211" selection-start-column="1" selection-end-line="212" selection-end-column="45" />
+              <caret line="211" column="0" lean-forward="false" selection-start-line="211" selection-start-column="0" selection-end-line="211" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -610,12 +610,12 @@
       <option name="presentableId" value="Default" />
       <updated>1498756286953</updated>
       <workItem from="1498756288526" duration="20000" />
-      <workItem from="1498756346572" duration="12842000" />
+      <workItem from="1498756346572" duration="12882000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12862000" />
+    <option name="totallyTimeSpent" value="12902000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="960" height="1131" extended-state="0" />
@@ -773,7 +773,7 @@
     <entry file="file://$PROJECT_DIR$/z13_TS_run.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="523">
-          <caret line="211" column="0" lean-forward="false" selection-start-line="211" selection-start-column="1" selection-end-line="212" selection-end-column="45" />
+          <caret line="211" column="0" lean-forward="false" selection-start-line="211" selection-start-column="0" selection-end-line="211" selection-end-column="44" />
           <folding />
         </state>
       </provider>
