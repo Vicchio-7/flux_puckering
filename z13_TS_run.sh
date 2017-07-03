@@ -176,6 +176,8 @@ elif [ ${status_build} == 2 ] ; then
 
     level_theory=$(z02_level_replace_script.sh ${molecule_type} ${level_short})
 
+    echo ${level_theory}
+
     for file_unedit in $( <$input_list); do
 
                 file=${file_unedit%.xyz}
