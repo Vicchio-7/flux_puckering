@@ -97,23 +97,15 @@ elif [ ${status_build} == 0 ] ; then
     if [ ${molecule_type} == "oxane" ] ; then
         irc_file_list=${main}/z_results/${folder}/${level_short}/z_cluster-sorted-TS-${molecule_type}-${level_short}.csv
         input_list=$( column -t -s ',' ${irc_file_list} | awk '{print $1}' )
-
     else
-
-#        irc_file_list=${p2}/puckering/z_results/${folder}/${level_short}/z_norm-analysis_TS-${level_short}_ring_puckers.txt
-#        input_list=$( column -t -s ' ' ${irc_file_list} | awk '{print $1}' )$1
-
         irc_file_list=${main}/z_results/${folder}/${level_short}/z_cluster_ring_pucker-sorted-TS-${molecule_type}-${level_short}.csv
         input_list=$( column -t -s ',' ${irc_file_list} | awk '{print $1}' )
     fi
 
-
     for file in ${input_list}; do
-
         file1=${file%.log\"}
         file2=${file1%.log}
         file_org=${file2##\"}
-
         if [ ${molecule_type} == "oxane" ] ; then
             old_check_file=${file_org}
         else
@@ -152,7 +144,7 @@ elif [ ${status_build} == 0 ] ; then
                 sed -i "s/\$hours/${hours}/g" temp1.txt
                 sed -i "s/\$minutes/${minutes}/g" temp1.txt
 
-                mv temp1.txt pbs-${file}.job
+                mv temp1.txt pbs-${file_org}.job
 
                 ##### IRC - Reverse Direction! #####
 
@@ -170,17 +162,17 @@ elif [ ${status_build} == 0 ] ; then
 
                 mv temp1.temp ${new_filenamer}.com
 
-                ######## The section below creates the Slurm file for submission on Bridges
-                sed -e "s/\$num_proc/${cores_per_node}/g" ${tpl}/gaussian_slurm_script.job > temp1.txt
-                sed -i "s/conform/${new_filenamer}/g" temp1.txt
-                sed -i "s/gauss-log/${new_filenamer}-${level_short}/g" temp1.txt
-                sed -i "s/\$molecule/${molecule_type}/g" temp1.txt
-                sed -i "s/\$test/${job_type}/g" temp1.txt
-                sed -i "s/\$level/${level_short}/g" temp1.txt
-                sed -i "s/\$hours/${hours}/g" temp1.txt
-                sed -i "s/\$minutes/${minutes}/g" temp1.txt
-
-                mv temp1.txt slurm-${new_filenamer}.job
+#                ######## The section below creates the Slurm file for submission on Bridges
+#                sed -e "s/\$num_proc/${cores_per_node}/g" ${tpl}/gaussian_slurm_script.job > temp1.txt
+#                sed -i "s/conform/${new_filenamer}/g" temp1.txt
+#                sed -i "s/gauss-log/${new_filenamer}-${level_short}/g" temp1.txt
+#                sed -i "s/\$molecule/${molecule_type}/g" temp1.txt
+#                sed -i "s/\$test/${job_type}/g" temp1.txt
+#                sed -i "s/\$level/${level_short}/g" temp1.txt
+#                sed -i "s/\$hours/${hours}/g" temp1.txt
+#                sed -i "s/\$minutes/${minutes}/g" temp1.txt
+#
+#                mv temp1.txt slurm-${new_filenamer}.job
 
              fi
          done
