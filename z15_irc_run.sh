@@ -95,7 +95,7 @@ elif [ ${status_build} == 0 ] ; then
     fi
 
     if [ ${molecule_type} == "oxane" ] ; then
-        irc_file_list=${main}/1_puckering/z_results/${folder}/${level_short}/z_cluster-sorted-TS-${molecule_type}-${level_short}.csv
+        irc_file_list=${main}/z_results/${folder}/${level_short}/z_cluster-sorted-TS-${molecule_type}-${level_short}.csv
         input_list=$( column -t -s ',' ${irc_file_list} | awk '{print $1}' )
 
     else
@@ -103,7 +103,7 @@ elif [ ${status_build} == 0 ] ; then
 #        irc_file_list=${p2}/puckering/z_results/${folder}/${level_short}/z_norm-analysis_TS-${level_short}_ring_puckers.txt
 #        input_list=$( column -t -s ' ' ${irc_file_list} | awk '{print $1}' )$1
 
-        irc_file_list=${main}/1_puckering/z_results/${folder}/${level_short}/z_cluster_ring_pucker-sorted-TS-${molecule_type}-${level_short}.csv
+        irc_file_list=${main}/z_results/${folder}/${level_short}/z_cluster_ring_pucker-sorted-TS-${molecule_type}-${level_short}.csv
         input_list=$( column -t -s ',' ${irc_file_list} | awk '{print $1}' )
     fi
 
