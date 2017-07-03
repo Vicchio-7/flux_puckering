@@ -203,7 +203,14 @@ elif [ ${status_build} == 2 ] ; then
 
                 sed -n '2p' < ../0_initial-coordinates/${file_unedit} >> temp1.temp
 
+                echo '' >> temp1.temp
+
+                echo '0  1' >> temp1.temp
+
                 tail -n 24 ../0_initial-coordinates/${file_unedit} >> temp1.temp
+
+                echo '' >> temp1.temp
+                echo '' >> temp1.temp
 
                 mv temp1.temp ${file}.com
 
