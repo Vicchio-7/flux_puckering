@@ -61,6 +61,10 @@ elif [ "${molecule_type}" == 'bglc' ] ;  then
 	input_list=../y0-input_list.txt
     ts_number=86
     remove_molecule=beta-glucose
+elif [ "${molecule_type}" == 'levo' ] ; then
+    folder=7_levo
+    tpl_folder=7_levo_tpl
+    status_build=2
 else
 	echo
 	echo "The molecule type is not found in this script"
@@ -167,4 +171,6 @@ elif [ ${status_build} == 0 ] ; then
             fi
         done
     fi
+elif [ ${status_build} == 2 ] ; then
+    echo 'WE RUNNING THIS BITCH'
 fi
