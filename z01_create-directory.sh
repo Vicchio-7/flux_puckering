@@ -106,7 +106,7 @@ elif [ ${status_build} == 0 ] ; then
 
 	fi
 
-elif [ ${status_build} == 0 ] ; then
+elif [ ${status_build} == 2 ] ; then
 
     directory=${main}/${folder}/${level_short}
 
