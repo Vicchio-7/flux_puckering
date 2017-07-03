@@ -211,8 +211,8 @@ elif [ ${status_build} == 2 ] ; then
 
                 mv temp1.temp ${file}.com
 
-                sed -i '$s/$/\n/' ${file}.com
-                sed -i '$s/$/\n/' ${file}.com
+#                sed -i '$s/$/\n/' ${file}.com
+#                sed -i '$s/$/\n/' ${file}.com
 
         else
                 tpl_file=${tpl}/${tpl_folder}/TS_levo_from_checkpoint.tpl
