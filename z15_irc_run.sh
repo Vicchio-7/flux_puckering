@@ -83,8 +83,8 @@ elif [ ${status_build} == 0 ] ; then
         break
     fi
 
-    irc_forward=${main}/1_puckering/${folder}/${1}-${2}_${3}-forward
-    irc_backward=${main}/1_puckering/${folder}/${1}-${2}_${3}-reverse
+    irc_forward=${main}/${folder}/${1}-${2}_${3}-forward
+    irc_backward=${main}/${folder}/${1}-${2}_${3}-reverse
 
     if [ ! -d ${irc_forward} ]; then
         mkdir ${irc_forward}
