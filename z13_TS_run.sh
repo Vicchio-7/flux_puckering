@@ -176,26 +176,58 @@ elif [ ${status_build} == 2 ] ; then
     level_theory=$(z02_level_replace_script.sh ${molecule_type} ${level_short})
 
 
-    if [ ${level_short} == 'm062x' ] ; then
-        echo 'roger roger'
 
-    else
-        echo 'Hi mom!'
-    fi
+    for file_unedit in $( <$input_list); do
 
-    ######## The section below creates the PBS file for submission on Flux
+                file=${file_unedit%.xyz}
+                tpl_file=${tpl}/${tpl_folder}/run_oxane_optall-to-TS.tpl
 
-    sed -e "s/\$num_proc/${cores_per_node}/g" ${tpl}/gaussian_pbs_script.job > temp1.txt
-    sed -i "s/\$memory/${total_memory}/g" temp1.txt
-    sed -i "s/conform/${file}/g" temp1.txt
-    sed -i "s/gauss-log/${file}-freeze_${3}/g" temp1.txt
-    sed -i "s/\$molecule/${molecule_type}/g" temp1.txt
-    sed -i "s/\$test/${job_type}/g" temp1.txt
-    sed -i "s/\$level/${level_short}/g" temp1.txt
-    sed -i "s/\$hours/${hours}/g" temp1.txt
-    sed -i "s/\$minutes/${minutes}/g" temp1.txt
+        if [ ${level_short} == 'm062x' ] ; then
+             echo 'roger roger'
+            ######## The section below updates the Gaussian Input File
 
-    mv temp1.txt pbs-${file}.job
+                sed -e "s/\$memory/${total_memory}/g" ${tpl_file} > temp1.temp
+                sed -e "s/\$num_procs/${cores_per_node}/g" temp1.temp >> temp2.temp
+                sed -e "s/\$folder_1/${folder}/g" temp2.temp >> temp3.temp
+                sed -e "s/\$folder_old/${molecule_type}-freeze_${level_short}/g" temp3.temp >> temp4.temp
+                sed -e "s/\$old_check/${file}-freeze_${level_short}.chk/g" temp4.temp >> temp5.temp
+                sed -e "s/\$folder_new/${molecule_type}-TS_${level_short}/g" temp5.temp >> temp6.temp
+                sed -e "s/\$chkfile/${file}-freeze_${level_short}-${job_type}_${level_short}.chk/g" temp6.temp >> temp7.temp
+                sed -e "s/\level_of_theory/${level_theory}/g" temp7.temp >> temp8.temp
 
+                mv temp8.temp ${file}.com
+                rm *.temp
+
+        else
+            ######## The section below updates the Gaussian Input File
+
+                sed -e "s/\$memory/${total_memory}/g" ${tpl_file} > temp1.temp
+                sed -e "s/\$num_procs/${cores_per_node}/g" temp1.temp >> temp2.temp
+                sed -e "s/\$folder_1/${folder}/g" temp2.temp >> temp3.temp
+                sed -e "s/\$folder_old/${molecule_type}-freeze_${level_short}/g" temp3.temp >> temp4.temp
+                sed -e "s/\$old_check/${file}-freeze_${level_short}.chk/g" temp4.temp >> temp5.temp
+                sed -e "s/\$folder_new/${molecule_type}-TS_${level_short}/g" temp5.temp >> temp6.temp
+                sed -e "s/\$chkfile/${file}-freeze_${level_short}-${job_type}_${level_short}.chk/g" temp6.temp >> temp7.temp
+                sed -e "s/\level_of_theory/${level_theory}/g" temp7.temp >> temp8.temp
+
+                mv temp8.temp ${file}.com
+                rm *.temp
+        fi
+
+        ######## The section below creates the PBS file for submission on Flux
+
+        sed -e "s/\$num_proc/${cores_per_node}/g" ${tpl}/gaussian_pbs_script.job > temp1.txt
+        sed -i "s/\$memory/${total_memory}/g" temp1.txt
+        sed -i "s/conform/${file}/g" temp1.txt
+        sed -i "s/gauss-log/${file}-freeze_${3}/g" temp1.txt
+        sed -i "s/\$molecule/${molecule_type}/g" temp1.txt
+        sed -i "s/\$test/${job_type}/g" temp1.txt
+        sed -i "s/\$level/${level_short}/g" temp1.txt
+        sed -i "s/\$hours/${hours}/g" temp1.txt
+        sed -i "s/\$minutes/${minutes}/g" temp1.txt
+
+        mv temp1.txt pbs-${file}.job
+
+    done
 
 fi
