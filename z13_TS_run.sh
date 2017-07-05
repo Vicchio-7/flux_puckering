@@ -264,7 +264,7 @@ elif [ ${status_build} == 3 ] ; then
         if [ ${level_short} == 'm062x' ] ; then
             ######## The section below updates the Gaussian Input File
 
-                tpl_file=${tpl}/${tpl_folder}/TS_levo_m062x.tpl
+                tpl_file=${tpl}/${tpl_folder}/TS_m062x_m062x.tpl
 
                 head -n 5 ${tpl_file} > temp1.temp
                 sed -n '2p' < ../0_initial-coordinates/${file_unedit} >> temp1.temp
