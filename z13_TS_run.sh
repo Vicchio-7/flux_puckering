@@ -248,6 +248,8 @@ elif [ ${status_build} == 3 ] ; then
 
     level_theory=$(z02_level_replace_script.sh ${molecule_type} ${level_short})
 
+    echo ${level_theory}
+
     directory=${main}/1_puckering/${folder}/${level_short}
 
     dir_job=${directory}/${folder_type}
@@ -284,8 +286,6 @@ elif [ ${status_build} == 3 ] ; then
                 sed -i '$s/$/\n\n/' temp1.temp
 
                 mv temp1.temp ${file}.com
-
-
 
         else
                 tpl_file=${tpl}/${tpl_folder}/TS_levo_from_checkpoint.tpl
