@@ -66,6 +66,11 @@ elif [ "${molecule_type}" == 'levo' ] ; then
     tpl_folder=7_levo_tpl
    	input_list=../y0-input_list.txt
     status_build=2
+elif [ "${molecule_type}" == 'dehy' ] ; then
+    folder=8_dehy
+    tpl_folder=8_dehy_tpl
+   	input_list=../y0-input_list.txt
+    status_build=3
 else
 	echo
 	echo "The molecule type is not found in this script"
@@ -172,6 +177,7 @@ elif [ ${status_build} == 0 ] ; then
             fi
         done
     fi
+
 elif [ ${status_build} == 2 ] ; then
 
     level_theory=$(z02_level_replace_script.sh ${molecule_type} ${level_short})
@@ -200,7 +206,7 @@ elif [ ${status_build} == 2 ] ; then
                 echo '0  1' >> temp1.temp
                 tail -n 24 ../0_initial-coordinates/${file_unedit} >> temp1.temp
                 sed -i '$s/$/\n\n/' temp1.temp
-                tail -n 5 ${tpl_file} >> temp1.temp
+                tail -n 7 ${tpl_file} >> temp1.temp
 
                 sed -i "s/\$memory/${total_memory}/g"  temp1.temp
                 sed -i "s/\$num_procs/${cores_per_node}/g" temp1.temp
@@ -218,21 +224,8 @@ elif [ ${status_build} == 2 ] ; then
         else
                 tpl_file=${tpl}/${tpl_folder}/TS_levo_from_checkpoint.tpl
 
-            echo 'wait'
+            echo 'wait...the code isnt setup for this type of job yet...'
 
-#            ######## The section below updates the Gaussian Input File
-#
-#                sed -e "s/\$memory/${total_memory}/g" ${tpl_file} > temp1.temp
-#                sed -e "s/\$num_procs/${cores_per_node}/g" temp1.temp >> temp2.temp
-#                sed -e "s/\$folder_1/${folder}/g" temp2.temp >> temp3.temp
-#                sed -e "s/\$folder_old/${molecule_type}-freeze_${level_short}/g" temp3.temp >> temp4.temp
-#                sed -e "s/\$old_check/${file}-freeze_${level_short}.chk/g" temp4.temp >> temp5.temp
-#                sed -e "s/\$folder_new/${molecule_type}-TS_${level_short}/g" temp5.temp >> temp6.temp
-#                sed -e "s/\$chkfile/${file}-freeze_${level_short}-${job_type}_${level_short}.chk/g" temp6.temp >> temp7.temp
-#                sed -e "s/\level_of_theory/${level_theory}/g" temp7.temp >> temp8.temp
-#
-#                mv temp8.temp ${file}.com
-#                rm *.temp
         fi
 
         ######## The section below creates the PBS file for submission on Flux

@@ -133,8 +133,6 @@ elif [ ${status_build} == 0 ] ; then
                 mv temp1.temp ${new_filenamef}.com
 
 
-                ######## The section below creates the PBS file for submission on Bridges
-
                 ######## The section below creates the PBS file for submission on Flux
 
                 sed -e "s/\$num_proc/${cores_per_node}/g" ${tpl}/gaussian_pbs_script.job > temp1.txt
