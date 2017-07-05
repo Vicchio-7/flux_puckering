@@ -244,4 +244,70 @@ elif [ ${status_build} == 2 ] ; then
 
     done
 
+elif [ ${status_build} == 3 ] ; then
+
+    level_theory=$(z02_level_replace_script.sh ${molecule_type} ${level_short})
+
+    directory=${main}/1_puckering/${folder}/${level_short}
+
+    dir_job=${directory}/${folder_type}
+
+    if [ ! -d ${scratch}/puckering/${folder}/${molecule_type}-TS_${level_short} ]; then
+        mkdir ${scratch}/puckering/${folder}/${molecule_type}-TS_${level_short}
+    fi
+
+
+    for file_unedit in $( <$input_list); do
+
+                file=${file_unedit%.xyz}
+
+        if [ ${level_short} == 'm062x' ] ; then
+            ######## The section below updates the Gaussian Input File
+
+                tpl_file=${tpl}/${tpl_folder}/TS_levo_m062x.tpl
+
+                head -n 5 ${tpl_file} > temp1.temp
+                sed -n '2p' < ../0_initial-coordinates/${file_unedit} >> temp1.temp
+                echo '' >> temp1.temp
+                echo '0  1' >> temp1.temp
+                tail -n 24 ../0_initial-coordinates/${file_unedit} >> temp1.temp
+                sed -i '$s/$/\n\n/' temp1.temp
+                tail -n 7 ${tpl_file} >> temp1.temp
+
+                sed -i "s/\$memory/${total_memory}/g"  temp1.temp
+                sed -i "s/\$num_procs/${cores_per_node}/g" temp1.temp
+                sed -i "s/\$folder_1/${folder}/g" temp1.temp
+                sed -i "s/\$folder_new/${molecule_type}-TS_${level_short}/g" temp1.temp
+                sed -i "s/\$chkfile/${file}-${job_type}_${level_short}.chk/g" temp1.temp
+                sed -i "s/\level_of_theory/${level_theory}/g" temp1.temp
+
+                sed -i '$s/$/\n\n/' temp1.temp
+
+                mv temp1.temp ${file}.com
+
+
+
+        else
+                tpl_file=${tpl}/${tpl_folder}/TS_levo_from_checkpoint.tpl
+
+            echo 'wait...the code isnt setup for this type of job yet...'
+
+        fi
+
+        ######## The section below creates the PBS file for submission on Flux
+
+        sed -e "s/\$num_proc/${cores_per_node}/g" ${tpl}/gaussian_pbs_script.job > temp1.txt
+        sed -i "s/\$memory/${total_memory}/g" temp1.txt
+        sed -i "s/conform/${file}/g" temp1.txt
+        sed -i "s/gauss-log/${file}-TS_${3}/g" temp1.txt
+        sed -i "s/\$molecule/${molecule_type}/g" temp1.txt
+        sed -i "s/\$test/${job_type}/g" temp1.txt
+        sed -i "s/\$level/${level_short}/g" temp1.txt
+        sed -i "s/\$hours/${hours}/g" temp1.txt
+        sed -i "s/\$minutes/${minutes}/g" temp1.txt
+
+        mv temp1.txt pbs-${file}.job
+
+    done
+
 fi
