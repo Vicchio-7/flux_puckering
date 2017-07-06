@@ -106,7 +106,7 @@ elif [ ${status_build} == 0 ] ; then
             sed -e '3d' ${file}-RESTARTtemp.com > ${file}-RESTART.com
             sed -e '26d' pbs-${file}-RESTARTtemp.job > pbs-${file}-RESTART.job
 
-            echo "g09 < ${file}-RESTART.com > ${file_unedit%-${job_type}_${level_short}-RESTART.log}"
+            echo "g09 < ${file}-RESTART.com > ${file_unedit%-${job_type}_${level_short}-RESTART.log}" >> pbs-${file}-RESTART.job
 
             rm *temp*
 
