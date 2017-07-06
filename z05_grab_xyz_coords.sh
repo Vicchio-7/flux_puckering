@@ -15,6 +15,16 @@
 molecule_type=$1
 
 
+## Input - Codes ##
+# Please update the following input commands depending on the user.
+
+account=hbmayes_fluxod
+user=vicchio
+
+## Additional Required Information ##
+# Additional information such as folder location that is required for the code to run properly.
+
+scratch=/scratch/${account}/${user}
 main=/home/${user}/1_puckering
 
 # --------------------------------------------------------------------------------------
