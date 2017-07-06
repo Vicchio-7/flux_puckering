@@ -97,7 +97,7 @@ elif [ ${status_build} == 0 ] ; then
 
     for file_unedit in ${input}; do
 
-        file=${file_unedit%.com}
+        file=${file_unedit%-${job_type}_${level_short}.com}
 
 
         echo ${file}
