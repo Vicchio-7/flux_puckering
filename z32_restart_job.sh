@@ -82,17 +82,6 @@ if [ ${status_build} == 1 ] ; then
 	exit
 elif [ ${status_build} == 0 ] ; then
 
-#    level_theory=$(z02_level_replace_script.sh ${molecule_type} ${level_short})
-#
-#    if [ ${level_short} == 'ERROR' ] ; then
-#        echo ''
-#        echo 'The level of theory being studied is not found in z02_level_replace_script.sh'
-#        echo ''
-#        echo 'Please add the correct level of theory before restarting'
-#        echo ''
-#        break
-#    fi
-
     input=$(ls *.log)
 
     for file_unedit in ${input}; do
@@ -110,9 +99,13 @@ elif [ ${status_build} == 0 ] ; then
         elif [ ${job_status} == 1 ] ; then
             file=${file_unedit%-${job_type}_${level_short}.log}
             echo ${file}.com
+
+            cp ${file}.com ${file}-RESTART.com
+            cp pbs-${file}.job pbs-${file}-RESTART.com
+
+
+
         fi
-
-
     done
 
 fi
