@@ -109,7 +109,7 @@ elif [ ${status_build} == 0 ] ; then
             break
         elif [ ${job_status} == 1 ] ; then
             file=${file_unedit%-${job_type}_${level_short}.log}
-            echo ${file}
+            echo ${file}.com
         fi
 
 
