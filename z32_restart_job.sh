@@ -108,7 +108,7 @@ elif [ ${status_build} == 0 ] ; then
 
             echo ${file_unedit}
 
-            echo "g09 < ${file}-RESTART.com > ${file_unedit%-${job_type}_${level_short}.log}" >> pbs-${file}-RESTART.job
+            echo "g09 < ${file}-RESTART.com > ${file_unedit%.log}-RESTART.log" >> pbs-${file}-RESTART.job
 
             rm *temp*
 
