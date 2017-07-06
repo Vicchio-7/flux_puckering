@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6016564a-cc6d-43ee-9fcf-b702c3f51d9c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/z32_restart_job.sh" afterPath="$PROJECT_DIR$/z32_restart_job.sh" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,8 +38,8 @@
       <file leaf-file-name="z32_restart_job.sh" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/z32_restart_job.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="741">
-              <caret line="97" column="16" lean-forward="false" selection-start-line="97" selection-start-column="16" selection-end-line="97" selection-end-column="16" />
+            <state relative-caret-position="726">
+              <caret line="96" column="0" lean-forward="true" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -631,12 +630,12 @@
       <updated>1498756286953</updated>
       <workItem from="1498756288526" duration="20000" />
       <workItem from="1498756346572" duration="19716000" />
-      <workItem from="1499346751421" duration="3289000" />
+      <workItem from="1499346751421" duration="3300000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23025000" />
+    <option name="totallyTimeSpent" value="23036000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1356" height="1131" extended-state="0" />
@@ -814,8 +813,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/z32_restart_job.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="741">
-          <caret line="97" column="16" lean-forward="false" selection-start-line="97" selection-start-column="16" selection-end-line="97" selection-end-column="16" />
+        <state relative-caret-position="726">
+          <caret line="96" column="0" lean-forward="true" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
           <folding />
         </state>
       </provider>

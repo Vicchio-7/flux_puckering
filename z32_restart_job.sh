@@ -97,5 +97,10 @@ elif [ ${status_build} == 0 ] ; then
 
     echo ${input}
 
+    for file in ${input}; do
+
+        echo ${file}
+
+    done
 
 fi
