@@ -86,7 +86,7 @@ elif [ ${status_build} == 2 ] ; then
 
 
     if [ ! -d ${main}/z_results/${folder}/coordinates/ ]; then
-        mkdir ${main}/z_results/${folder}/coordinates/.
+        mkdir ${main}/z_results/${folder}/coordinates/
     fi
 
    lines_grab=$((num_atoms + buffer_lines))
