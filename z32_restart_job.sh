@@ -95,11 +95,9 @@ elif [ ${status_build} == 0 ] ; then
 
     input=$(ls *.com)
 
-    echo ${input}
+    for file_unedit in ${input}; do
 
-    for file in ${input}; do
-
-        echo ${file}
+        file=${file_unedit%.com}
 
     done
 
