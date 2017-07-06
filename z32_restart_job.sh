@@ -100,16 +100,18 @@ elif [ ${status_build} == 0 ] ; then
         expect=' Normal termination of Gaussian 09'
 
 	    if [ "$termination_status" = "${expect}" ]; then
-		    echo 'GOOD'
+		    job_status=0
 	    else
-		    echo 'BAD'
+		    job_status=1
 	    fi
 
+        if [ ${job_status} == 0 ] ; then
+            break
+        elif [ ${job_status} == 1 ] ; then
+            file=${file_unedit%-${job_type}_${level_short}.log}
+            echo ${file}
+        fi
 
-
-        file=${file_unedit%-${job_type}_${level_short}.log}
-
-        echo ${file}
 
     done
 
