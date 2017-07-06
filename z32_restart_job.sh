@@ -103,6 +103,9 @@ elif [ ${status_build} == 0 ] ; then
             cp ${file}.com ${file}-RESTART.com
             cp pbs-${file}.job pbs-${file}-RESTART.com
 
+            sed -e '3d' file ${file}-RESTART.com
+
+
 
 
         fi
