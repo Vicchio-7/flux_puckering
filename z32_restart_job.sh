@@ -101,12 +101,16 @@ elif [ ${status_build} == 0 ] ; then
             echo ${file}.com
 
             cp ${file}.com ${file}-RESTARTtemp.com
-            cp pbs-${file}.job pbs-${file}-RESTART.com
+            cp pbs-${file}.job pbs-${file}-RESTARTtemp.job
 
             sed -e '3d' ${file}-RESTARTtemp.com > ${file}-RESTART.com
+            sed -e '26d' pbs-${file}-RESTARTtemp.job > pbs-${file}-RESTART.job
 
+            echo "g09 < ${file}-RESTART.com > ${file_unedit%-${job_type}_${level_short}-RESTART.log}"
 
+            rm *temp*
 
+#            qsub pbs-${file}-RESTART.job
 
         fi
     done
