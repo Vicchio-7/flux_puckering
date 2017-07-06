@@ -96,9 +96,18 @@ elif [ ${status_build} == 0 ] ; then
     input=$(ls *.log)
 
     for file_unedit in ${input}; do
+        termination_status=$(tail -n 1 ${file_unedit} | sed -e 's/ at.*//')
+        expect=' Normal termination of Gaussian 09'
+
+	    if [ "$termination_status" = "${expect}" ]; then
+		    echo 'GOOD'
+	    else
+		    echo 'BAD'
+	    fi
+
+
 
         file=${file_unedit%-${job_type}_${level_short}.log}
-
 
         echo ${file}
 
