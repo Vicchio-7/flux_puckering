@@ -93,7 +93,9 @@ elif [ ${status_build} == 0 ] ; then
 #        break
 #    fi
 
-    ls *.com
+    input=$(ls *.com)
+
+    echo ${input}
 
 
 fi
