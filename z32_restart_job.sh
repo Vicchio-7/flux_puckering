@@ -99,6 +99,9 @@ elif [ ${status_build} == 0 ] ; then
 
         file=${file_unedit%.com}
 
+
+        echo ${file}
+
     done
 
 fi
