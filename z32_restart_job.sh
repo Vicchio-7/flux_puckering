@@ -100,10 +100,10 @@ elif [ ${status_build} == 0 ] ; then
             file=${file_unedit%-${job_type}_${level_short}.log}
             echo ${file}.com
 
-            cp ${file}.com ${file}-RESTART.com
+            cp ${file}.com ${file}-RESTARTtemp.com
             cp pbs-${file}.job pbs-${file}-RESTART.com
 
-            sed -e '3d' ${file}-RESTART.com > ${file}-RESTART.com
+            sed -e '3d' ${file}-RESTARTtemp.com > ${file}-RESTART.com
 
 
 
