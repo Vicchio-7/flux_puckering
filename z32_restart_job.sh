@@ -93,11 +93,11 @@ elif [ ${status_build} == 0 ] ; then
 #        break
 #    fi
 
-    input=$(ls *.com)
+    input=$(ls *.log)
 
     for file_unedit in ${input}; do
 
-        file=${file_unedit%-${job_type}_${level_short}.com}
+        file=${file_unedit%-${job_type}_${level_short}.log}
 
 
         echo ${file}
