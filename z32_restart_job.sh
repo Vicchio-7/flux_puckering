@@ -63,7 +63,7 @@ elif [ "${molecule_type}" == 'levo' ] ; then
     folder=7_levo
     tpl_folder=7_levo_tpl
    	input_list=../y0-input_list.txt
-    status_build=2
+    status_build=0
 elif [ "${molecule_type}" == 'dehy' ] ; then
     folder=8_dehy
     tpl_folder=8_dehy_tpl
