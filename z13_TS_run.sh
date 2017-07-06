@@ -224,7 +224,16 @@ elif [ ${status_build} == 2 ] ; then
         else
                 tpl_file=${tpl}/${tpl_folder}/TS_levo_from_checkpoint.tpl
 
-            echo 'wait...the code isnt setup for this type of job yet...'
+                sed -e "s/\$memory/${total_memory}/g" ${tpl_file} > temp1.temp
+                sed -i "s/\$num_procs/${cores_per_node}/g" temp1.temp
+                sed -i "s/\$folder_1/${folder}/g" temp1.temp
+                sed -i "s/\$folder_new/${molecule_type}-TS_${level_short}/g" temp1.temp
+                sed -i "s/\$chkfile/${file}-${job_type}_${level_short}.chk/g" temp1.temp
+                sed -i "s/\level_of_theory/${level_theory}/g" temp1.temp
+
+                sed -i '$s/$/\n\n/' temp1.temp
+
+                mv temp1.temp ${file}.com
 
         fi
 
@@ -286,9 +295,18 @@ elif [ ${status_build} == 3 ] ; then
                 mv temp1.temp ${file}.com
 
         else
-                tpl_file=${tpl}/${tpl_folder}/TS_levo_from_checkpoint.tpl
+                tpl_file=${tpl}/${tpl_folder}/TS_dehy_from_checkpoint.tpl
 
-            echo 'wait...the code isnt setup for this type of job yet...'
+                sed -e "s/\$memory/${total_memory}/g" ${tpl_file} > temp1.temp
+                sed -i "s/\$num_procs/${cores_per_node}/g" temp1.temp
+                sed -i "s/\$folder_1/${folder}/g" temp1.temp
+                sed -i "s/\$folder_new/${molecule_type}-TS_${level_short}/g" temp1.temp
+                sed -i "s/\$chkfile/${file}-${job_type}_${level_short}.chk/g" temp1.temp
+                sed -i "s/\level_of_theory/${level_theory}/g" temp1.temp
+
+                sed -i '$s/$/\n\n/' temp1.temp
+
+                mv temp1.temp ${file}.com
 
         fi
 
