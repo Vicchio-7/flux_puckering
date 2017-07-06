@@ -68,7 +68,7 @@ elif [ "${molecule_type}" == 'dehy' ] ; then
     folder=8_dehy
     tpl_folder=8_dehy_tpl
    	input_list=../y0-input_list.txt
-    status_build=3
+    status_build=0
 else
 	echo
 	echo "The molecule type is not found in this script"
