@@ -47,6 +47,8 @@ if [ "${molecule_type}" == 'oxane' ] ; then
 	tpl_folder=1_oxane_tpl
 	status_build=0
 	input_list=../y0-input_list.txt
+	ts_number=9
+    remove_molecule=oxane
 elif [ "${molecule_type}" == 'bxyl' ] ;  then
 	folder=2_bxyl
 	tpl_folder=2_bxyl_tpl
@@ -107,39 +109,43 @@ elif [ ${status_build} == 0 ] ; then
 
     if [ ${molecule_type} == "oxane" ] ; then
 
-        for file_unedit in $( <$input_list); do
+	    for file_unedit in $( <$input_list); do
+	        file=${file_unedit%.xyz}
+            job_number=${file#${remove_molecule}}
 
-            file=${file_unedit%.xyz}
+            if (( ${job_number#0} <= ${ts_number} )); then
+                echo ${job_number}
 
-            tpl_file=${tpl}/${tpl_folder}/run_oxane_optall-to-TS.tpl
+                tpl_file=${tpl}/${tpl_folder}/run_oxane_optall-to-TS.tpl
 
-        ######## The section below updates the Gaussian Input File
+            ######## The section below updates the Gaussian Input File
 
-            sed -e "s/\$memory/${total_memory}/g" ${tpl_file} > temp1.temp
-            sed -e "s/\$num_procs/${cores_per_node}/g" temp1.temp >> temp2.temp
-            sed -e "s/\$folder_1/${folder}/g" temp2.temp >> temp3.temp
-            sed -e "s/\$folder_old/${molecule_type}-freeze_${level_short}/g" temp3.temp >> temp4.temp
-            sed -e "s/\$old_check/${file}-freeze_${level_short}.chk/g" temp4.temp >> temp5.temp
-            sed -e "s/\$folder_new/${molecule_type}-TS_${level_short}/g" temp5.temp >> temp6.temp
-            sed -e "s/\$chkfile/${file}-freeze_${level_short}-${job_type}_${level_short}.chk/g" temp6.temp >> temp7.temp
-            sed -e "s/\level_of_theory/${level_theory}/g" temp7.temp >> temp8.temp
+                sed -e "s/\$memory/${total_memory}/g" ${tpl_file} > temp1.temp
+                sed -e "s/\$num_procs/${cores_per_node}/g" temp1.temp >> temp2.temp
+                sed -e "s/\$folder_1/${folder}/g" temp2.temp >> temp3.temp
+                sed -e "s/\$folder_old/${molecule_type}-freeze_${level_short}/g" temp3.temp >> temp4.temp
+                sed -e "s/\$old_check/${file}-freeze_${level_short}.chk/g" temp4.temp >> temp5.temp
+                sed -e "s/\$folder_new/${molecule_type}-optall_${level_short}/g" temp5.temp >> temp6.temp
+                sed -e "s/\$chkfile/${file}-freeze_${level_short}-${job_type}_${level_short}.chk/g" temp6.temp >> temp7.temp
+                sed -e "s/\level_of_theory/${level_theory}/g" temp7.temp >> temp8.temp
 
-            mv temp8.temp ${file}.com
-            rm *.temp
+                mv temp8.temp ${file}.com
+                rm *.temp
 
-        ######## The section below creates the PBS file for submission on Flux
+            ######## The section below creates the PBS file for submission on Bridges
 
-            sed -e "s/\$num_proc/${cores_per_node}/g" ${tpl}/gaussian_pbs_script.job > temp1.txt
-            sed -i "s/\$memory/${total_memory}/g" temp1.txt
-            sed -i "s/conform/${file}/g" temp1.txt
-            sed -i "s/gauss-log/${file}-freeze_${3}-TS_${3}/g" temp1.txt
-            sed -i "s/\$molecule/${molecule_type}/g" temp1.txt
-            sed -i "s/\$test/${job_type}/g" temp1.txt
-            sed -i "s/\$level/${level_short}/g" temp1.txt
-            sed -i "s/\$hours/${hours}/g" temp1.txt
-            sed -i "s/\$minutes/${minutes}/g" temp1.txt
+                sed -e "s/\$num_proc/${cores_per_node}/g" ${tpl}/gaussian_pbs_script.job > temp1.txt
+                sed -i "s/\$memory/${total_memory}/g" temp1.txt
+                sed -i "s/conform/${file}/g" temp1.txt
+                sed -i "s/gauss-log/${file}-freeze_${3}-${job_type}-${3}/g" temp1.txt
+                sed -i "s/\$molecule/${molecule_type}/g" temp1.txt
+                sed -i "s/\$test/${job_type}/g" temp1.txt
+                sed -i "s/\$level/${level_short}/g" temp1.txt
+                sed -i "s/\$hours/${hours}/g" temp1.txt
+                sed -i "s/\$minutes/${minutes}/g" temp1.txt
 
-            mv temp1.txt pbs-${file}.job
+                mv temp1.txt pbs-${file}.job
+            fi
         done
 
     else
