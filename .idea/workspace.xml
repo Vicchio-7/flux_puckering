@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6016564a-cc6d-43ee-9fcf-b702c3f51d9c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/z32_restart_job.sh" afterPath="$PROJECT_DIR$/z32_restart_job.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/z12_local_min.sh" afterPath="$PROJECT_DIR$/z12_local_min.sh" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,51 +36,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="z32_restart_job.sh" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/z32_restart_job.sh">
+      <file leaf-file-name="z12_local_min.sh" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/z12_local_min.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="758">
-              <caret line="111" column="0" lean-forward="true" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="z05_grab_xyz_coords.sh" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/z05_grab_xyz_coords.sh">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="487">
-              <caret line="88" column="54" lean-forward="false" selection-start-line="88" selection-start-column="54" selection-end-line="88" selection-end-column="54" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="z04_check_normal_termination.sh" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/z04_check_normal_termination.sh">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
-              <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="50" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="z14_norm_analysis.sh" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/z14_norm_analysis.sh">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="115" column="51" lean-forward="true" selection-start-line="115" selection-start-column="51" selection-end-line="115" selection-end-column="51" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="z16_local_min_rerun.sh" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/z16_local_min_rerun.sh">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-425">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="405">
+              <caret line="53" column="17" lean-forward="true" selection-start-line="53" selection-start-column="17" selection-end-line="53" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -89,8 +49,8 @@
       <file leaf-file-name="z13_TS_run.sh" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/z13_TS_run.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="473">
-              <caret line="111" column="0" lean-forward="false" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="36" />
+            <state relative-caret-position="444">
+              <caret line="54" column="16" lean-forward="true" selection-start-line="54" selection-start-column="16" selection-end-line="54" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -112,7 +72,6 @@
         <option value="$PROJECT_DIR$/z00_submit-batch.sh" />
         <option value="$PROJECT_DIR$/z03_delete_jobs.sh" />
         <option value="$PROJECT_DIR$/z11_freeze_jobs.sh" />
-        <option value="$PROJECT_DIR$/z12_local_min.sh" />
         <option value="$PROJECT_DIR$/z14_norm_analysis.sh" />
         <option value="$PROJECT_DIR$/z15_irc_run.sh" />
         <option value="$PROJECT_DIR$/z01_create-directory.sh" />
@@ -121,6 +80,7 @@
         <option value="$PROJECT_DIR$/z05_grab_xyz_coords.sh" />
         <option value="$PROJECT_DIR$/z04_check_normal_termination.sh" />
         <option value="$PROJECT_DIR$/z32_restart_job.sh" />
+        <option value="$PROJECT_DIR$/z12_local_min.sh" />
       </list>
     </option>
   </component>
@@ -671,15 +631,16 @@
       <updated>1498756286953</updated>
       <workItem from="1498756288526" duration="20000" />
       <workItem from="1498756346572" duration="19716000" />
-      <workItem from="1499346751421" duration="5896000" />
+      <workItem from="1499346751421" duration="6362000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25632000" />
+    <option name="totallyTimeSpent" value="26098000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="960" height="1131" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -688,7 +649,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19056785" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19056785" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3006536" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -757,13 +718,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/z12_local_min.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="613">
-          <caret line="91" column="0" lean-forward="false" selection-start-line="91" selection-start-column="0" selection-end-line="97" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/z03_delete_jobs.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
@@ -803,10 +757,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/z02_level_replace_script.sh">
+    <entry file="file://$PROJECT_DIR$/z32_restart_job.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" column="17" lean-forward="false" selection-start-line="34" selection-start-column="17" selection-end-line="34" selection-end-column="17" />
+        <state relative-caret-position="755">
+          <caret line="104" column="69" lean-forward="true" selection-start-line="104" selection-start-column="69" selection-end-line="104" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/z14_norm_analysis.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="115" column="51" lean-forward="false" selection-start-line="115" selection-start-column="51" selection-end-line="115" selection-end-column="51" />
           <folding />
         </state>
       </provider>
@@ -819,18 +781,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/z14_norm_analysis.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="115" column="51" lean-forward="true" selection-start-line="115" selection-start-column="51" selection-end-line="115" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/z13_TS_run.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="111" column="0" lean-forward="false" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="36" />
+        <state relative-caret-position="444">
+          <caret line="54" column="16" lean-forward="true" selection-start-line="54" selection-start-column="16" selection-end-line="54" selection-end-column="16" />
           <folding />
         </state>
       </provider>
@@ -851,10 +805,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/z32_restart_job.sh">
+    <entry file="file://$PROJECT_DIR$/z02_level_replace_script.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="758">
-          <caret line="111" column="0" lean-forward="true" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
+        <state relative-caret-position="510">
+          <caret line="34" column="17" lean-forward="false" selection-start-line="34" selection-start-column="17" selection-end-line="34" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/z12_local_min.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="53" column="17" lean-forward="true" selection-start-line="53" selection-start-column="17" selection-end-line="53" selection-end-column="17" />
           <folding />
         </state>
       </provider>

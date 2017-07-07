@@ -48,6 +48,8 @@ if [ "${molecule_type}" == 'oxane' ] ; then
 	tpl_folder=1_oxane_tpl
 	status_build=0
 	input_list=../y0-input_list.txt
+    lm_number=8
+    remove_molecule=oxane
 elif [ "${molecule_type}" == 'bxyl' ] ;  then
 	folder=2_bxyl
 	tpl_folder=2_bxyl_tpl
