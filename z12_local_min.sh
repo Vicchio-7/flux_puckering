@@ -48,7 +48,7 @@ if [ "${molecule_type}" == 'oxane' ] ; then
 	tpl_folder=1_oxane_tpl
 	status_build=0
 	input_list=../y0-input_list.txt
-    lm_number=08
+    lm_number=8
     remove_molecule=oxane
 elif [ "${molecule_type}" == 'bxyl' ] ;  then
 	folder=2_bxyl
@@ -106,7 +106,7 @@ elif [ ${status_build} == 0 ] ; then
             job_number=${file#${remove_molecule}}
 
             echo ${job_number} ${lm_number}
-            if [[ ${job_number} <= ${lm_number} ]]; then
+            if (( ${job_number#0} <= ${lm_number} )); then
                 echo ${job_number}
 
                 tpl_file=${tpl}/${tpl_folder}/run_oxane_optall-to-localmin.tpl
