@@ -136,6 +136,7 @@ elif [ ${status_build} == 0 ] ; then
                 sed -i "s/\$minutes/${minutes}/g" temp1.txt
 
                 mv temp1.txt pbs-${file}.job
+            fi
         done
 
     else
