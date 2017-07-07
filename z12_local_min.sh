@@ -106,7 +106,7 @@ elif [ ${status_build} == 0 ] ; then
             job_number=${file#${remove_molecule}}
 
             echo ${job_number} ${lm_number}
-            if (( ${job_number} <= ${lm_number} )); then
+            if [[ ${job_number} <= ${lm_number} ]]; then
                 echo ${job_number}
 
                 tpl_file=${tpl}/${tpl_folder}/run_oxane_optall-to-localmin.tpl
