@@ -113,7 +113,7 @@ elif [ ${status_build} == 0 ] ; then
 	        file=${file_unedit%.xyz}
             job_number=${file#${remove_molecule}}
 
-            if (( ${job_number#0} <= ${ts_number} )); then
+            if (( ${job_number#0} >= ${ts_number} )); then
                 echo ${job_number}
 
                 tpl_file=${tpl}/${tpl_folder}/run_oxane_optall-to-TS.tpl
