@@ -95,15 +95,10 @@ elif [ ${status_build} == 0 ] ; then
 
 
     main_results=${results_location}/${folder}/${level_short}/
-    raw_results=${results_location}/${folder}/${level_short}/
     dataset_results=${results_location}/${folder}/aaaa_dataset
 
     if [ ! -d ${main_results} ]; then
         mkdir ${main_results}
-    fi
-
-    if [ ! -d ${raw_results} ]; then
-        mkdir ${raw_results}
     fi
 
     if [ ! -d ${dataset_results} ]; then
@@ -114,8 +109,8 @@ elif [ ${status_build} == 0 ] ; then
     echo "Copying files over to:" ${results_location}/${folder}/${level_short}
     echo
 
-    cp z_hartree-unsorted-${job_type}-${molecule_type}-${level_short}.csv ${raw_results}/z_hartree-unsorted-${job_type}-${molecule_type}-${level_short}.csv
-    cp z_single_cluster-sorted-${job_type}-${molecule_type}-${level_short}.csv ${raw_results}/z_single_cluster-sorted-${job_type}-${molecule_type}-${level_short}.csv
+    cp z_hartree-unsorted-${job_type}-${molecule_type}-${level_short}.csv ${main_results}/z_hartree-unsorted-${job_type}-${molecule_type}-${level_short}.csv
+    cp z_single_cluster-sorted-${job_type}-${molecule_type}-${level_short}.csv ${main_results}/z_single_cluster-sorted-${job_type}-${molecule_type}-${level_short}.csv
 
     echo "Copied all log files to 9_all_lm_logs"
     echo

@@ -19,20 +19,20 @@ level_short=$3
 ## Input - xyz_cluster ##
 # If you need to change the tolerance, please check the ## Setup Check ## section
 
+
 ## Input - Codes ##
 # Please update the following input commands depending on the user.
 
-account=ct560hp
+account=hbmayes_fluxod
 user=vicchio
 
 ## Additional Required Information ##
 # Additional information such as folder location that is required for the code to run properly.
 
-p1=/pylon5/${account}/${user}
-p2=/pylon2/${account}/${user}
-folder_type=4_opt_localmin
-tpl=${p2}/puckering/y_tpl
-results_location=${p2}/puckering/z_results
+scratch=/scratch/${account}/${user}
+main=/home/${user}/1_puckering
+tpl=${main}/y_tpl
+results_location=${main}/z_results
 failure=out-failure-${1}-${2}-${3}.status
 
 # --------------------------------------------------------------------------------------
@@ -91,16 +91,23 @@ elif [ ${status_build} == 0 ] ; then
 
     fi
 
-    if [ ! -d ${results_location}/${folder}/${level_short}/ ]; then
-        mkdir ${results_location}/${folder}/${level_short}/
+    main_results=${results_location}/${folder}/${level_short}/
+    dataset_results=${results_location}/${folder}/aaaa_dataset
+
+    if [ ! -d ${main_results} ]; then
+        mkdir ${main_results}
+    fi
+
+    if [ ! -d ${dataset_results} ]; then
+        mkdir ${dataset_results}
     fi
 
     echo
     echo "Copying files over to:" ${results_location}/${folder}/${level_short}
     echo
 
-    cp z_hartree-unsorted-${job_type}-${molecule_type}-${level_short}.csv ${results_location}/${folder}/${level_short}/z_hartree-unsorted-${job_type}-${molecule_type}-${level_short}.csv
-    cp z_cluster-sorted-normlessTS-${molecule_type}-${level_short}.csv ${results_location}/${folder}/${level_short}/z_cluster-sorted-normlessTS-${molecule_type}-${level_short}.csv
+    cp z_hartree-unsorted-${job_type}-${molecule_type}-${level_short}.csv ${main_results}/z_hartree-unsorted-${job_type}-${molecule_type}-${level_short}.csv
+    cp z_cluster-sorted-normlessTS-${molecule_type}-${level_short}.csv ${main_results}/z_cluster-sorted-normlessTS-${molecule_type}-${level_short}.csv
 
 #    echo "Copied all log files to 10_ts_viz_logs"
 #    echo
