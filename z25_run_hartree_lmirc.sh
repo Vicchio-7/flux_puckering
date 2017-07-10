@@ -101,7 +101,7 @@ elif [ ${status_build} == 0 ] ; then
 
 
 
-        if [ ! -f ${dataset_results}/z_dataset-${molecule_type}-IRC-${naming_level}.csv} ] ; then
+        if [ -f ${dataset_results}/z_dataset-${molecule_type}-IRC-${naming_level}.csv} ] ; then
             rm ${dataset_results}/z_dataset-${molecule_type}-IRC-${naming_level}.csv
             cp z_hartree-unsorted-${job_type}-${molecule_type}-${level_short}.csv ${dataset_results}/z_dataset-${molecule_type}-IRC-${naming_level}.csv
         fi
