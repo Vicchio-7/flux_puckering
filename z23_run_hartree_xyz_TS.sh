@@ -114,4 +114,8 @@ elif [ ${status_build} == 0 ] ; then
 #
 #    cp *.log ../10_ts_viz_logs/.
 
+    if [[ ${molecule_type} == 'oxane' ]]; then
+        cp ${main_results}/z_cluster-sorted-${job_type}-${molecule_type}-${level_short}.csv ${dataset_results}/z_dataset-${molecule_type}-TS-${}.csv
+    fi
+
 fi
