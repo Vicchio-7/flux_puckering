@@ -68,6 +68,8 @@ if [ ${status_build} == 1 ]; then
 	exit
 elif [ ${status_build} == 0 ] ; then
 
+
+    naming_level=$(z02b_level_replace_script.sh ${molecule_type} ${level_short})
     z04_check_normal_termination.sh ${molecule_type} TS ${level_short}
 
     if [ ! -f ${failure} ]; then
@@ -115,7 +117,7 @@ elif [ ${status_build} == 0 ] ; then
 #    cp *.log ../10_ts_viz_logs/.
 
     if [[ ${molecule_type} == 'oxane' ]]; then
-        cp ${main_results}/z_cluster-sorted-${job_type}-${molecule_type}-${level_short}.csv ${dataset_results}/z_dataset-${molecule_type}-TS-${}.csv
+        cp ${main_results}/z_cluster-sorted-${job_type}-${molecule_type}-${level_short}.csv ${dataset_results}/z_dataset-${molecule_type}-TS-${naming_level}.csv
     fi
 
 fi
