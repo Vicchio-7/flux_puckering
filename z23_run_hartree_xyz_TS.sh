@@ -94,6 +94,8 @@ elif [ ${status_build} == 0 ] ; then
         main_results=${results_location}/${folder}/${level_short}/
         dataset_results=${results_location}/${folder}/aaaa_dataset
 
+        echo ${main_results}
+
         if [ ! -d ${main_results} ]; then
             mkdir ${main_results}
         fi
