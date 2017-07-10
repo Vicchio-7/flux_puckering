@@ -89,35 +89,29 @@ elif [ ${status_build} == 0 ] ; then
             z05_grab_xyz_coords.sh ${molecule_type}
             xyz_cluster -s z_hartree-unsorted-${job_type}-${molecule_type}-${level_short}.csv -t ${tol} -r ${ring_atoms}
             mv z_cluster_z_hartree-unsorted-${job_type}-${molecule_type}-${level_short}.csv z_cluster-sorted-normlessTS-${molecule_type}-${level_short}.csv
+            cp z_cluster-sorted-normlessTS-${molecule_type}-${level_short}.csv ${main_results}/z_cluster-sorted-normlessTS-${molecule_type}-${level_short}.csv
+        fi
+
+        cp z_hartree-unsorted-${job_type}-${molecule_type}-${level_short}.csv ${main_results}/z_hartree-unsorted-${job_type}-${molecule_type}-${level_short}.csv
+
+        main_results=${results_location}/${folder}/${level_short}/
+        dataset_results=${results_location}/${folder}/aaaa_dataset
+
+        if [ ! -d ${main_results} ]; then
+            mkdir ${main_results}
+        fi
+
+        if [ ! -d ${dataset_results} ]; then
+            mkdir ${dataset_results}
+        fi
+
+        echo
+        echo "Copying files over to:" ${results_location}/${folder}/${level_short}
+        echo
+
+        if [[ ${molecule_type} == 'oxane' ]]; then
+            cp ${main_results}/z_cluster-sorted-${job_type}-${molecule_type}-${level_short}.csv ${dataset_results}/z_dataset-${molecule_type}-TS-${naming_level}.csv
         fi
 
     fi
-
-    main_results=${results_location}/${folder}/${level_short}/
-    dataset_results=${results_location}/${folder}/aaaa_dataset
-
-    if [ ! -d ${main_results} ]; then
-        mkdir ${main_results}
-    fi
-
-    if [ ! -d ${dataset_results} ]; then
-        mkdir ${dataset_results}
-    fi
-
-    echo
-    echo "Copying files over to:" ${results_location}/${folder}/${level_short}
-    echo
-
-    cp z_hartree-unsorted-${job_type}-${molecule_type}-${level_short}.csv ${main_results}/z_hartree-unsorted-${job_type}-${molecule_type}-${level_short}.csv
-    cp z_cluster-sorted-normlessTS-${molecule_type}-${level_short}.csv ${main_results}/z_cluster-sorted-normlessTS-${molecule_type}-${level_short}.csv
-
-#    echo "Copied all log files to 10_ts_viz_logs"
-#    echo
-#
-#    cp *.log ../10_ts_viz_logs/.
-
-    if [[ ${molecule_type} == 'oxane' ]]; then
-        cp ${main_results}/z_cluster-sorted-${job_type}-${molecule_type}-${level_short}.csv ${dataset_results}/z_dataset-${molecule_type}-TS-${naming_level}.csv
-    fi
-
 fi
