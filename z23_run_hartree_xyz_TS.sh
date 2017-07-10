@@ -110,8 +110,9 @@ elif [ ${status_build} == 0 ] ; then
         echo
 
         if [[ ${molecule_type} == 'oxane' ]]; then
-            cp ${main_results}/z_cluster-sorted-${job_type}-${molecule_type}-${level_short}.csv ${dataset_results}/z_dataset-${molecule_type}-TS-${naming_level}.csv
+            if [ ! -f ${dataset_results}/z_dataset-${molecule_type}-TS-${naming_level}.csv} ] ; then
+                cp ${main_results}/z_cluster-sorted-${job_type}-${molecule_type}-${level_short}.csv ${dataset_results}/z_dataset-${molecule_type}-TS-${naming_level}.csv
+            fi
         fi
-
     fi
 fi
