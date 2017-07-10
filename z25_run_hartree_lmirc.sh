@@ -90,15 +90,13 @@ elif [ ${status_build} == 0 ] ; then
             mkdir ${dataset_results}
         fi
 
-
-        echo
         echo "Copying files over to:" ${results_location}/${folder}/${level_short}
         echo
 
         cp z_hartree-unsorted-${job_type}-${molecule_type}-${level_short}.csv ${main_results}/z_hartree-unsorted-${job_type}-${molecule_type}-${level_short}.csv
         cp *.log ../9_all_lm_logs/.
 
-        echo "Copied all log files to 9_al_lm_logs"
+        echo "Copied all log files to 9_all_lm_logs"
         echo
 
         cp z_hartree-unsorted-${job_type}-${molecule_type}-${level_short}.csv ${dataset_results}/z_dataset-${molecule_type}-IRC-${naming_level}.csv
