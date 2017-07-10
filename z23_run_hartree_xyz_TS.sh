@@ -75,6 +75,9 @@ elif [ ${status_build} == 0 ] ; then
         echo "Please wait a few minutes...."
         echo
 
+        main_results=${results_location}/${folder}/${level_short}/
+        dataset_results=${results_location}/${folder}/aaaa_dataset
+
         if [[ ${molecule_type} == 'oxane' ]]; then
             hartree cpsnap -d $PWD > z_hartree-unsorted-${job_type}-${molecule_type}-${level_short}.csv
             z05_grab_xyz_coords.sh ${molecule_type}
@@ -89,11 +92,6 @@ elif [ ${status_build} == 0 ] ; then
             mv z_cluster_z_hartree-unsorted-${job_type}-${molecule_type}-${level_short}.csv z_cluster-sorted-normlessTS-${molecule_type}-${level_short}.csv
             cp z_cluster-sorted-normlessTS-${molecule_type}-${level_short}.csv ${main_results}/z_cluster-sorted-normlessTS-${molecule_type}-${level_short}.csv
         fi
-
-
-
-        main_results=${results_location}/${folder}/${level_short}/
-        dataset_results=${results_location}/${folder}/aaaa_dataset
 
         echo ${main_results}
 
