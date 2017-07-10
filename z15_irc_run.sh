@@ -177,5 +177,5 @@ elif [ ${status_build} == 0 ] ; then
                 mv temp1.txt pbs-${new_filenamer}.job
 
              fi
-         done
+    done
 fi
