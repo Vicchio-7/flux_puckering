@@ -34,7 +34,7 @@ scratch=/scratch/${account}/${user}
 main=/home/${user}/1_puckering
 folder_type=4_opt_localmin
 tpl=${main}/y_tpl
-results_location=${main}/puckering/z_results
+results_location=${main}/z_results
 failure=out-failure-${1}-${2}-${3}.status
 
 
@@ -92,6 +92,9 @@ elif [ ${status_build} == 0 ] ; then
         fi
 
     fi
+
+
+
 
     if [ ! -d ${results_location}/${folder}/${level_short}/ ]; then
         mkdir ${results_location}/${folder}/${level_short}/
