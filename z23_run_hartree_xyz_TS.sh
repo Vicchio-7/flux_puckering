@@ -68,7 +68,6 @@ if [ ${status_build} == 1 ]; then
 	exit
 elif [ ${status_build} == 0 ] ; then
 
-
     naming_level=$(z02b_level_replace_script.sh ${molecule_type} ${level_short})
     z04_check_normal_termination.sh ${molecule_type} TS ${level_short}
 

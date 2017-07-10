@@ -71,6 +71,7 @@ if [ ${status_build} == 1 ]; then
 	exit
 elif [ ${status_build} == 0 ] ; then
 
+    naming_level=$(z02b_level_replace_script.sh ${molecule_type} ${level_short})
     z04_check_normal_termination.sh ${molecule_type} optall ${level_short}
 
     if [ ! -f ${failure} ]; then
@@ -91,31 +92,28 @@ elif [ ${status_build} == 0 ] ; then
             mv z_cluster_z_hartree-unsorted-${job_type}-${molecule_type}-${level_short}.csv z_single_cluster-sorted-${job_type}-${molecule_type}-${level_short}.csv
         fi
 
-    fi
+        main_results=${results_location}/${folder}/${level_short}/
+        dataset_results=${results_location}/${folder}/aaaa_dataset
 
+        if [ ! -d ${main_results} ]; then
+            mkdir ${main_results}
+        fi
 
-    main_results=${results_location}/${folder}/${level_short}/
-    dataset_results=${results_location}/${folder}/aaaa_dataset
+        if [ ! -d ${dataset_results} ]; then
+            mkdir ${dataset_results}
+        fi
 
-    if [ ! -d ${main_results} ]; then
-        mkdir ${main_results}
-    fi
+        echo
+        echo "Copying files over to:" ${results_location}/${folder}/${level_short}
+        echo
 
-    if [ ! -d ${dataset_results} ]; then
-        mkdir ${dataset_results}
-    fi
+        cp z_hartree-unsorted-${job_type}-${molecule_type}-${level_short}.csv ${main_results}/z_hartree-unsorted-${job_type}-${molecule_type}-${level_short}.csv
+        cp z_single_cluster-sorted-${job_type}-${molecule_type}-${level_short}.csv ${main_results}/z_single_cluster-sorted-${job_type}-${molecule_type}-${level_short}.csv
 
-    echo
-    echo "Copying files over to:" ${results_location}/${folder}/${level_short}
-    echo
+        echo "Copied all log files to 9_all_lm_logs"
+        echo
 
-    cp z_hartree-unsorted-${job_type}-${molecule_type}-${level_short}.csv ${main_results}/z_hartree-unsorted-${job_type}-${molecule_type}-${level_short}.csv
-    cp z_single_cluster-sorted-${job_type}-${molecule_type}-${level_short}.csv ${main_results}/z_single_cluster-sorted-${job_type}-${molecule_type}-${level_short}.csv
-
-    echo "Copied all log files to 9_all_lm_logs"
-    echo
-
-    cp *.log ../9_all_lm_logs/.
-
+        cp *.log ../9_all_lm_logs/.
+   fi
 fi
 
