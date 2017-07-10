@@ -22,17 +22,15 @@ level_short=$3
 ## Input - Codes ##
 # Please update the following input commands depending on the user.
 
-account=ct560hp
+account=hbmayes_fluxod
 user=vicchio
 
 ## Additional Required Information ##
 # Additional information such as folder location that is required for the code to run properly.
 
-p1=/pylon5/${account}/${user}
-p2=/pylon2/${account}/${user}
-folder_type=4_opt_localmin
-tpl=${p2}/puckering/y_tpl
-results_location=${p2}/puckering/z_results
+scratch=/scratch/${account}/${user}
+main=/home/${user}/1_puckering
+results_location=${main}/z_results
 failure=out-failure-${1}-${2}-${3}.status
 
 # --------------------------------------------------------------------------------------
@@ -66,34 +64,44 @@ if [ ${status_build} == 1 ]; then
 	exit
 elif [ ${status_build} == 0 ] ; then
 
+    naming_level=$(z02b_level_replace_script.sh ${molecule_type} ${level_short})
     z04_check_normal_termination.sh ${molecule_type} lmirc ${level_short}
 
-    if [ ! -f ${failure} ]; then
-        echo "No Files failed! Performing Hartree......"
-        echo
-        echo "Please wait a few minutes...."
-        echo
+        if [ ! -f ${failure} ]; then
+            echo "No Files failed! Performing Hartree......"
+            echo
+            echo "Please wait a few minutes...."
+            echo
 
-        if [[ ${molecule_type} == 'oxane' ]]; then
-            hartree cpsnap -d $PWD > z_hartree-unsorted-${job_type}-${molecule_type}-${level_short}.csv
-        else
-            hartree cpsnap -d $PWD > z_hartree-unsorted-${job_type}-${molecule_type}-${level_short}.csv
+            if [[ ${molecule_type} == 'oxane' ]]; then
+                hartree cpsnap -d $PWD > z_hartree-unsorted-${job_type}-${molecule_type}-${level_short}.csv
+            else
+                hartree cpsnap -d $PWD > z_hartree-unsorted-${job_type}-${molecule_type}-${level_short}.csv
+            fi
+
+        main_results=${results_location}/${folder}/${level_short}/
+        dataset_results=${results_location}/${folder}/aaaa_dataset
+
+        if [ ! -d ${main_results} ]; then
+            mkdir ${main_results}
         fi
 
+        if [ ! -d ${dataset_results} ]; then
+            mkdir ${dataset_results}
+        fi
+
+
+        echo
+        echo "Copying files over to:" ${results_location}/${folder}/${level_short}
+        echo
+
+        cp z_hartree-unsorted-${job_type}-${molecule_type}-${level_short}.csv ${main_results}/z_hartree-unsorted-${job_type}-${molecule_type}-${level_short}.csv
+        cp *.log ../9_all_lm_logs/.
+
+        echo "Copied all log files to 9_al_lm_logs"
+        echo
+
+        cp z_hartree-unsorted-${job_type}-${molecule_type}-${level_short}.csv ${dataset_results}/z_dataset-${molecule_type}-IRC-${naming_level}.csv
+
     fi
-
-    if [ ! -d ${results_location}/${folder}/${level_short}/ ]; then
-        mkdir ${results_location}/${folder}/${level_short}/
-    fi
-
-    echo
-    echo "Copying files over to:" ${results_location}/${folder}/${level_short}
-    echo
-
-    cp z_hartree-unsorted-${job_type}-${molecule_type}-${level_short}.csv ${results_location}/${folder}/${level_short}/z_hartree-unsorted-${job_type}-${molecule_type}-${level_short}.csv
-
-    cp *.log ../9_all_lm_logs/.
-
-    echo "Copied all log files to 9_al_lm_logs"
-    echo
 fi

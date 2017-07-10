@@ -19,7 +19,6 @@ level_short=$3
 ## Input - xyz_cluster ##
 # If you need to change the tolerance, please check the ## Setup Check ## section
 
-
 ## Input - Codes ##
 # Please update the following input commands depending on the user.
 
@@ -31,7 +30,6 @@ user=vicchio
 
 scratch=/scratch/${account}/${user}
 main=/home/${user}/1_puckering
-tpl=${main}/y_tpl
 results_location=${main}/z_results
 failure=out-failure-${1}-${2}-${3}.status
 
@@ -114,5 +112,6 @@ elif [ ${status_build} == 0 ] ; then
                 cp ${main_results}/z_cluster-sorted-${job_type}-${molecule_type}-${level_short}.csv ${dataset_results}/z_dataset-${molecule_type}-TS-${naming_level}.csv
             fi
         fi
+
     fi
 fi
