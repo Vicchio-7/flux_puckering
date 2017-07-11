@@ -93,8 +93,6 @@ elif [ ${status_build} == 0 ] ; then
             cp z_cluster-sorted-normlessTS-${molecule_type}-${level_short}.csv ${main_results}/z_cluster-sorted-normlessTS-${molecule_type}-${level_short}.csv
         fi
 
-        echo ${main_results}
-
         if [ ! -d ${main_results} ]; then
             mkdir ${main_results}
         fi
