@@ -130,7 +130,6 @@ elif [ ${status_build} == 0 ] ; then
             sed -i '$s/$/\n/' ${file}.com
             sed -i '$s/$/\n/' ${file}.com
 
-
         ######## The section below creates the PBS file for submission on Bridges
 
             sed -e "s/\$num_proc/${cores_per_node}/g" ${tpl}/gaussian_pbs_script.job > temp1.txt
