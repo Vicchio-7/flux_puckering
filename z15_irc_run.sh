@@ -20,7 +20,7 @@ level_short=$3
 # The following information determines the numbers of cores and memory the jobs will require.
 cores_per_node=1
 memory_job=3800
-hours=12 #1, 2 ,3 ..... 10, 11, 12....
+hours=24 #1, 2 ,3 ..... 10, 11, 12....
 minutes=00 # number between 0 and 59
 
 total_memory=$(echo ${cores_per_node} ${memory_job} | awk '{ print $1*$2 }' )
