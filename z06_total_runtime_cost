@@ -58,40 +58,40 @@ if [ ! -f z_time_raw_${molecule}_${job_type}_${level_of_theory_short}.txt ]; the
 	grep "seconds." *.log > z_time_raw_${molecule}_${job_type}_${level_of_theory_short}.txt
 fi 
 
-#seconds=$(awk '{s+=$11} END {printf "%.0f", s}' z_time_raw_${molecule}_${job_type}_${level_of_theory_short}.txt)
-#minutes=$(awk '{s+=$9} END {printf "%.0f", s}' z_time_raw_${molecule}_${job_type}_${level_of_theory_short}.txt)
-#hours=$(awk '{s+=$7} END {printf "%.0f", s}' z_time_raw_${molecule}_${job_type}_${level_of_theory_short}.txt)
-#days=$(awk '{s+=$5} END {printf "%.0f", s}' z_time_raw_${molecule}_${job_type}_${level_of_theory_short}.txt)
-#
-#echo
-#echo "The total information from all of the log files:"
-#echo ${seconds} seconds
-#echo ${minutes} minutes
-#echo ${hours} hours
-#echo ${days} days
-#echo
-#
-#seconds_to_hours=$(echo ${seconds} 3600 | awk '{ print $1/$2 }' )
-#minutes_to_hours=$(echo ${minutes} 60 | awk '{ print $1/$2 }' )
-#seconds_minutes_hours_total=$( echo "${seconds_to_hours}+${minutes_to_hours}+${hours}" | bc )
-#
-#hours_to_months=$(echo ${seconds_minutes_hours_total} 730 | awk '{ print $1/$2 }' )
-#days_to_months=$(echo ${days} 30.41 | awk '{ print $1/$2 }' )
-#
-#months_total=$( echo "${hours_to_months}+${days_to_months}" | bc )
-#hours_total_from_months=$(A=${months_total} B=730; echo -e "$A\t$B" |  awk '{print $1 * $2}' )
-#
-#total_cost_for_jobs_long=$(A=${months_total} B=${num_cores} C=${od_cost}; echo -e "$A\t$B\t$C" |  awk '{print $1 * $2 * $3}' )
+seconds=$(awk '{s+=$11} END {printf "%.0f", s}' z_time_raw_${molecule}_${job_type}_${level_of_theory_short}.txt)
+minutes=$(awk '{s+=$9} END {printf "%.0f", s}' z_time_raw_${molecule}_${job_type}_${level_of_theory_short}.txt)
+hours=$(awk '{s+=$7} END {printf "%.0f", s}' z_time_raw_${molecule}_${job_type}_${level_of_theory_short}.txt)
+days=$(awk '{s+=$5} END {printf "%.0f", s}' z_time_raw_${molecule}_${job_type}_${level_of_theory_short}.txt)
+
+echo
+echo "The total information from all of the log files:"
+echo ${seconds} seconds
+echo ${minutes} minutes
+echo ${hours} hours
+echo ${days} days
+echo
+
+seconds_to_hours=$(echo ${seconds} 3600 | awk '{ print $1/$2 }' )
+minutes_to_hours=$(echo ${minutes} 60 | awk '{ print $1/$2 }' )
+seconds_minutes_hours_total=$( echo "${seconds_to_hours}+${minutes_to_hours}+${hours}" | bc )
+
+hours_to_months=$(echo ${seconds_minutes_hours_total} 730 | awk '{ print $1/$2 }' )
+days_to_months=$(echo ${days} 30.41 | awk '{ print $1/$2 }' )
+
+months_total=$( echo "${hours_to_months}+${days_to_months}" | bc )
+hours_total_from_months=$(A=${months_total} B=730; echo -e "$A\t$B" |  awk '{print $1 * $2}' )
+
+total_cost_for_jobs_long=$(A=${months_total} B=${num_cores} C=${od_cost}; echo -e "$A\t$B\t$C" |  awk '{print $1 * $2 * $3}' )
 #flux_reserve_cost=$(A=${num_cores_reserve} B=${reserve_cost}; echo -e "$A\t$B" |  awk '{print $1 * $2}' )
 #
-#total_cost_for_jobs=$(printf '%.*f\n' 2 ${total_cost_for_jobs_long} )
+total_cost_for_jobs=$(printf '%.*f\n' 2 ${total_cost_for_jobs_long} )
 #total_cost_for_reserve=$(printf '%.*f\n' 2 ${flux_reserve_cost} )
 #
-#echo "The total number of hours for all of these jobs is ${hours_total_from_months}"
-#echo
-#echo "The cost for this ${job_type} for ${molecule} is: $ ${total_cost_for_jobs} using Flux On Demand"
-#echo "and $ ${total_cost_for_reserve} reserving cores on Flux."
-#echo
+echo "The total number of hours for all of these jobs is ${hours_total_from_months}"
+echo
+echo "The cost for this ${job_type} for ${molecule} is: $ ${total_cost_for_jobs} using Flux On Demand"
+echo "and $ ${total_cost_for_reserve} reserving cores on Flux."
+echo
 #
 #echo > ${output_info_file}
 #echo "The total information from all of the log files:"  >> ${output_info_file}
