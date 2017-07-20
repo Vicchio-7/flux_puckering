@@ -23,17 +23,15 @@ tolerance=$4
 ## Input - Codes ##
 # Please update the following input commands depending on the user.
 
-account=ct560hp
+account=hbmayes_fluxod
 user=vicchio
 
 ## Additional Required Information ##
 # Additional information such as folder location that is required for the code to run properly.
 
-p1=/pylon5/${account}/${user}
-p2=/pylon2/${account}/${user}
-folder_type=4_opt_localmin
-tpl=${p2}/puckering/y_tpl
-results_location=${p2}/puckering/z_results
+scratch=/scratch/${account}/${user}
+main=/home/${user}/1_puckering
+results_location=${main}/z_results
 failure=out-failure-${1}-${2}-${3}.status
 
 # --------------------------------------------------------------------------------------
@@ -41,6 +39,7 @@ failure=out-failure-${1}-${2}-${3}.status
 ## Setup Check ##
 if [ "${molecule_type}" == 'oxane' ] ; then
     echo 'Why are you doing this?'
+    status_build=1
 elif [ "${molecule_type}" == 'bxyl' ] ;  then
 	folder=2_bxyl
 #	folder=2_bxyl-massive
@@ -67,6 +66,9 @@ if [ ${status_build} == 1 ]; then
 	exit
 elif [ ${status_build} == 0 ] ; then
 
+    main_results=${results_location}/${folder}/${level_short}/
+    dataset_results=${results_location}/${folder}/aaaa_dataset
+
     z04_check_normal_termination.sh ${molecule_type} TS ${level_short}
 
     if [ ! -f ${failure} ]; then
@@ -75,63 +77,58 @@ elif [ ${status_build} == 0 ] ; then
         echo "Please wait a few minutes...."
         echo
 
-
     hartree norm -d ../6_norm_analysis/. -o ../6_norm_analysis
 
     ls *norm.txt > z_list_norm_files.txt
 
-    if [  -n ${tolerance} ]; then
-        echo "Not running with the default tolerance... running with ${tolerance}"
-        echo ''
-        norm_analysis -s z_list_norm_files.txt -r ${ring_atoms} -m ${molecule_type} -t ${tolerance}
-    else
-        norm_analysis -s z_list_norm_files.txt -r ${ring_atoms} -m ${molecule_type}
-    fi
+    norm_analysis -s z_list_norm_files.txt -r ${ring_atoms} -m ${molecule_type} -t ${tolerance}
 
     mv z_norm-analysis_TS_exo_puckers_z_list_norm_files.txt z_norm-analysis_TS-${level_short}_exo_puckers.txt
     mv z_norm-analysis_TS_ring_puckers_z_list_norm_files.txt z_norm-analysis_TS-${level_short}_ring_puckers.txt
 
-    cp z_norm-analysis_TS-${level_short}_exo_puckers.txt ${results_location}/${folder}/${level_short}/.
-    cp z_norm-analysis_TS-${level_short}_ring_puckers.txt ${results_location}/${folder}/${level_short}/.
+    cp z_norm-analysis_TS-${level_short}_exo_puckers.txt ${main_results}
+    cp z_norm-analysis_TS-${level_short}_ring_puckers.txt ${main_results}
 
-    irc_file_list=${p2}/puckering/z_results/${folder}/${level_short}/z_norm-analysis_TS-${level_short}_ring_puckers.txt
+    irc_file_list=${results_location}/${folder}/${level_short}/z_norm-analysis_TS-${level_short}_ring_puckers.txt
     input_list=$( column -t -s ' ' ${irc_file_list} | awk '{print $1}' )
 
-    new_dir=${p2}/puckering/${folder}/${level_short}/5_opt_TS/z_ring_puckering_logs
+    echo ${input_list}
 
-    if [ ! -d ${new_dir} ]; then
-        mkdir ${new_dir}
-    fi
-
-    for file in ${input_list}; do
-
-        file1=${file%.log}
-        file_2=${file1##\"}
-        file_move_log=${file_2%-norm_${level_short}}
-
-        cp ../5_opt_TS/${file_move_log}.log ${new_dir}/.
-
-    done
-
-
-    echo
-    echo 'Now running XYZ_CLUSTER!'
-    echo
-
-    hartree cpsnap -d ${new_dir} > ${new_dir}/z_hartree_ring_pucker-unsorted-TS-${molecule_type}-${level_short}.csv
-
-    cd ${new_dir}
-
-    z05_grab_xyz_coords.sh ${molecule_type}
-    xyz_cluster -s ${new_dir}/z_hartree_ring_pucker-unsorted-TS-${molecule_type}-${level_short}.csv -t ${tol} -r ${ring_atoms}
-
-    mv z_cluster_z_hartree_ring_pucker-unsorted-TS-${molecule_type}-${level_short}.csv z_cluster_ring_pucker-sorted-TS-${molecule_type}-${level_short}.csv
-
-    cp z_cluster_ring_pucker-sorted-TS-${molecule_type}-${level_short}.csv ../.
-    cp z_cluster_ring_pucker-sorted-TS-${molecule_type}-${level_short}.csv ${results_location}/${folder}/${level_short}/.
-    cp ${new_dir}/z_hartree_ring_pucker-unsorted-TS-${molecule_type}-${level_short}.csv ${results_location}/${folder}/${level_short}/.
-
-    fi
+#    new_dir=${main}/${folder}/${level_short}/5_opt_TS/z_ring_puckering_logs
+#
+#    if [ ! -d ${new_dir} ]; then
+#        mkdir ${new_dir}
+#    fi
+#
+#    for file in ${input_list}; do
+#
+#        file1=${file%.log}
+#        file_2=${file1##\"}
+#        file_move_log=${file_2%-norm_${level_short}}
+#
+#        cp ../5_opt_TS/${file_move_log}.log ${new_dir}/.
+#
+#    done
+#
+#
+#    echo
+#    echo 'Now running XYZ_CLUSTER!'
+#    echo
+#
+#    hartree cpsnap -d ${new_dir} > ${new_dir}/z_hartree_ring_pucker-unsorted-TS-${molecule_type}-${level_short}.csv
+#
+#    cd ${new_dir}
+#
+#    z05_grab_xyz_coords.sh ${molecule_type}
+#    xyz_cluster -s ${new_dir}/z_hartree_ring_pucker-unsorted-TS-${molecule_type}-${level_short}.csv -t ${tol} -r ${ring_atoms}
+#
+#    mv z_cluster_z_hartree_ring_pucker-unsorted-TS-${molecule_type}-${level_short}.csv z_cluster_ring_pucker-sorted-TS-${molecule_type}-${level_short}.csv
+#
+#    cp z_cluster_ring_pucker-sorted-TS-${molecule_type}-${level_short}.csv ../.
+#    cp z_cluster_ring_pucker-sorted-TS-${molecule_type}-${level_short}.csv ${results_location}/${folder}/${level_short}/.
+#    cp ${new_dir}/z_hartree_ring_pucker-unsorted-TS-${molecule_type}-${level_short}.csv ${results_location}/${folder}/${level_short}/.
+#
+#    fi
 fi
 
 echo
