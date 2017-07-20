@@ -79,18 +79,18 @@
       <file leaf-file-name="z25_run_hartree_lmirc.sh" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/z25_run_hartree_lmirc.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1605">
+            <state relative-caret-position="791">
               <caret line="107" column="6" lean-forward="false" selection-start-line="107" selection-start-column="6" selection-end-line="107" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="z24_norm_analysis.sh" pinned="false" current-in-tab="false">
+      <file leaf-file-name="z24_norm_analysis.sh" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/z24_norm_analysis.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="664">
-              <caret line="127" column="0" lean-forward="false" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
+            <state relative-caret-position="465">
+              <caret line="129" column="8" lean-forward="false" selection-start-line="129" selection-start-column="8" selection-end-line="129" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -106,11 +106,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="z23_run_hartree_xyz_TS.sh" pinned="false" current-in-tab="true">
+      <file leaf-file-name="z23_run_hartree_xyz_TS.sh" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/z23_run_hartree_xyz_TS.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="710">
-              <caret line="95" column="0" lean-forward="false" selection-start-line="95" selection-start-column="0" selection-end-line="101" selection-end-column="10" />
+            <state relative-caret-position="297">
+              <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="80" />
               <folding />
             </state>
           </provider>
@@ -206,6 +206,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/vicchio/code/bash/flux_puckering/z23_run_hartree_xyz_TS.sh" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -714,12 +715,12 @@
       <workItem from="1499695386651" duration="10662000" />
       <workItem from="1499883870573" duration="594000" />
       <workItem from="1499907417662" duration="1637000" />
-      <workItem from="1499977053357" duration="4068000" />
+      <workItem from="1499977053357" duration="4373000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44874000" />
+    <option name="totallyTimeSpent" value="45179000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1920" height="1131" extended-state="6" />
@@ -1034,14 +1035,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/z25_run_hartree_lmirc.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1605">
-          <caret line="107" column="6" lean-forward="false" selection-start-line="107" selection-start-column="6" selection-end-line="107" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/z22_run_hartree_xyz_optall.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="295">
@@ -1090,18 +1083,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/z24_norm_analysis.sh">
+    <entry file="file://$PROJECT_DIR$/z25_run_hartree_lmirc.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="664">
-          <caret line="127" column="0" lean-forward="false" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
+        <state relative-caret-position="791">
+          <caret line="107" column="6" lean-forward="false" selection-start-line="107" selection-start-column="6" selection-end-line="107" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/z23_run_hartree_xyz_TS.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="710">
-          <caret line="95" column="0" lean-forward="false" selection-start-line="95" selection-start-column="0" selection-end-line="101" selection-end-column="10" />
+        <state relative-caret-position="297">
+          <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="80" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/z24_norm_analysis.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="129" column="8" lean-forward="false" selection-start-line="129" selection-start-column="8" selection-end-line="129" selection-end-column="8" />
           <folding />
         </state>
       </provider>

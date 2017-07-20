@@ -127,6 +127,8 @@ elif [ ${status_build} == 0 ] ; then
         main_results=${results_location}/${folder}/${level_short}/
         dataset_results=${results_location}/${folder}/aaaa_dataset
 
+        naming_level=$(z02b_level_replace_script.sh ${molecule_type} ${level_short})
+
         if [ ! -d ${main_results} ]; then
             mkdir ${main_results}
         fi
