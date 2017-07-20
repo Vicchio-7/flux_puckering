@@ -94,29 +94,25 @@ elif [ ${status_build} == 0 ] ; then
 
         echo ${input_list}
 
-#    new_dir=${main}/${folder}/${level_short}/5_opt_TS/z_ring_puckering_logs
-#
-#    if [ ! -d ${new_dir} ]; then
-#        mkdir ${new_dir}
-#    fi
-#
-#    for file in ${input_list}; do
-#
-#        file1=${file%.log}
-#        file_2=${file1##\"}
-#        file_move_log=${file_2%-norm_${level_short}}
-#
-#        cp ../5_opt_TS/${file_move_log}.log ${new_dir}/.
-#
-#    done
-#
-#
-#    echo
-#    echo 'Now running XYZ_CLUSTER!'
-#    echo
-#
-#    hartree cpsnap -d ${new_dir} > ${new_dir}/z_hartree_ring_pucker-unsorted-TS-${molecule_type}-${level_short}.csv
-#
+        new_dir=${main}/${folder}/${level_short}/5_opt_TS/z_ring_puckering_logs
+
+        if [ ! -d ${new_dir} ]; then
+            mkdir ${new_dir}
+        fi
+
+        for file in ${input_list}; do
+            file1=${file%.log}
+            file_2=${file1##\"}
+            file_move_log=${file_2%-norm_${level_short}}
+            cp ../5_opt_TS/${file_move_log}.log ${new_dir}/.
+        done
+
+        echo
+        echo 'Now running XYZ_CLUSTER!'
+        echo
+
+        hartree cpsnap -d ${new_dir} > ${new_dir}/z_hartree_ring_pucker-unsorted-TS-${molecule_type}-${level_short}.csv
+
 #    cd ${new_dir}
 #
 #    z05_grab_xyz_coords.sh ${molecule_type}
