@@ -89,21 +89,20 @@ total_cost_for_jobs=$(printf '%.*f\n' 2 ${total_cost_for_jobs_long} )
 #
 echo "The total number of hours for all of these jobs is ${hours_total_from_months}"
 echo
-echo "The cost for this ${job_type} for ${molecule} is: $ ${total_cost_for_jobs} using Flux On Demand"
-echo "and $ ${total_cost_for_reserve} reserving cores on Flux."
+echo "The cost for this ${job_type} for ${molecule} is: $ ${total_cost_for_jobs} using Flux On Demand."
 echo
 #
-#echo > ${output_info_file}
-#echo "The total information from all of the log files:"  >> ${output_info_file}
-#echo ${seconds} seconds >> ${output_info_file}
-#echo ${minutes} minutes >> ${output_info_file}
-#echo ${hours} hours >> ${output_info_file}
-#echo ${days} days >> ${output_info_file}
-#echo >> ${output_info_file}
-#echo "The total number of hours for all of these jobs is ${hours_total_from_months}" >> ${output_info_file}
-#echo >> ${output_info_file}
-#echo "The cost for this ${job_type} for ${molecule} is: $ ${total_cost_for_jobs}" >> ${output_info_file}
-#echo >> ${output_info_file}
+echo > ${output_info_file}
+echo "The total information from all of the log files:"  >> ${output_info_file}
+echo ${seconds} seconds >> ${output_info_file}
+echo ${minutes} minutes >> ${output_info_file}
+echo ${hours} hours >> ${output_info_file}
+echo ${days} days >> ${output_info_file}
+echo >> ${output_info_file}
+echo "The total number of hours for all of these jobs is ${hours_total_from_months}" >> ${output_info_file}
+echo >> ${output_info_file}
+echo "The cost for this ${job_type} for ${molecule} is: $ ${total_cost_for_jobs}" >> ${output_info_file}
+echo >> ${output_info_file}
 
 
 
