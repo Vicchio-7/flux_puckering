@@ -118,10 +118,28 @@ elif [ ${status_build} == 0 ] ; then
 
         mv z_cluster_z_hartree_ring_pucker-unsorted-TS-${molecule_type}-${level_short}.csv z_cluster_ring_pucker-sorted-TS-${molecule_type}-${level_short}.csv
 
-    cp z_cluster_ring_pucker-sorted-TS-${molecule_type}-${level_short}.csv ../.
-    cp z_cluster_ring_pucker-sorted-TS-${molecule_type}-${level_short}.csv ${results_location}/${folder}/${level_short}/.
-    cp ${new_dir}/z_hartree_ring_pucker-unsorted-TS-${molecule_type}-${level_short}.csv ${results_location}/${folder}/${level_short}/.
+        cp z_cluster_ring_pucker-sorted-TS-${molecule_type}-${level_short}.csv ../.
+        cp z_cluster_ring_pucker-sorted-TS-${molecule_type}-${level_short}.csv ${main_results}/.
+        cp ${new_dir}/z_hartree_ring_pucker-unsorted-TS-${molecule_type}-${level_short}.csv ${results_location}/${folder}/${level_short}/.
 
+    # New file arrangment and orientation
+
+        main_results=${results_location}/${folder}/${level_short}/
+        dataset_results=${results_location}/${folder}/aaaa_dataset
+
+        if [ ! -d ${main_results} ]; then
+            mkdir ${main_results}
+        fi
+
+        if [ ! -d ${dataset_results} ]; then
+            mkdir ${dataset_results}
+        fi
+
+        if [ -f ${dataset_results}/z_dataset-${molecule_type}-TS-${naming_level}.csv} ] ; then
+                rm ${dataset_results}/z_dataset-${molecule_type}-TS-${naming_level}.csv
+        fi
+
+        cp ${main_results}/z_cluster_ring_pucker-sorted-TS-${molecule_type}-${level_short}.csv ${dataset_results}/z_dataset-${molecule_type}-TS-${naming_level}.csv
     fi
 fi
 
