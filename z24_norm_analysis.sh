@@ -92,8 +92,6 @@ elif [ ${status_build} == 0 ] ; then
         irc_file_list=${results_location}/${folder}/${level_short}/z_norm-analysis_TS-${level_short}_ring_puckers.txt
         input_list=$( column -t -s ' ' ${irc_file_list} | awk '{print $1}' )
 
-        echo ${input_list}
-
         new_dir=${main}/${folder}/${level_short}/5_opt_TS/z_ring_puckering_logs
 
         if [ ! -d ${new_dir} ]; then
@@ -113,17 +111,17 @@ elif [ ${status_build} == 0 ] ; then
 
         hartree cpsnap -d ${new_dir} > ${new_dir}/z_hartree_ring_pucker-unsorted-TS-${molecule_type}-${level_short}.csv
 
-#    cd ${new_dir}
-#
-#    z05_grab_xyz_coords.sh ${molecule_type}
-#    xyz_cluster -s ${new_dir}/z_hartree_ring_pucker-unsorted-TS-${molecule_type}-${level_short}.csv -t ${tol} -r ${ring_atoms}
-#
-#    mv z_cluster_z_hartree_ring_pucker-unsorted-TS-${molecule_type}-${level_short}.csv z_cluster_ring_pucker-sorted-TS-${molecule_type}-${level_short}.csv
-#
-#    cp z_cluster_ring_pucker-sorted-TS-${molecule_type}-${level_short}.csv ../.
-#    cp z_cluster_ring_pucker-sorted-TS-${molecule_type}-${level_short}.csv ${results_location}/${folder}/${level_short}/.
-#    cp ${new_dir}/z_hartree_ring_pucker-unsorted-TS-${molecule_type}-${level_short}.csv ${results_location}/${folder}/${level_short}/.
-#
+        cd ${new_dir}
+
+        z05_grab_xyz_coords.sh ${molecule_type}
+        xyz_cluster -s ${new_dir}/z_hartree_ring_pucker-unsorted-TS-${molecule_type}-${level_short}.csv -t ${tol} -r ${ring_atoms}
+
+        mv z_cluster_z_hartree_ring_pucker-unsorted-TS-${molecule_type}-${level_short}.csv z_cluster_ring_pucker-sorted-TS-${molecule_type}-${level_short}.csv
+
+    cp z_cluster_ring_pucker-sorted-TS-${molecule_type}-${level_short}.csv ../.
+    cp z_cluster_ring_pucker-sorted-TS-${molecule_type}-${level_short}.csv ${results_location}/${folder}/${level_short}/.
+    cp ${new_dir}/z_hartree_ring_pucker-unsorted-TS-${molecule_type}-${level_short}.csv ${results_location}/${folder}/${level_short}/.
+
     fi
 fi
 
