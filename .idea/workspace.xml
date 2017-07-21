@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6016564a-cc6d-43ee-9fcf-b702c3f51d9c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/z18_dftb_runs.sh" afterPath="$PROJECT_DIR$/z18_dftb_runs.sh" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,8 +38,8 @@
       <file leaf-file-name="z18_dftb_runs.sh" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/z18_dftb_runs.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="472">
-              <caret line="376" column="0" lean-forward="false" selection-start-line="376" selection-start-column="0" selection-end-line="394" selection-end-column="45" />
+            <state relative-caret-position="577">
+              <caret line="383" column="37" lean-forward="false" selection-start-line="376" selection-start-column="0" selection-end-line="394" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -659,12 +658,12 @@
       <workItem from="1499883870573" duration="594000" />
       <workItem from="1499907417662" duration="1637000" />
       <workItem from="1499977053357" duration="4397000" />
-      <workItem from="1500588655453" duration="2724000" />
+      <workItem from="1500588655453" duration="2843000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47927000" />
+    <option name="totallyTimeSpent" value="48046000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1389" y="-1178" width="1389" height="1178" extended-state="0" />
@@ -1121,8 +1120,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/z18_dftb_runs.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="472">
-          <caret line="376" column="0" lean-forward="false" selection-start-line="376" selection-start-column="0" selection-end-line="394" selection-end-column="45" />
+        <state relative-caret-position="577">
+          <caret line="383" column="37" lean-forward="false" selection-start-line="376" selection-start-column="0" selection-end-line="394" selection-end-column="45" />
           <folding />
         </state>
       </provider>

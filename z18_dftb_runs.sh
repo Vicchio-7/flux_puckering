@@ -60,6 +60,8 @@ elif [ "${molecule_type}" == 'bglc' ] ;  then
 	status_build=0
 	input_list=../y0-input_list.txt
 	ext=.xyz
+    lm_number=85
+    remove_molecule=beta-glucose
 else
 	echo
 	echo "The molecule type is not found in this script"
@@ -370,44 +372,49 @@ elif [ ${status_build} == 0 ] ; then
 
             elif [ "${job_type}" == 'optall' ] ; then
 
-                tpl_file=${tpl}/${template}
+                   tpl_file=${tpl}/${template}
 
-                ######## The section below updates the Gaussian Input File
-#
-                sed -e "s/\$memory/${total_memory}/g" ${tpl_file} > temp1.temp
-                sed -i "s/\$num_procs/${cores_per_node}/g" temp1.temp
-                sed -i "s/\$folder_1/${folder}/g" temp1.temp
-                sed -i "s/\$folder_old/${molecule_type}-freeze_${level_short}/g" temp1.temp
-                sed -i "s/\$old_check/${file}-freeze_${level_short}.chk/g" temp1.temp
-                sed -i "s/\$folder_new/${molecule_type}-optall_${level_short}/g" temp1.temp
-                sed -i "s/\$chkfile/${file}-freeze_${level_short}-${job_type}_${level_short}.chk/g" temp1.temp
-                sed -i "s/\level_of_theory/${level_theory}/g" temp1.temp
+                job_number=${file#${remove_molecule}}
+                if (( ${job_number} <= ${lm_number} )); then
+                    echo ${job_number}
 
-                mv temp1.temp ${file}.com
+                    ######## The section below updates the Gaussian Input File
 
-                sed -i '$d' ${file}.com
-                sed -i "6r ${dftb_ending}" ${file}.com
-                sed -i '15s/$/\n/' ${file}.com
+                    sed -e "s/\$memory/${total_memory}/g" ${tpl_file} > temp1.temp
+                    sed -i "s/\$num_procs/${cores_per_node}/g" temp1.temp
+                    sed -i "s/\$folder_1/${folder}/g" temp1.temp
+                    sed -i "s/\$folder_old/${molecule_type}-freeze_${level_short}/g" temp1.temp
+                    sed -i "s/\$old_check/${file}-freeze_${level_short}.chk/g" temp1.temp
+                    sed -i "s/\$folder_new/${molecule_type}-optall_${level_short}/g" temp1.temp
+                    sed -i "s/\$chkfile/${file}-freeze_${level_short}-${job_type}_${level_short}.chk/g" temp1.temp
+                    sed -i "s/\level_of_theory/${level_theory}/g" temp1.temp
 
-                cat ${dftb_ending} >> ${file}.com
+                    mv temp1.temp ${file}.com
 
-                sed -i '$s/$/\n/' ${file}.com
-                sed -i '$s/$/\n/' ${file}.com
+                    sed -i '$d' ${file}.com
+                    sed -i "6r ${dftb_ending}" ${file}.com
+                    sed -i '15s/$/\n/' ${file}.com
+
+                    cat ${dftb_ending} >> ${file}.com
+
+                    sed -i '$s/$/\n/' ${file}.com
+                    sed -i '$s/$/\n/' ${file}.com
 
 
-                ######## The section below creates the Slurm file for submission on Bridges
+                    ######## The section below creates the Slurm file for submission on Bridges
 
-                sed -e "s/\$num_proc/${cores_per_node}/g" ${tpl}/gaussian_pbs_script.job > temp1.txt
-                sed -i "s/conform/${file}/g" temp1.txt
-                sed -i "s/\$memory/${total_memory}/g" temp1.txt
-                sed -i "s/gauss-log/${file}-freeze_${3}/g" temp1.txt
-                sed -i "s/\$molecule/${molecule_type}/g" temp1.txt
-                sed -i "s/\$test/${job_type}/g" temp1.txt
-                sed -i "s/\$level/${level_short}/g" temp1.txt
-                sed -i "s/\$hours/${hours}/g" temp1.txt
-                sed -i "s/\$minutes/${minutes}/g" temp1.txt
-                mv temp1.txt pbs-${file}.job
+                    sed -e "s/\$num_proc/${cores_per_node}/g" ${tpl}/gaussian_pbs_script.job > temp1.txt
+                    sed -i "s/conform/${file}/g" temp1.txt
+                    sed -i "s/\$memory/${total_memory}/g" temp1.txt
+                    sed -i "s/gauss-log/${file}-freeze_${3}/g" temp1.txt
+                    sed -i "s/\$molecule/${molecule_type}/g" temp1.txt
+                    sed -i "s/\$test/${job_type}/g" temp1.txt
+                    sed -i "s/\$level/${level_short}/g" temp1.txt
+                    sed -i "s/\$hours/${hours}/g" temp1.txt
+                    sed -i "s/\$minutes/${minutes}/g" temp1.txt
+                    mv temp1.txt pbs-${file}.job
 
+                fi
 
 #            elif [ "${job_type}" == 'TS' ] ; then
 #
