@@ -338,7 +338,7 @@ elif [ ${status_build} == 0 ] ; then
 
                 sed -i '$s/$/\n/' ${file}.com
 
-                tail -n 5 ${tpl_file} >> ${file}.com
+                tail -n 7 ${tpl_file} >> ${file}.com
 
                 sed -i '$d' ${file}.com
 
