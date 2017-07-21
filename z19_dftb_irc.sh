@@ -149,6 +149,7 @@ elif [ ${status_build} == 0 ] ; then
             old_check_file=${file_org}
         else
             old_check_file=${file_org%-norm_${level_short}}.chk
+            echo ${old_check_file}
         fi
 
             if [ "${file_org}" != "File" ]; then
