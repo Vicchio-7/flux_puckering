@@ -280,7 +280,12 @@ elif [ ${status_build} == 2 ] ; then
             sed -i "s/\$folder_old/${molecule_type}-TS_${level_short}/g" temp1.temp
             sed -i "s/\$folder_new/${molecule_type}-norm_${level_short}/g" temp1.temp
             sed -i "s/\$chkfile/${file_org}-norm_${3}.chk/g" temp1.temp
-            sed -i "s/\$old_check/bxyl-${file_org}.chk/g" temp1.temp
+            sed -i "s/\$old_check/${file_org}.chk/g" temp1.temp
+
+
+
+
+
             sed -i "s/\level_of_theory/${level_theory}/g" temp1.temp
 
             sed -i '$d' temp1.temp
