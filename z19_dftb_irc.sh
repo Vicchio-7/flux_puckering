@@ -258,8 +258,6 @@ elif [ ${status_build} == 2 ] ; then
 
        if [ "${file_org}" != "File" ]; then
 
-            echo ${file_org}
-
             remove_molecule=-freeze_dftb-TS_dftb
             final_file=${file_org%${remove_molecule}}
 
@@ -297,7 +295,7 @@ elif [ ${status_build} == 2 ] ; then
             sed -i "s/\$level/${level_short}/g" temp1.txt
             sed -i "s/\$hours/${hours}/g" temp1.txt
             sed -i "s/\$minutes/${minutes}/g" temp1.txt
-            mv temp1.txt pbs-${file_org}-norm_${3}.job
+            mv temp1.txt pbs-${final_file}-norm_${3}.job
 
         fi
     done
