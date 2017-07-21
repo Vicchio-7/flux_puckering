@@ -295,26 +295,26 @@ elif [ ${status_build} == 0 ] ; then
 
          for file_unedit in $( <$input_list); do
 
-                file=${file_unedit%.xyz}
+            file=${file_unedit%.xyz}
 
-                echo ${file}
-#
-#            if [ "${job_type}" == 'freeze' ] ; then
-#
-#                tpl_file=${tpl}/${template}
-#
-#                ######## The section below updates the Gaussian Input File
-#
-#                    head -n 5 ${tpl_file} > temp1.temp
-#
-#                    echo "${file_unedit}" >> temp1.temp
-#                    echo '' >> temp1.temp
-#                    echo '0   1' >> temp1.temp
-#                    sed -n '3,100p' ../0_initial-coordinates/${file}.xyz >> temp1.temp
-#
-#                    mv temp1.temp ${file}.com
-#
-#                    sed -i '$s/$/\n/' ${file}.com
+            echo ${file}
+
+            if [ "${job_type}" == 'freeze' ] ; then
+
+                tpl_file=${tpl}/${template}
+
+                ######## The section below updates the Gaussian Input File
+
+                head -n 5 ${tpl_file} > temp1.temp
+
+                echo "${file_unedit}" >> temp1.temp
+                echo '' >> temp1.temp
+                echo '0   1' >> temp1.temp
+                sed -n '3,100p' ../0_initial-coordinates/${file}.xyz >> temp1.temp
+
+                mv temp1.temp ${file}.com
+
+                sed -i '$s/$/\n/' ${file}.com
 #
 #                    sed -i '$s/$/\nD   1    8    5    17 F/' ${file}.com
 #                    sed -i '$s/$/\nD   8    5   17    13 F/' ${file}.com
@@ -440,15 +440,15 @@ elif [ ${status_build} == 0 ] ; then
 #                sed -i "s/\$minutes/${minutes}/g" temp1.txt
 #                mv temp1.txt slurm-${file}.job
 #
-#
-#        else
-#            echo ""
-#            echo "The type of job you are attemping to run is not recognized."
-#            echo ""
-#            echo "Running your job will fail."
-#        fi
-#
-#
+
+        else
+            echo ""
+            echo "The type of job you are attemping to run is not recognized."
+            echo ""
+            echo "Running your job will fail."
+        fi
+
+
 
         done
     fi
