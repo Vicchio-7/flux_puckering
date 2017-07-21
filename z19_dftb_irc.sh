@@ -261,7 +261,7 @@ elif [ ${status_build} == 2 ] ; then
             echo ${file_org}
 
             remove_molecule=-freeze_dftb-TS_dftb
-            final_file=${file_org#${remove_molecule}}
+            final_file=${file_org%${remove_molecule}}
 
             echo ${final_file}
 
