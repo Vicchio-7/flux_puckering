@@ -315,28 +315,37 @@ elif [ ${status_build} == 0 ] ; then
                 mv temp1.temp ${file}.com
 
                 sed -i '$s/$/\n/' ${file}.com
-#
-#                    sed -i '$s/$/\nD   1    8    5    17 F/' ${file}.com
-#                    sed -i '$s/$/\nD   8    5   17    13 F/' ${file}.com
-#                    sed -i '$s/$/\nD   5   17   13     9 F/' ${file}.com
-#                    sed -i '$s/$/\nD  17   13    9     1 F/' ${file}.com
-#                    sed -i '$s/$/\nD  13    9    1     8 F/' ${file}.com
-#                    sed -i '$s/$/\nD   9    1    8     5 F/' ${file}.com
-#
-#                    sed -i '$s/$/\n/' ${file}.com
-#
-#                    cat ${dftb_ending} >> ${file}.com
-#
-#                    sed -i '$s/$/\n/' ${file}.com
-#
-#                    tail -n 5 ${tpl_file} >> ${file}.com
-#
-#                    sed -i '$d' ${file}.com
-#
-#                    cat ${dftb_ending} >> ${file}.com
-#
-#                    sed -i '$s/$/\n/' ${file}.com
-#                    sed -i '$s/$/\n/' ${file}.com
+
+                if [ "${molecule_type}" == 'bxyl' ] ; then
+                    sed -i '$s/$/\nD   1    8    5    17 F/' ${file}.com
+                    sed -i '$s/$/\nD   8    5   17    13 F/' ${file}.com
+                    sed -i '$s/$/\nD   5   17   13     9 F/' ${file}.com
+                    sed -i '$s/$/\nD  17   13    9     1 F/' ${file}.com
+                    sed -i '$s/$/\nD  13    9    1     8 F/' ${file}.com
+                    sed -i '$s/$/\nD   9    1    8     5 F/' ${file}.com
+                elif [ "${molecule_type}" == 'bglc' ] ; then
+                    sed -i '$s/$/\nD   1    5    7     8 F/' ${file}.com
+                    sed -i '$s/$/\nD   5    7    8    12 F/' ${file}.com
+                    sed -i '$s/$/\nD   7    8   12    16 F/' ${file}.com
+                    sed -i '$s/$/\nD   8   12   16     1 F/' ${file}.com
+                    sed -i '$s/$/\nD  12   16    1     5 F/' ${file}.com
+                    sed -i '$s/$/\nD  16    1    5     7 F/' ${file}.com
+                fi
+
+                sed -i '$s/$/\n/' ${file}.com
+
+                cat ${dftb_ending} >> ${file}.com
+
+                sed -i '$s/$/\n/' ${file}.com
+
+                tail -n 5 ${tpl_file} >> ${file}.com
+
+                sed -i '$d' ${file}.com
+
+                cat ${dftb_ending} >> ${file}.com
+
+                sed -i '$s/$/\n/' ${file}.com
+                sed -i '$s/$/\n/' ${file}.com
 #
 #                    sed -i "s/\$memory/${total_memory}/g" ${file}.com
 #                    sed -i "s/\$num_procs/${cores_per_node}/g" ${file}.com
