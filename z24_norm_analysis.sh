@@ -81,7 +81,7 @@ elif [ ${status_build} == 0 ] ; then
 
         ls *norm.txt > z_list_norm_files.txt
 
-        norm_analysis -s z_list_norm_files.txt -r ${ring_atoms} -m ${molecule_type} -t 80
+        norm_analysis -s z_list_norm_files.txt -r ${ring_atoms} -m ${molecule_type} -t ${tolerance}
 
         mv z_norm-analysis_TS_exo_puckers_z_list_norm_files.txt z_norm-analysis_TS-${level_short}_exo_puckers.txt
         mv z_norm-analysis_TS_ring_puckers_z_list_norm_files.txt z_norm-analysis_TS-${level_short}_ring_puckers.txt
@@ -89,59 +89,59 @@ elif [ ${status_build} == 0 ] ; then
         cp z_norm-analysis_TS-${level_short}_exo_puckers.txt ${main_results}
         cp z_norm-analysis_TS-${level_short}_ring_puckers.txt ${main_results}
 
-#        irc_file_list=${results_location}/${folder}/${level_short}/z_norm-analysis_TS-${level_short}_ring_puckers.txt
-#        input_list=$( column -t -s ' ' ${irc_file_list} | awk '{print $1}' )
-#
-#        new_dir=${main}/${folder}/${level_short}/5_opt_TS/z_ring_puckering_logs
-#
-#        if [ ! -d ${new_dir} ]; then
-#            mkdir ${new_dir}
-#        fi
-#
-#        for file in ${input_list}; do
-#            file1=${file%.log}
-#            file_2=${file1##\"}
-#            file_move_log=${file_2%-norm_${level_short}}
-#            cp ../5_opt_TS/${file_move_log}.log ${new_dir}/.
-#        done
-#
-#        echo
-#        echo 'Now running XYZ_CLUSTER!'
-#        echo
-#
-#        hartree cpsnap -d ${new_dir} > ${new_dir}/z_hartree_ring_pucker-unsorted-TS-${molecule_type}-${level_short}.csv
-#
-#        cd ${new_dir}
-#
-#        z05_grab_xyz_coords.sh ${molecule_type}
-#        xyz_cluster -s ${new_dir}/z_hartree_ring_pucker-unsorted-TS-${molecule_type}-${level_short}.csv -t ${tol} -r ${ring_atoms}
-#
-#        mv z_cluster_z_hartree_ring_pucker-unsorted-TS-${molecule_type}-${level_short}.csv z_cluster_ring_pucker-sorted-TS-${molecule_type}-${level_short}.csv
-#
-#        cp z_cluster_ring_pucker-sorted-TS-${molecule_type}-${level_short}.csv ../.
-#        cp z_cluster_ring_pucker-sorted-TS-${molecule_type}-${level_short}.csv ${main_results}/.
-#        cp ${new_dir}/z_hartree_ring_pucker-unsorted-TS-${molecule_type}-${level_short}.csv ${results_location}/${folder}/${level_short}/.
-#
-#    # New file arrangment and orientation
-#
-#        main_results=${results_location}/${folder}/${level_short}/
-#        dataset_results=${results_location}/${folder}/aaaa_dataset
-#
-#        naming_level=$(z02b_level_replace_script.sh ${molecule_type} ${level_short})
-#
-#        if [ ! -d ${main_results} ]; then
-#            mkdir ${main_results}
-#        fi
-#
-#        if [ ! -d ${dataset_results} ]; then
-#            mkdir ${dataset_results}
-#        fi
-#
-#        if [ -f ${dataset_results}/z_dataset-${molecule_type}-TS-${naming_level}.csv} ] ; then
-#                rm ${dataset_results}/z_dataset-${molecule_type}-TS-${naming_level}.csv
-#        fi
-#
-#        cp ${main_results}/z_cluster_ring_pucker-sorted-TS-${molecule_type}-${level_short}.csv ${dataset_results}/z_dataset-${molecule_type}-TS-${naming_level}.csv
+        irc_file_list=${results_location}/${folder}/${level_short}/z_norm-analysis_TS-${level_short}_ring_puckers.txt
+        input_list=$( column -t -s ' ' ${irc_file_list} | awk '{print $1}' )
+
+        new_dir=${main}/${folder}/${level_short}/5_opt_TS/z_ring_puckering_logs
+
+        if [ ! -d ${new_dir} ]; then
+            mkdir ${new_dir}
+        fi
+
+        for file in ${input_list}; do
+            file1=${file%.log}
+            file_2=${file1##\"}
+            file_move_log=${file_2%-norm_${level_short}}
+            cp ../5_opt_TS/${file_move_log}.log ${new_dir}/.
+        done
+
+        echo
+        echo 'Now running XYZ_CLUSTER!'
+        echo
+
+        hartree cpsnap -d ${new_dir} > ${new_dir}/z_hartree_ring_pucker-unsorted-TS-${molecule_type}-${level_short}.csv
+
+        cd ${new_dir}
+
+        z05_grab_xyz_coords.sh ${molecule_type}
+        xyz_cluster -s ${new_dir}/z_hartree_ring_pucker-unsorted-TS-${molecule_type}-${level_short}.csv -t ${tol} -r ${ring_atoms}
+
+        mv z_cluster_z_hartree_ring_pucker-unsorted-TS-${molecule_type}-${level_short}.csv z_cluster_ring_pucker-sorted-TS-${molecule_type}-${level_short}.csv
+
+        cp z_cluster_ring_pucker-sorted-TS-${molecule_type}-${level_short}.csv ../.
+        cp z_cluster_ring_pucker-sorted-TS-${molecule_type}-${level_short}.csv ${main_results}/.
+        cp ${new_dir}/z_hartree_ring_pucker-unsorted-TS-${molecule_type}-${level_short}.csv ${results_location}/${folder}/${level_short}/.
+
+    # New file arrangment and orientation
+
+        main_results=${results_location}/${folder}/${level_short}/
+        dataset_results=${results_location}/${folder}/aaaa_dataset
+
+        naming_level=$(z02b_level_replace_script.sh ${molecule_type} ${level_short})
+
+        if [ ! -d ${main_results} ]; then
+            mkdir ${main_results}
+        fi
+
+        if [ ! -d ${dataset_results} ]; then
+            mkdir ${dataset_results}
+        fi
+
+        if [ -f ${dataset_results}/z_dataset-${molecule_type}-TS-${naming_level}.csv} ] ; then
+                rm ${dataset_results}/z_dataset-${molecule_type}-TS-${naming_level}.csv
+        fi
+
+        cp ${main_results}/z_cluster_ring_pucker-sorted-TS-${molecule_type}-${level_short}.csv ${dataset_results}/z_dataset-${molecule_type}-TS-${naming_level}.csv
     fi
 fi
 
