@@ -25,7 +25,6 @@ minutes=45 # number between 0 and 59
 
 total_memory=$(echo ${cores_per_node} ${memory_job} | awk '{ print $1*$2 }' )
 
-
 ## Input - Codes ##
 # Please update the following input commands depending on the user.
 

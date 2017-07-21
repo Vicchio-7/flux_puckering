@@ -28,16 +28,16 @@ total_memory=$(echo ${cores_per_node} ${memory_job} | awk '{ print $1*$2 }' )
 ## Input - Codes ##
 # Please update the following input commands depending on the user.
 
-account=ct560hp
+account=hbmayes_fluxod
 user=vicchio
 
 ## Additional Required Information ##
 # Additional information such as folder location that is required for the code to run properly.
 
-p1=/pylon5/${account}/${user}
-p2=/pylon2/${account}/${user}
-tpl=${p2}/puckering/y_tpl/3_dftb_tpl
-dftb_files=${p2}/puckering/x_dftb_files
+scratch=/scratch/${account}/${user}
+main=/home/${user}/1_puckering
+tpl=${main}/y_tpl/3_dftb_tpl
+dftb_files=${main}/x_dftb_files
 dftb_ending=${dftb_files}/list_dftb_files.txt
 
 # --------------------------------------------------------------------------------------
@@ -114,8 +114,8 @@ elif [ ${status_build} == 0 ] ; then
         break
     fi
 
-    irc_forward=${p1}/puckering/${folder}/${1}-${2}_${3}-forward
-    irc_backward=${p1}/puckering/${folder}/${1}-${2}_${3}-reverse
+    irc_forward=${scratch}/puckering/${folder}/${1}-${2}_${3}-forward
+    irc_backward=${scratch}/puckering/${folder}/${1}-${2}_${3}-reverse
 
     if [ ! -d ${irc_forward} ]; then
         mkdir ${irc_forward}
@@ -126,18 +126,14 @@ elif [ ${status_build} == 0 ] ; then
     fi
 
     if [ ${molecule_type} == "oxane" ] ; then
-
-        irc_file_list=${p2}/puckering/z_results/${folder}/${level_short}/z_cluster-sorted-TS-${molecule_type}-${level_short}.csv
+        irc_file_list=${main}/z_results/${folder}/${level_short}/z_cluster-sorted-TS-${molecule_type}-${level_short}.csv
         input_list=$( column -t -s ',' ${irc_file_list} | awk '{print $1}' )
-
     else
-
-        irc_file_list=${p2}/puckering/z_results/${folder}/${level_short}/z_cluster_ring_pucker-sorted-TS-${molecule_type}-${level_short}.csv
+        irc_file_list=${main}/z_results/${folder}/${level_short}/z_cluster_ring_pucker-sorted-TS-${molecule_type}-${level_short}.csv
         input_list=$( column -t -s ',' ${irc_file_list} | awk '{print $1}' )
-
     fi
 
-     for file in ${input_list}; do
+    for file in ${input_list}; do
 
         file1=${file%.log\"}
         file2=${file1%.log}
@@ -150,7 +146,6 @@ elif [ ${status_build} == 0 ] ; then
         fi
 
             if [ "${file_org}" != "File" ]; then
-
 
             ##### IRC - Forward Direction! #####
 
@@ -180,16 +175,16 @@ elif [ ${status_build} == 0 ] ; then
                 mv temp1.temp ${new_filenamef}.com
 
             ######## The section below creates the Slurm file for submission on Bridges
-                sed -e "s/\$num_proc/${cores_per_node}/g" ${tpl}/gaussian_slurm_script.job > temp1.txt
-                sed -i "s/conform/${new_filenamef}/g" temp1.txt
-                sed -i "s/gauss-log/${new_filenamef}-${level_short}/g" temp1.txt
+                sed -e "s/\$num_proc/${cores_per_node}/g" ${tpl}/gaussian_pbs_script.job > temp1.txt
+                sed -i "s/conform/${file}/g" temp1.txt
+                sed -i "s/\$memory/${total_memory}/g" temp1.txt
+                sed -i "s/gauss-log/${file}-freeze_${3}-TS_${3}/g" temp1.txt
                 sed -i "s/\$molecule/${molecule_type}/g" temp1.txt
                 sed -i "s/\$test/${job_type}/g" temp1.txt
                 sed -i "s/\$level/${level_short}/g" temp1.txt
                 sed -i "s/\$hours/${hours}/g" temp1.txt
                 sed -i "s/\$minutes/${minutes}/g" temp1.txt
-
-                mv temp1.txt slurm-${new_filenamef}.job
+                mv temp1.txt pbs-${new_filenamef}.job
 
             ##### IRC - Reverse Direction! #####
 
@@ -219,17 +214,16 @@ elif [ ${status_build} == 0 ] ; then
                 mv temp1.temp ${new_filenamer}.com
 
             ######## The section below creates the Slurm file for submission on Bridges
-                sed -e "s/\$num_proc/${cores_per_node}/g" ${tpl}/gaussian_slurm_script.job > temp1.txt
-                sed -i "s/conform/${new_filenamer}/g" temp1.txt
-                sed -i "s/gauss-log/${new_filenamer}-${level_short}/g" temp1.txt
+                sed -e "s/\$num_proc/${cores_per_node}/g" ${tpl}/gaussian_pbs_script.job > temp1.txt
+                sed -i "s/conform/${file}/g" temp1.txt
+                sed -i "s/\$memory/${total_memory}/g" temp1.txt
+                sed -i "s/gauss-log/${file}-freeze_${3}-TS_${3}/g" temp1.txt
                 sed -i "s/\$molecule/${molecule_type}/g" temp1.txt
                 sed -i "s/\$test/${job_type}/g" temp1.txt
                 sed -i "s/\$level/${level_short}/g" temp1.txt
                 sed -i "s/\$hours/${hours}/g" temp1.txt
                 sed -i "s/\$minutes/${minutes}/g" temp1.txt
-
-                mv temp1.txt slurm-${new_filenamer}.job
-
+                mv temp1.txt pbs-${new_filenamer}.job
 
             fi
          done
@@ -288,19 +282,18 @@ elif [ ${status_build} == 2 ] ; then
 
             mv temp1.temp ${file_org}-norm_${3}.com
 
-
             ######## The section below creates the Slurm file for submission on Bridges
-
-            sed -e "s/\$num_proc/${cores_per_node}/g" ${tpl}/gaussian_slurm_script.job > temp1.txt
-            sed -i "s/conform/${file_org}-norm_${3}/g" temp1.txt
-            sed -i "s/gauss-log/${file_org}-norm_${3}/g" temp1.txt
+            sed -e "s/\$num_proc/${cores_per_node}/g" ${tpl}/gaussian_pbs_script.job > temp1.txt
+            sed -i "s/conform/${file}/g" temp1.txt
+            sed -i "s/\$memory/${total_memory}/g" temp1.txt
+            sed -i "s/gauss-log/${file}-freeze_${3}-TS_${3}/g" temp1.txt
             sed -i "s/\$molecule/${molecule_type}/g" temp1.txt
             sed -i "s/\$test/${job_type}/g" temp1.txt
             sed -i "s/\$level/${level_short}/g" temp1.txt
             sed -i "s/\$hours/${hours}/g" temp1.txt
             sed -i "s/\$minutes/${minutes}/g" temp1.txt
+            mv temp1.txt pbs-${file_org}-norm_${3}.job
 
-            mv temp1.txt slurm-${file_org}-norm_${3}.job
         fi
     done
 

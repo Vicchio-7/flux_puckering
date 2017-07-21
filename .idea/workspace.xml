@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="6016564a-cc6d-43ee-9fcf-b702c3f51d9c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/z23_run_hartree_xyz_TS.sh" afterPath="$PROJECT_DIR$/z23_run_hartree_xyz_TS.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/z18_dftb_runs.sh" afterPath="$PROJECT_DIR$/z18_dftb_runs.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/z19_dftb_irc.sh" afterPath="$PROJECT_DIR$/z19_dftb_irc.sh" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,16 +37,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="z18_dftb_runs.sh" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/z18_dftb_runs.sh">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="620">
-              <caret line="462" column="59" lean-forward="true" selection-start-line="462" selection-start-column="59" selection-end-line="462" selection-end-column="59" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="z11_freeze_jobs.sh" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/z11_freeze_jobs.sh">
           <provider selected="true" editor-type-id="text-editor">
@@ -56,11 +47,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="z23_run_hartree_xyz_TS.sh" pinned="false" current-in-tab="true">
+      <file leaf-file-name="z23_run_hartree_xyz_TS.sh" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/z23_run_hartree_xyz_TS.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="87" column="8" lean-forward="false" selection-start-line="87" selection-start-column="8" selection-end-line="87" selection-end-column="8" />
+            <state relative-caret-position="172">
+              <caret line="75" column="12" lean-forward="true" selection-start-line="75" selection-start-column="12" selection-end-line="75" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="z18_dftb_runs.sh" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/z18_dftb_runs.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="486">
+              <caret line="453" column="0" lean-forward="false" selection-start-line="453" selection-start-column="0" selection-end-line="462" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="z19_dftb_irc.sh" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/z19_dftb_irc.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="561">
+              <caret line="283" column="0" lean-forward="true" selection-start-line="283" selection-start-column="0" selection-end-line="283" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -105,8 +116,9 @@
         <option value="$PROJECT_DIR$/z15_irc_run.sh" />
         <option value="$PROJECT_DIR$/z06_total_runtime_cost" />
         <option value="$PROJECT_DIR$/z24_norm_analysis.sh" />
-        <option value="$PROJECT_DIR$/z18_dftb_runs.sh" />
         <option value="$PROJECT_DIR$/z23_run_hartree_xyz_TS.sh" />
+        <option value="$PROJECT_DIR$/z18_dftb_runs.sh" />
+        <option value="$PROJECT_DIR$/z19_dftb_irc.sh" />
       </list>
     </option>
   </component>
@@ -669,12 +681,12 @@
       <workItem from="1499883870573" duration="594000" />
       <workItem from="1499907417662" duration="1637000" />
       <workItem from="1499977053357" duration="4397000" />
-      <workItem from="1500588655453" duration="5081000" />
+      <workItem from="1500588655453" duration="5954000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50284000" />
+    <option name="totallyTimeSpent" value="51157000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1389" y="-1178" width="1389" height="1178" extended-state="0" />
@@ -745,14 +757,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/z13_TS_run.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4530">
-          <caret line="302" column="37" lean-forward="false" selection-start-line="302" selection-start-column="37" selection-end-line="302" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/z15_irc_run.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -1122,18 +1126,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/z18_dftb_runs.sh">
+    <entry file="file://$PROJECT_DIR$/z23_run_hartree_xyz_TS.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="620">
-          <caret line="462" column="59" lean-forward="true" selection-start-line="462" selection-start-column="59" selection-end-line="462" selection-end-column="59" />
+        <state relative-caret-position="172">
+          <caret line="75" column="12" lean-forward="true" selection-start-line="75" selection-start-column="12" selection-end-line="75" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/z23_run_hartree_xyz_TS.sh">
+    <entry file="file://$PROJECT_DIR$/z18_dftb_runs.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="87" column="8" lean-forward="false" selection-start-line="87" selection-start-column="8" selection-end-line="87" selection-end-column="8" />
+        <state relative-caret-position="486">
+          <caret line="453" column="0" lean-forward="false" selection-start-line="453" selection-start-column="0" selection-end-line="462" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/z19_dftb_irc.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="283" column="0" lean-forward="true" selection-start-line="283" selection-start-column="0" selection-end-line="283" selection-end-column="0" />
           <folding />
         </state>
       </provider>
