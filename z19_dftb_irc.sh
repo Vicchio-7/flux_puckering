@@ -254,8 +254,8 @@ elif [ ${status_build} == 2 ] ; then
 
     input_list=$( column -t -s ',' ${ts_hartree_file} | awk '{print $1}' )
 
-    if [ ! -d ${p1}/puckering/${folder}/${molecule_type}-norm_${level_short} ]; then
-        mkdir ${p1}/puckering/${folder}/${molecule_type}-norm_${level_short}
+    if [ ! -d ${scratch}/puckering/${folder}/${molecule_type}-norm_${level_short} ]; then
+        mkdir ${scratch}/puckering/${folder}/${molecule_type}-norm_${level_short}
     fi
 
     for file in ${input_list}; do
