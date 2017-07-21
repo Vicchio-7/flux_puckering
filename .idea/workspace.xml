@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6016564a-cc6d-43ee-9fcf-b702c3f51d9c" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/z18_dftb_runs.sh" afterPath="$PROJECT_DIR$/z18_dftb_runs.sh" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -38,8 +39,8 @@
       <file leaf-file-name="z18_dftb_runs.sh" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/z18_dftb_runs.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="702">
-              <caret line="361" column="71" lean-forward="true" selection-start-line="360" selection-start-column="73" selection-end-line="361" selection-end-column="71" />
+            <state relative-caret-position="507">
+              <caret line="348" column="0" lean-forward="false" selection-start-line="348" selection-start-column="0" selection-end-line="354" selection-end-column="73" />
               <folding />
             </state>
           </provider>
@@ -658,12 +659,12 @@
       <workItem from="1499883870573" duration="594000" />
       <workItem from="1499907417662" duration="1637000" />
       <workItem from="1499977053357" duration="4397000" />
-      <workItem from="1500588655453" duration="1961000" />
+      <workItem from="1500588655453" duration="1995000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47164000" />
+    <option name="totallyTimeSpent" value="47198000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1389" y="-1178" width="1389" height="1178" extended-state="0" />
@@ -1119,8 +1120,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/z18_dftb_runs.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="702">
-          <caret line="361" column="71" lean-forward="true" selection-start-line="360" selection-start-column="73" selection-end-line="361" selection-end-column="71" />
+        <state relative-caret-position="507">
+          <caret line="348" column="0" lean-forward="false" selection-start-line="348" selection-start-column="0" selection-end-line="354" selection-end-column="73" />
           <folding />
         </state>
       </provider>
