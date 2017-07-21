@@ -261,7 +261,9 @@ elif [ ${status_build} == 2 ] ; then
             echo ${file_org}
 
             remove_molecule=-freeze_dftb-TS_dftb
-            job_number=${file#${remove_molecule}}
+            final_file=${file#${remove_molecule}}
+
+            echo ${final_file}
 
             tpl_file=${tpl}/${tpl_folder}/run_norm.tpl
 
