@@ -149,7 +149,6 @@ elif [ ${status_build} == 0 ] ; then
             old_check_file=${file_org}
         else
             old_check_file=${file_org%-norm_${level_short}}.chk
-            echo ${old_check_file}
         fi
 
             if [ "${file_org}" != "File" ]; then
@@ -281,10 +280,6 @@ elif [ ${status_build} == 2 ] ; then
             sed -i "s/\$folder_new/${molecule_type}-norm_${level_short}/g" temp1.temp
             sed -i "s/\$chkfile/${file_org}-norm_${3}.chk/g" temp1.temp
             sed -i "s/\$old_check/${file_org}.chk/g" temp1.temp
-
-
-
-
 
             sed -i "s/\level_of_theory/${level_theory}/g" temp1.temp
 
