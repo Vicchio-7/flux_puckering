@@ -283,7 +283,7 @@ elif [ ${status_build} == 2 ] ; then
             sed -i '$s/$/\n/' temp1.temp
             sed -i '$s/$/\n/' temp1.temp
 
-            mv temp1.temp ${file_org}-norm_${3}.com
+            mv temp1.temp ${final_file}.com
 
             ######## The section below creates the Slurm file for submission on Bridges
             sed -e "s/\$num_proc/${cores_per_node}/g" ${tpl}/gaussian_pbs_script.job > temp1.txt
