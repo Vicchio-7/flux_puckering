@@ -260,6 +260,9 @@ elif [ ${status_build} == 2 ] ; then
 
             echo ${file_org}
 
+            remove_molecule=-freeze_dftb-TS_dftb
+            job_number=${file#${remove_molecule}}
+
             tpl_file=${tpl}/${tpl_folder}/run_norm.tpl
 
             ######## The section below updates the Gaussian Input File
