@@ -346,13 +346,13 @@ elif [ ${status_build} == 0 ] ; then
 
                 sed -i '$s/$/\n/' ${file}.com
                 sed -i '$s/$/\n/' ${file}.com
-#
-#                    sed -i "s/\$memory/${total_memory}/g" ${file}.com
-#                    sed -i "s/\$num_procs/${cores_per_node}/g" ${file}.com
-#                    sed -i "s/\$folder_1/${folder}/g" ${file}.com
-#                    sed -i "s/\$folder_new/${molecule_type}-freeze_${level_short}/g"  ${file}.com
-#                    sed -i "s/\$chkfile/${file}-freeze_${level_short}.chk/g"  ${file}.com
-#                    sed -i "s/\level_of_theory/${level_theory}/g" ${file}.com
+
+                sed -i "s/\$memory/${total_memory}/g" ${file}.com
+                sed -i "s/\$num_procs/${cores_per_node}/g" ${file}.com
+                sed -i "s/\$folder_1/${folder}/g" ${file}.com
+                sed -i "s/\$folder_new/${molecule_type}-freeze_${level_short}/g"  ${file}.com
+                sed -i "s/\$chkfile/${file}-freeze_${level_short}.chk/g"  ${file}.com
+                sed -i "s/\level_of_theory/${level_theory}/g" ${file}.com
 #
 #                ######## The section below creates the Slurm file for submission on Bridges
 #
