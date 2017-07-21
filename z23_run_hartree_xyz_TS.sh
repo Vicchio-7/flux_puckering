@@ -78,6 +78,14 @@ elif [ ${status_build} == 0 ] ; then
         main_results=${results_location}/${folder}/${level_short}/
         dataset_results=${results_location}/${folder}/aaaa_dataset
 
+        if [ ! -d ${main_results} ]; then
+            mkdir ${main_results}
+        fi
+
+        if [ ! -d ${dataset_results} ]; then
+            mkdir ${dataset_results}
+        fi
+
         if [[ ${molecule_type} == 'oxane' ]]; then
             hartree cpsnap -d $PWD > z_hartree-unsorted-${job_type}-${molecule_type}-${level_short}.csv
             z05_grab_xyz_coords.sh ${molecule_type}
@@ -93,13 +101,6 @@ elif [ ${status_build} == 0 ] ; then
             cp z_cluster-sorted-normlessTS-${molecule_type}-${level_short}.csv ${main_results}/z_cluster-sorted-normlessTS-${molecule_type}-${level_short}.csv
         fi
 
-        if [ ! -d ${main_results} ]; then
-            mkdir ${main_results}
-        fi
-
-        if [ ! -d ${dataset_results} ]; then
-            mkdir ${dataset_results}
-        fi
 
         echo
         echo "Copying files over to:" ${results_location}/${folder}/${level_short}
