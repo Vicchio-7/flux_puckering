@@ -75,7 +75,7 @@ if [ "${molecule_type}" == 'oxane' ] ; then
     fi
 
 
-elif [ "${molecule_type}" == 'bxyl' ] ;  then
+elif [ "${molecule_type}" == 'bxyl' ] || [ "${molecule_type}" == 'bglc' ] ;  then
 
     if [ "${job_type}" == 'irc' ] ; then
         status_build=0
