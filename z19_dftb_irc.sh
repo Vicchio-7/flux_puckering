@@ -145,6 +145,8 @@ elif [ ${status_build} == 0 ] ; then
         file2=${file1%.log}
         file_org=${file2##\"}
 
+        echo ${file_org}
+
         if [ ${molecule_type} == "oxane" ] ; then
             old_check_file=${file_org}
         else
