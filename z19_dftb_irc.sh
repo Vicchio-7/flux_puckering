@@ -81,6 +81,8 @@ elif [ "${molecule_type}" == 'bxyl' ] || [ "${molecule_type}" == 'bglc' ] ;  the
         status_build=0
     elif [ "${job_type}" == 'norm' ] ; then
         status_build=2
+        hours=0 #1, 2 ,3 ..... 10, 11, 12....
+        minutes=10 # number between 0 and 59
     else
         echo ""
         echo "The type of job you are attemping to run is not recognized."
