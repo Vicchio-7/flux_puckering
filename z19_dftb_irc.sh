@@ -77,8 +77,6 @@ if [ "${molecule_type}" == 'oxane' ] ; then
         echo ""
         echo "Running your job will fail."
     fi
-
-
 elif [ "${molecule_type}" == 'bxyl' ] || [ "${molecule_type}" == 'bglc' ] ;  then
 
     if [ "${job_type}" == 'irc' ] ; then
@@ -169,16 +167,16 @@ elif [ ${status_build} == 0 ] ; then
                 sed -i "s/\$chkfile/${new_check_file}/g" temp1.temp
                 sed -i "s/\level_of_theory/${level_theory}/g" temp1.temp
 
-                sed -i '$d' temp1.temp
-                cat ${dftb_ending} >> temp1.temp
-
-                sed -i "10r ${dftb_ending}" temp1.temp
-                sed -i '19s/$/\n/' temp1.temp
-                sed -i "6r ${dftb_ending}" temp1.temp
-                sed -i '15s/$/\n/' temp1.temp
-
-                sed -i '$s/$/\n/' temp1.temp
-                sed -i '$s/$/\n/' temp1.temp
+#                sed -i '$d' temp1.temp
+#                cat ${dftb_ending} >> temp1.temp
+#
+#                sed -i "10r ${dftb_ending}" temp1.temp
+#                sed -i '19s/$/\n/' temp1.temp
+#                sed -i "6r ${dftb_ending}" temp1.temp
+#                sed -i '15s/$/\n/' temp1.temp
+#
+#                sed -i '$s/$/\n/' temp1.temp
+#                sed -i '$s/$/\n/' temp1.temp
 
                 mv temp1.temp ${new_filenamef}.com
 
@@ -208,16 +206,16 @@ elif [ ${status_build} == 0 ] ; then
                 sed -i "s/\$chkfile/${new_check_file}/g" temp1.temp
                 sed -i "s/\level_of_theory/${level_theory}/g" temp1.temp
 
-                sed -i '$d' temp1.temp
-                cat ${dftb_ending} >> temp1.temp
-
-                sed -i "10r ${dftb_ending}" temp1.temp
-                sed -i '19s/$/\n/' temp1.temp
-                sed -i "6r ${dftb_ending}" temp1.temp
-                sed -i '15s/$/\n/' temp1.temp
-
-                sed -i '$s/$/\n/' temp1.temp
-                sed -i '$s/$/\n/' temp1.temp
+#                sed -i '$d' temp1.temp
+#                cat ${dftb_ending} >> temp1.temp
+#
+#                sed -i "10r ${dftb_ending}" temp1.temp
+#                sed -i '19s/$/\n/' temp1.temp
+#                sed -i "6r ${dftb_ending}" temp1.temp
+#                sed -i '15s/$/\n/' temp1.temp
+#
+#                sed -i '$s/$/\n/' temp1.temp
+#                sed -i '$s/$/\n/' temp1.temp
 
                 mv temp1.temp ${new_filenamer}.com
 
