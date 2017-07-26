@@ -92,7 +92,7 @@ elif [ ${status_build} == 0 ] ; then
             mv z_cluster_z_hartree-unsorted-${job_type}-${molecule_type}-${level_short}.csv z_single_cluster-sorted-${job_type}-${molecule_type}-${level_short}.csv
         fi
 
-        main_results=${results_location}/${folder}/${level_short}/
+        main_results=${results_location}/${folder}/${level_short}
         dataset_results=${results_location}/${folder}/aaaa_dataset
 
         if [ ! -d ${main_results} ]; then
