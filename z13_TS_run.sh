@@ -301,7 +301,7 @@ elif [ ${status_build} == 3 ] ; then
                 mv temp1.temp ${file}.com
 
         if [ ${level_short} == 'b3lyp' ] ; then
-
+            pass
         else
                 tpl_file=${tpl}/${tpl_folder}/TS_dehy_from_checkpoint.tpl
 
