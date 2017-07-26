@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6016564a-cc6d-43ee-9fcf-b702c3f51d9c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/z13_TS_run.sh" afterPath="$PROJECT_DIR$/z13_TS_run.sh" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,8 +19,8 @@
       <file leaf-file-name="z13_TS_run.sh" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/z13_TS_run.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="753">
-              <caret line="324" column="6" lean-forward="true" selection-start-line="324" selection-start-column="6" selection-end-line="330" selection-end-column="51" />
+            <state relative-caret-position="544">
+              <caret line="161" column="61" lean-forward="false" selection-start-line="161" selection-start-column="61" selection-end-line="161" selection-end-column="61" />
               <folding />
             </state>
           </provider>
@@ -146,8 +147,8 @@
         <option value="$PROJECT_DIR$/z24_norm_analysis.sh" />
         <option value="$PROJECT_DIR$/z19_dftb_irc.sh" />
         <option value="$PROJECT_DIR$/z15_irc_run.sh" />
-        <option value="$PROJECT_DIR$/z13_TS_run.sh" />
         <option value="$PROJECT_DIR$/z14_norm_analysis.sh" />
+        <option value="$PROJECT_DIR$/z13_TS_run.sh" />
       </list>
     </option>
   </component>
@@ -710,12 +711,12 @@
       <workItem from="1499883870573" duration="594000" />
       <workItem from="1499907417662" duration="1637000" />
       <workItem from="1499977053357" duration="4397000" />
-      <workItem from="1500588655453" duration="12698000" />
+      <workItem from="1500588655453" duration="13180000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57901000" />
+    <option name="totallyTimeSpent" value="58383000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="659" y="22" width="1261" height="1131" extended-state="0" />
@@ -1174,8 +1175,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/z13_TS_run.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="753">
-          <caret line="324" column="6" lean-forward="true" selection-start-line="324" selection-start-column="6" selection-end-line="330" selection-end-column="51" />
+        <state relative-caret-position="544">
+          <caret line="161" column="61" lean-forward="false" selection-start-line="161" selection-start-column="61" selection-end-line="161" selection-end-column="61" />
           <folding />
         </state>
       </provider>
