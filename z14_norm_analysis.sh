@@ -97,6 +97,8 @@ elif [ ${status_build} == 0 ] ; then
         file1=${file%.log\"}
         file_org=${file1##\"}
 
+        echo ${file_org}
+
        if [ "${file_org}" != "File" ]; then
 
             tpl_file=${tpl}/${tpl_folder}/run_norm.tpl
