@@ -116,7 +116,7 @@ elif [ ${status_build} == 0 ] ; then
         if [ -f ${dataset_results}/z_dataset-${molecule_type}-LM-${naming_level}.csv} ] ; then
                 rm ${dataset_results}/z_dataset-${molecule_type}-LM-${naming_level}.csv
         fi
-        cp ${main_results}/z_cluster-sorted-${job_type}-${molecule_type}-${level_short}.csv ${dataset_results}/z_dataset-${molecule_type}-LM-${naming_level}.csv
+#        cp ${main_results}/z_cluster-sorted-${job_type}-${molecule_type}-${level_short}.csv ${dataset_results}/z_dataset-${molecule_type}-LM-${naming_level}.csv
     fi
 fi
 
