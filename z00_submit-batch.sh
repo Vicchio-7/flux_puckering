@@ -26,6 +26,11 @@ elif [[ ${run_type} == 'none' ]]; then
 	for file_sub in $(find . \( ! -name . -prune \) -type f -iname "pbs-*-${keyword}*.job"); do
         qsub ${file_sub}
 	done
+elif [[ ${run_type} == 'num' ]]; then
+    keyword=$2
+	for file_sub in $(find . \( ! -name . -prune \) -type f -iname "pbs-*${keyword}*.job"); do
+        qsub ${file_sub}
+	done
 else
 	for file_sub in $(find . \( ! -name . -prune \) -type f -iname 'pbs-*.job'); do
 		qsub ${file_sub}
