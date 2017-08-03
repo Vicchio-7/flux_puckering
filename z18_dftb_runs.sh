@@ -160,7 +160,7 @@ elif [ ${status_build} == 0 ] ; then
         ######## The section below updates the Gaussian Input File
 
             head -n 4 ${tpl_file} >> temp1.temp
-            tail -n 22 ../0_initial-coordinates/${file}.com >> temp1.temp
+            tail -n 22 ../0_initial-coordinates/${file}.xyz >> temp1.temp
 
             mv temp1.temp ${file}.com
 
