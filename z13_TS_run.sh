@@ -151,9 +151,7 @@ elif [ ${status_build} == 0 ] ; then
     else
 	    for file_unedit in $( <$input_list); do
             file=${file_unedit%.xyz}
-            job_number=${file#${remove_molecule}}
-            if (( ${job_number} >= ${ts_number} )); then
-                echo ${job_number}
+
 
         ######## The section below updates the Gaussian Input File
                     sed -e "s/\$memory/${total_memory}/g" ${tpl}/${tpl_folder}/run_bxyl_prefrozen_optall-to-TS.tpl > temp1.temp
@@ -180,8 +178,7 @@ elif [ ${status_build} == 0 ] ; then
                     sed -i "s/\$minutes/${minutes}/g" temp1.txt
 
                     mv temp1.txt pbs-${file}.job
-            fi
-        done
+             done
     fi
 
 elif [ ${status_build} == 2 ] ; then
