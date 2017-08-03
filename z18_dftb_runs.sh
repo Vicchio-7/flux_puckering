@@ -164,14 +164,14 @@ elif [ ${status_build} == 0 ] ; then
 
             mv temp1.temp ${file}.com
 
-            sed -i '$d' ${file}.com
-            sed -i '$s/$/\nD   1    2    3    4 F/' ${file}.com
-            sed -i '$s/$/\nD   2    3    4    5 F/' ${file}.com
-            sed -i '$s/$/\nD   3    4    5    6 F/' ${file}.com
-            sed -i '$s/$/\nD   4    5    6    1 F/' ${file}.com
-            sed -i '$s/$/\nD   5    6    1    2 F/' ${file}.com
-            sed -i '$s/$/\nD   6    1    2    3 F/' ${file}.com
-            sed -i '$s/$/\n/' ${file}.com
+#            sed -i '$d' ${file}.com
+#            sed -i '$s/$/\nD   1    2    3    4 F/' ${file}.com
+#            sed -i '$s/$/\nD   2    3    4    5 F/' ${file}.com
+#            sed -i '$s/$/\nD   3    4    5    6 F/' ${file}.com
+#            sed -i '$s/$/\nD   4    5    6    1 F/' ${file}.com
+#            sed -i '$s/$/\nD   5    6    1    2 F/' ${file}.com
+#            sed -i '$s/$/\nD   6    1    2    3 F/' ${file}.com
+#            sed -i '$s/$/\n/' ${file}.com
 
             sed -i "32r ${dftb_ending}" ${file}.com
 
