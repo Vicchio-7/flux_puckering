@@ -243,10 +243,13 @@ elif [ ${status_build} == 0 ] ; then
             sed -i "s/\$chkfile/${file}-freeze_${level_short}-${job_type}_${level_short}.chk/g" temp1.temp
             sed -i "s/\level_of_theory/${level_theory}/g" temp1.temp
 
+            mv temp1.temp ${file}.com
+
         ######## The section below creates the Slurm file for submission on Bridges
 
             sed -e "s/\$num_proc/${cores_per_node}/g" ${tpl}/gaussian_pbs_script.job > temp1.txt
             sed -i "s/conform/${file}/g" temp1.txt
+            sed -i "s/\$memory/${total_memory}/g" temp1.txt
             sed -i "s/gauss-log/${file}-freeze_${3}-TS_${3}/g" temp1.txt
             sed -i "s/\$molecule/${molecule_type}/g" temp1.txt
             sed -i "s/\$test/${job_type}/g" temp1.txt
