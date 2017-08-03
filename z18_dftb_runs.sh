@@ -161,7 +161,8 @@ elif [ ${status_build} == 0 ] ; then
 
             head -n 4 ${tpl_file} >> temp1.temp
             tail -n 22 ../0_initial-coordinates/${file}.xyz >> temp1.temp
-            tail -n 33 ${tpl_file} >> temp1.temp
+            sed -i '$d' temp1.temp
+            tail -n 34 ${tpl_file} >> temp1.temp
             mv temp1.temp ${file}.com
 
 #            sed -i '$d' ${file}.com
