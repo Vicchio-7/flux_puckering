@@ -151,7 +151,7 @@ elif [ ${status_build} == 0 ] ; then
 
        for file_unedit in $( <$input_list); do
 
-            file=${file_unedit%.com}
+            file=${file_unedit%.xyz}
 
        if [ "${job_type}" == 'freeze' ] ; then
 
@@ -191,16 +191,18 @@ elif [ ${status_build} == 0 ] ; then
 
         ######## The section below creates the Slurm file for submission on Bridges
 
-            sed -e "s/\$num_proc/${cores_per_node}/g" ${tpl}/../gaussian_slurm_script.job > temp1.txt
-            sed -i "s/conform/${file}/g" temp1.txt
-            sed -i "s/gauss-log/${1}-${file}-freeze_${3}/g" temp1.txt
-            sed -i "s/\$molecule/${molecule_type}/g" temp1.txt
-            sed -i "s/\$test/${job_type}/g" temp1.txt
-            sed -i "s/\$level/${level_short}/g" temp1.txt
-            sed -i "s/\$hours/${hours}/g" temp1.txt
-            sed -i "s/\$minutes/${minutes}/g" temp1.txt
-            mv temp1.txt slurm-${file}.job
 
+
+                sed -e "s/\$num_proc/${cores_per_node}/g" ${tpl}/gaussian_pbs_script.job > temp1.txt
+                sed -i "s/conform/${file}/g" temp1.txt
+                sed -i "s/\$memory/${total_memory}/g" temp1.txt
+                sed -i "s/gauss-log/${file}-freeze_${3}/g" temp1.txt
+                sed -i "s/\$molecule/${molecule_type}/g" temp1.txt
+                sed -i "s/\$test/${job_type}/g" temp1.txt
+                sed -i "s/\$level/${level_short}/g" temp1.txt
+                sed -i "s/\$hours/${hours}/g" temp1.txt
+                sed -i "s/\$minutes/${minutes}/g" temp1.txt
+                mv temp1.txt pbs-${file}.job
 
        elif [ "${job_type}" == 'optall' ] ; then
 
