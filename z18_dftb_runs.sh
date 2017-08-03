@@ -228,6 +228,7 @@ elif [ ${status_build} == 0 ] ; then
 
             tpl_file=${tpl}/${template}
 
+            job_number=${file#${remove_molecule}}
             if (( ${job_number#0} >= ${ts_number} )); then
                 echo ${job_number}
 
