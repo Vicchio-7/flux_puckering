@@ -156,7 +156,7 @@ elif [ ${status_build} == 0 ] ; then
 
             file=${file_unedit%.xyz}
 
-       if [ "${job_type}" == 'freeze' ] ; then
+        if [ "${job_type}" == 'freeze' ] ; then
 
             tpl_file=${tpl}/${template}
 
@@ -167,24 +167,6 @@ elif [ ${status_build} == 0 ] ; then
             sed -i '$d' temp1.temp
             tail -n 34 ${tpl_file} >> temp1.temp
             mv temp1.temp ${file}.com
-
-#            sed -i '$d' ${file}.com
-#            sed -i '$s/$/\nD   1    2    3    4 F/' ${file}.com
-#            sed -i '$s/$/\nD   2    3    4    5 F/' ${file}.com
-#            sed -i '$s/$/\nD   3    4    5    6 F/' ${file}.com
-#            sed -i '$s/$/\nD   4    5    6    1 F/' ${file}.com
-#            sed -i '$s/$/\nD   5    6    1    2 F/' ${file}.com
-#            sed -i '$s/$/\nD   6    1    2    3 F/' ${file}.com
-#            sed -i '$s/$/\n/' ${file}.com
-#
-#            sed -i "32r ${dftb_ending}" ${file}.com
-#
-#            tail -n 6 ${tpl_file} >> ${file}.com
-#
-#            sed -i "46r ${dftb_ending}" ${file}.com
-#
-#            sed -i '$s/$/\n/' ${file}.com
-#            sed -i '$s/$/\n/' ${file}.com
 
             sed -i "s/\$memory/${total_memory}/g" ${file}.com
             sed -i "s/\$num_procs/${cores_per_node}/g" ${file}.com
@@ -207,7 +189,7 @@ elif [ ${status_build} == 0 ] ; then
             sed -i "s/\$minutes/${minutes}/g" temp1.txt
             mv temp1.txt pbs-${file}.job
 
-       elif [ "${job_type}" == 'optall' ] ; then
+        elif [ "${job_type}" == 'optall' ] ; then
 
             tpl_file=${tpl}/${template}
 
@@ -223,7 +205,7 @@ elif [ ${status_build} == 0 ] ; then
                 sed -i "s/\$folder_old/${molecule_type}-freeze_${level_short}/g" temp1.temp
                 sed -i "s/\$old_check/${molecule_type}-${file}-freeze_${level_short}.chk/g" temp1.temp
                 sed -i "s/\$folder_new/${molecule_type}-optall_${level_short}/g" temp1.temp
-                sed -i "s/\$chkfile/${molecule_type}-${file}-freeze_${level_short}-${job_type}_${level_short}.chk/g" temp1.temp
+                sed -i "s/\$chkfile/${file}-freeze_${level_short}-${job_type}_${level_short}.chk/g" temp1.temp
                 sed -i "s/\level_of_theory/${level_theory}/g" temp1.temp
 
                 mv temp1.temp ${file}.com
@@ -240,18 +222,14 @@ elif [ ${status_build} == 0 ] ; then
                 sed -i "s/\$hours/${hours}/g" temp1.txt
                 sed -i "s/\$minutes/${minutes}/g" temp1.txt
                 mv temp1.txt pbs-${file}.job
-
-
             fi
-
 
         elif [ "${job_type}" == 'TS' ] ; then
 
             tpl_file=${tpl}/${template}
 
-        ######## The section below updates the Gaussian Input File
-
-                        tpl_file=${tpl}/${template}
+            if (( ${job_number#0} >= ${ts_number} )); then
+                echo ${job_number}
 
         ######## The section below updates the Gaussian Input File
 
@@ -261,24 +239,12 @@ elif [ ${status_build} == 0 ] ; then
             sed -i "s/\$folder_old/${molecule_type}-freeze_${level_short}/g" temp1.temp
             sed -i "s/\$old_check/${molecule_type}-${file}-freeze_${level_short}.chk/g" temp1.temp
             sed -i "s/\$folder_new/${molecule_type}-TS_${level_short}/g" temp1.temp
-            sed -i "s/\$chkfile/${molecule_type}-${file}-freeze_${level_short}-${job_type}_${level_short}.chk/g" temp1.temp
+            sed -i "s/\$chkfile/${file}-freeze_${level_short}-${job_type}_${level_short}.chk/g" temp1.temp
             sed -i "s/\level_of_theory/${level_theory}/g" temp1.temp
-
-            mv temp1.temp ${file}.com
-
-            sed -i '$d' ${file}.com
-            sed -i "6r ${dftb_ending}" ${file}.com
-            sed -i '15s/$/\n/' ${file}.com
-
-            cat ${dftb_ending} >> ${file}.com
-
-            sed -i '$s/$/\n/' ${file}.com
-            sed -i '$s/$/\n/' ${file}.com
-
 
         ######## The section below creates the Slurm file for submission on Bridges
 
-            sed -e "s/\$num_proc/${cores_per_node}/g" ${tpl}/../gaussian_slurm_script.job > temp1.txt
+            sed -e "s/\$num_proc/${cores_per_node}/g" ${tpl}/gaussian_pbs_script.job > temp1.txt
             sed -i "s/conform/${file}/g" temp1.txt
             sed -i "s/gauss-log/${1}-${file}-freeze_${3}-TS_${3}/g" temp1.txt
             sed -i "s/\$molecule/${molecule_type}/g" temp1.txt
@@ -286,7 +252,10 @@ elif [ ${status_build} == 0 ] ; then
             sed -i "s/\$level/${level_short}/g" temp1.txt
             sed -i "s/\$hours/${hours}/g" temp1.txt
             sed -i "s/\$minutes/${minutes}/g" temp1.txt
-            mv temp1.txt slurm-${file}.job
+            mv temp1.txt pbs-${file}.job
+
+            fi
+
 
        else
             echo ""
