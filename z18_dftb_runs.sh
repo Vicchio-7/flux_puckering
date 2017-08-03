@@ -49,8 +49,8 @@ if [ "${molecule_type}" == 'oxane' ] ; then
 	status_build=0
 	input_list=../y0-input_list.txt
 	ext=.xyz
-    lm_number=08
-    ts_number=09
+    lm_number=8
+    ts_number=9
     remove_molecule=oxane
 elif [ "${molecule_type}" == 'bxyl' ] ;  then
 	folder=2_bxyl
