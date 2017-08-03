@@ -51,7 +51,7 @@ if [ "${molecule_type}" == 'oxane' ] ; then
 	ext=.xyz
     lm_number=08
     ts_number=09
-    remove_molecule=beta-glucose
+    remove_molecule=oxane
 elif [ "${molecule_type}" == 'bxyl' ] ;  then
 	folder=2_bxyl
 	status_build=0
