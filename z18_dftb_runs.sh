@@ -161,7 +161,7 @@ elif [ ${status_build} == 0 ] ; then
 
             head -n 4 ${tpl_file} >> temp1.temp
             tail -n 22 ../0_initial-coordinates/${file}.xyz >> temp1.temp
-
+            tail -n 34 ${tpl_file} >> temp1.temp
             mv temp1.temp ${file}.com
 
 #            sed -i '$d' ${file}.com
@@ -172,15 +172,15 @@ elif [ ${status_build} == 0 ] ; then
 #            sed -i '$s/$/\nD   5    6    1    2 F/' ${file}.com
 #            sed -i '$s/$/\nD   6    1    2    3 F/' ${file}.com
 #            sed -i '$s/$/\n/' ${file}.com
-
-            sed -i "32r ${dftb_ending}" ${file}.com
-
-            tail -n 6 ${tpl_file} >> ${file}.com
-
-            sed -i "46r ${dftb_ending}" ${file}.com
-
-            sed -i '$s/$/\n/' ${file}.com
-            sed -i '$s/$/\n/' ${file}.com
+#
+#            sed -i "32r ${dftb_ending}" ${file}.com
+#
+#            tail -n 6 ${tpl_file} >> ${file}.com
+#
+#            sed -i "46r ${dftb_ending}" ${file}.com
+#
+#            sed -i '$s/$/\n/' ${file}.com
+#            sed -i '$s/$/\n/' ${file}.com
 
             sed -i "s/\$memory/${total_memory}/g" ${file}.com
             sed -i "s/\$num_procs/${cores_per_node}/g" ${file}.com
