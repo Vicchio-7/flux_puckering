@@ -341,6 +341,8 @@ elif [ ${status_build} == 4 ] ; then
 
     level_theory=$(z02_level_replace_script.sh ${molecule_type} ${level_short})
 
+    echo ${level_theory}
+
     directory=${main}/1_puckering/${folder}/${level_short}
 
     dir_job=${directory}/${folder_type}
@@ -385,7 +387,7 @@ elif [ ${status_build} == 4 ] ; then
         else
                 tpl_file=${tpl}/${tpl_folder}/TS_tsglc_from_checkpoint.tpl
 
-#                sed -e "s/\$memory/${total_memory}/g" ${tpl_file} > temp1.temp
+                sed -e "s/\$memory/${total_memory}/g" ${tpl_file} > temp1.temp
                 sed -i "s/\$num_procs/${cores_per_node}/g" temp1.temp
                 sed -i "s/\$folder_1/${folder}/g" temp1.temp
                 sed -i "s/\$folder_new/${molecule_type}-TS_${level_short}/g" temp1.temp
