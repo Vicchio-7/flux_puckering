@@ -400,6 +400,8 @@ elif [ ${status_build} == 4 ] ; then
 
         ######## The section below creates the PBS file for submission on Flux
 
+        echo "starting pbs file"
+
         sed -e "s/\$num_proc/${cores_per_node}/g" ${tpl}/gaussian_pbs_script.job > temp1.txt
         sed -i "s/\$memory/${total_memory}/g" temp1.txt
         sed -i "s/conform/${file}/g" temp1.txt
