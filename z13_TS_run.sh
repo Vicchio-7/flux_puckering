@@ -381,7 +381,7 @@ elif [ ${status_build} == 4 ] ; then
         if [ ${level_short} == 'b3lyp' ] ; then
             pass
         else
-                tpl_file=${tpl}/${tpl_folder}/TS_dehy_from_checkpoint.tpl
+                tpl_file=${tpl}/${tpl_folder}/TS_tsglc_from_checkpoint.tpl
 
                 sed -e "s/\$memory/${total_memory}/g" ${tpl_file} > temp1.temp
                 sed -i "s/\$num_procs/${cores_per_node}/g" temp1.temp
