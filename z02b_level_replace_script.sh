@@ -34,6 +34,9 @@ elif [ "${molecule_type}" == 'levo' ] ;  then
 elif [ "${molecule_type}" == 'dehy' ] ;  then
 	folder=8_dehy
 	status_build=0
+elif [ "${molecule_type}" == 'tsglc' ] ;  then
+	folder=9_tsglc
+	status_build=0
 else
 	echo
 	echo "The molecule type is not found in this script"
