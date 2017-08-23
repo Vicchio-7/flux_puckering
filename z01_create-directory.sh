@@ -53,6 +53,10 @@ elif [ "${molecule_type}" == 'dehy' ] ;  then
 	folder=8_dehy
 	status_build=2
 	ext=.xyz
+elif [ "${molecule_type}" == 'dehy' ] ;  then
+	folder=8_tsglc
+	status_build=2
+	ext=.xyz
 else
 	echo
 	echo "The molecule type is not found in this script"
