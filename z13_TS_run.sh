@@ -380,7 +380,7 @@ elif [ ${status_build} == 4 ] ; then
 
                 mv temp1.temp ${file}.com
 
-        if [ ${level_short} == 'b3lyp' ] ; then
+        elif [ ${level_short} == 'b3lyp' ] ; then
             pass
         else
                 tpl_file=${tpl}/${tpl_folder}/TS_tsglc_from_checkpoint.tpl
@@ -412,7 +412,6 @@ elif [ ${status_build} == 4 ] ; then
 
         mv temp1.txt pbs-${file}.job
 
-        fi
     done
 
 fi
