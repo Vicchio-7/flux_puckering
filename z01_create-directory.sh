@@ -53,8 +53,8 @@ elif [ "${molecule_type}" == 'dehy' ] ;  then
 	folder=8_dehy
 	status_build=2
 	ext=.xyz
-elif [ "${molecule_type}" == 'dehy' ] ;  then
-	folder=8_tsglc
+elif [ "${molecule_type}" == 'tsglc' ] ;  then
+	folder=9_tsglc
 	status_build=2
 	ext=.xyz
 else
