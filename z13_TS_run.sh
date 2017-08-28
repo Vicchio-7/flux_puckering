@@ -278,11 +278,13 @@ elif [ ${status_build} == 3 ] ; then
         mkdir ${scratch}/puckering/${folder}/${molecule_type}-TS_${level_short}
     fi
 
-           echo 'I made is into this loop'
+
 
     for file_unedit in $( <$input_list); do
 
                 file=${file_unedit%.xyz}
+
+                           echo 'I made is into this loop'
 
         if [ ${level_short} == 'm062x' ] ; then
             ######## The section below updates the Gaussian Input File
