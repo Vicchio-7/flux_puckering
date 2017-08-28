@@ -343,7 +343,6 @@ elif [ ${status_build} == 3 ] ; then
 
         mv temp1.txt pbs-${file}.job
 
-        fi
     done
 
 elif [ ${status_build} == 4 ] ; then
