@@ -363,8 +363,6 @@ elif [ ${status_build} == 4 ] ; then
         if [ ${level_short} == 'm062x' ] ; then
             ######## The section below updates the Gaussian Input File
 
-                echo 'i made it'
-
                 tpl_file=${tpl}/${tpl_folder}/TS_tsglc_m062x.tpl
 
                 head -n 5 ${tpl_file} > temp1.temp
@@ -389,7 +387,7 @@ elif [ ${status_build} == 4 ] ; then
         elif [ ${level_short} == 'b3lyp' ] ; then
             pass
         else
-                tpl_file=${tpl}/${tpl_folder}/TS_tsglc_from_checkpoint.tpl
+                tpl_file=${tpl}/${tpl_folder}/TS_tsglc_from_checkpoint-${file}.tpl
 
                 sed -e "s/\$memory/${total_memory}/g" ${tpl_file} > temp1.temp
                 sed -i "s/\$num_procs/${cores_per_node}/g" temp1.temp
