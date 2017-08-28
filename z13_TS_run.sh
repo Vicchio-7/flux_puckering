@@ -310,6 +310,8 @@ elif [ ${status_build} == 3 ] ; then
         if [ ${level_short} == 'b3lyp' ] ; then
             pass
         else
+                echo 'I made is into this loop'
+
                 tpl_file=${tpl}/${tpl_folder}/TS_dehy_from_checkpoint.tpl
 
                 sed -e "s/\$memory/${total_memory}/g" ${tpl_file} > temp1.temp
