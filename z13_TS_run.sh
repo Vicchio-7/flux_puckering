@@ -284,7 +284,7 @@ elif [ ${status_build} == 3 ] ; then
 
                 file=${file_unedit%.xyz}
 
-                           echo 'I made is into this loop'
+                echo ${file}
 
         if [ ${level_short} == 'm062x' ] ; then
             ######## The section below updates the Gaussian Input File
@@ -314,6 +314,7 @@ elif [ ${status_build} == 3 ] ; then
             pass
         else
 
+                                           echo 'I made is into this loop'
 
                 tpl_file=${tpl}/${tpl_folder}/TS_dehy_from_checkpoint.tpl
 
