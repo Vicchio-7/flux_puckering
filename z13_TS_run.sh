@@ -278,6 +278,7 @@ elif [ ${status_build} == 3 ] ; then
         mkdir ${scratch}/puckering/${folder}/${molecule_type}-TS_${level_short}
     fi
 
+           echo 'I made is into this loop'
 
     for file_unedit in $( <$input_list); do
 
@@ -310,7 +311,7 @@ elif [ ${status_build} == 3 ] ; then
         if [ ${level_short} == 'b3lyp' ] ; then
             pass
         else
-                echo 'I made is into this loop'
+
 
                 tpl_file=${tpl}/${tpl_folder}/TS_dehy_from_checkpoint.tpl
 
