@@ -284,8 +284,9 @@ else ###########################################################################
 
                 head -n 4 ${tpl_file} >> temp1.temp
                 echo '' >> temp1.temp
-                echo "initial structures from: ${file}" >> temp1.temp
+                echo "# initial structures from: ${file}" >> temp1.temp
                 echo '' >> temp1.temp
+                echo '0   1' >> temp1.temp
                 tail -n 20 ../0_initial-coordinates/${file}.xyz >> temp1.temp
                 echo '' >> temp1.temp
                 tail -n 34 ${tpl_file} >> temp1.temp
