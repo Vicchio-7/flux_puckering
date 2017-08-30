@@ -317,6 +317,7 @@ else ###########################################################################
                    tpl_file=${tpl}/${template}
 
                 job_number=${file#${remove_molecule}}
+                echo ${job_number}
                 if (( ${job_number} <= ${lm_number} )); then
                     echo ${job_number}
 
