@@ -322,10 +322,9 @@ else ###########################################################################
 
                if [ "${molecule_type}" == 'bxyl' ]  ; then
                     remove_molecule='beta-xylose'
-                fi
+               fi
 
                 job_number=${file#${remove_molecule}}
-                echo ${job_number}
                 if (( ${job_number} <= ${lm_number} )); then
                     echo ${job_number}
 
@@ -342,11 +341,11 @@ else ###########################################################################
 
                     mv temp1.temp ${file}.com
 
-                    sed -i '$d' ${file}.com
-                    sed -i "6r ${dftb_ending}" ${file}.com
-                    sed -i '15s/$/\n/' ${file}.com
-
-                    cat ${dftb_ending} >> ${file}.com
+#                    sed -i '$d' ${file}.com
+#                    sed -i "6r ${dftb_ending}" ${file}.com
+#                    sed -i '15s/$/\n/' ${file}.com
+#
+#                    cat ${dftb_ending} >> ${file}.com
 
                     sed -i '$s/$/\n/' ${file}.com
                     sed -i '$s/$/\n/' ${file}.com
