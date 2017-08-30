@@ -56,6 +56,8 @@ elif [ "${molecule_type}" == 'bxyl' ] ;  then
 	folder=2_bxyl
 	status_build=0
 	input_list=../y0-input_list.txt
+    lm_number=26
+    ts_number=27
 	ext=.xyz
 elif [ "${molecule_type}" == 'bglc' ] ;  then
 	folder=3_betagluc
