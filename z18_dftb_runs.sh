@@ -287,7 +287,7 @@ else ###########################################################################
                 echo "initial structures from: ${file}" >> temp1.temp
                 echo '' >> temp1.temp
                 tail -n 20 ../0_initial-coordinates/${file}.xyz >> temp1.temp
-
+                echo '' >> temp1.temp
                 tail -n 34 ${tpl_file} >> temp1.temp
                 mv temp1.temp ${file}.com
 
