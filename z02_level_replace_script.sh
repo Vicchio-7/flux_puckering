@@ -76,6 +76,8 @@ elif [ ${status_build} == 0 ] ; then
         echo 'b3lyp\/6-311+G(2df,p)'
     elif [ ${level_short} == 'm062x' ] ; then
         echo 'm062x\/6-311+G(2df,p)'
+    elif [ ${level_short} == 'dftb3' ] ; then
+        echo 'dftb'
     else
         echo "# # # ERROR # # #"
     fi

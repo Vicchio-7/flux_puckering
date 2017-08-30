@@ -76,6 +76,8 @@ elif [ ${status_build} == 0 ] ; then
         echo 'HSP_B3LYP'
     elif [ ${level_short} == 'm062x' ] ; then
         echo 'M062X'
+    elif [ ${level_short} == 'dftb3' ] ; then
+        echo 'DFTB3'
     else
         echo "# # # ERROR # # #"
     fi
