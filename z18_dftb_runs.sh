@@ -370,6 +370,10 @@ else ###########################################################################
 
                 tpl_file=${tpl}/${template}
 
+               if [ "${molecule_type}" == 'bxyl' ]  ; then
+                    remove_molecule='beta-xylose'
+               fi
+
 
                 job_number=${file#${remove_molecule}}
 
