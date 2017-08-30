@@ -99,7 +99,7 @@ if [ "${molecule_type}" == 'oxane' ] ; then
 
 elif [ "${molecule_type}" == 'bxyl' ] || [ "${molecule_type}" == 'bglc' ] ; then
     if [ "${job_type}" == 'freeze' ] ; then
-        template=run_oxane_freeze.tpl
+        template=run_${molecule_type}_freeze.tpl
         folder_type=2_freeze
     elif [ "${job_type}" == 'optall' ] ; then
         template=run_oxane_optall-to-localmin.tpl
@@ -282,53 +282,17 @@ else ###########################################################################
 
                 ######## The section below updates the Gaussian Input File
 
-                head -n 5 ${tpl_file} > temp1.temp
-
-                echo "${file_unedit}" >> temp1.temp
-                echo '' >> temp1.temp
-                echo '0   1' >> temp1.temp
-                sed -n '3,100p' ../0_initial-coordinates/${file}.xyz >> temp1.temp
-
+                head -n 4 ${tpl_file} >> temp1.temp
+                tail -n 22 ../0_initial-coordinates/${file}.xyz >> temp1.temp
+                sed -i '$d' temp1.temp
+                tail -n 34 ${tpl_file} >> temp1.temp
                 mv temp1.temp ${file}.com
-
-                sed -i '$s/$/\n/' ${file}.com
-
-                if [ "${molecule_type}" == 'bxyl' ] ; then
-                    sed -i '$s/$/\nD   1    8    5    17 F/' ${file}.com
-                    sed -i '$s/$/\nD   8    5   17    13 F/' ${file}.com
-                    sed -i '$s/$/\nD   5   17   13     9 F/' ${file}.com
-                    sed -i '$s/$/\nD  17   13    9     1 F/' ${file}.com
-                    sed -i '$s/$/\nD  13    9    1     8 F/' ${file}.com
-                    sed -i '$s/$/\nD   9    1    8     5 F/' ${file}.com
-                elif [ "${molecule_type}" == 'bglc' ] ; then
-                    sed -i '$s/$/\nD   1    5    7     8 F/' ${file}.com
-                    sed -i '$s/$/\nD   5    7    8    12 F/' ${file}.com
-                    sed -i '$s/$/\nD   7    8   12    16 F/' ${file}.com
-                    sed -i '$s/$/\nD   8   12   16     1 F/' ${file}.com
-                    sed -i '$s/$/\nD  12   16    1     5 F/' ${file}.com
-                    sed -i '$s/$/\nD  16    1    5     7 F/' ${file}.com
-                fi
-
-                sed -i '$s/$/\n/' ${file}.com
-
-                cat ${dftb_ending} >> ${file}.com
-
-                sed -i '$s/$/\n/' ${file}.com
-
-                tail -n 7 ${tpl_file} >> ${file}.com
-
-                sed -i '$d' ${file}.com
-
-                cat ${dftb_ending} >> ${file}.com
-
-                sed -i '$s/$/\n/' ${file}.com
-                sed -i '$s/$/\n/' ${file}.com
 
                 sed -i "s/\$memory/${total_memory}/g" ${file}.com
                 sed -i "s/\$num_procs/${cores_per_node}/g" ${file}.com
                 sed -i "s/\$folder_1/${folder}/g" ${file}.com
                 sed -i "s/\$folder_new/${molecule_type}-freeze_${level_short}/g"  ${file}.com
-                sed -i "s/\$chkfile/${file}-freeze_${level_short}.chk/g"  ${file}.com
+                sed -i "s/\$chkfile/${molecule_type}-${file}-freeze_${level_short}.chk/g"  ${file}.com
                 sed -i "s/\level_of_theory/${level_theory}/g" ${file}.com
 
                 ######## The section below creates the Slurm file for submission on Bridges

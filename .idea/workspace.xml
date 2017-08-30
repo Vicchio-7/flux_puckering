@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6016564a-cc6d-43ee-9fcf-b702c3f51d9c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/z18_dftb_runs.sh" afterPath="$PROJECT_DIR$/z18_dftb_runs.sh" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,11 +38,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="z23_run_hartree_xyz_TS.sh" pinned="false" current-in-tab="true">
+      <file leaf-file-name="z23_run_hartree_xyz_TS.sh" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/z23_run_hartree_xyz_TS.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="75" column="12" lean-forward="false" selection-start-line="75" selection-start-column="12" selection-end-line="75" selection-end-column="12" />
+            <state relative-caret-position="328">
+              <caret line="88" column="50" lean-forward="true" selection-start-line="88" selection-start-column="50" selection-end-line="88" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -50,8 +51,8 @@
       <file leaf-file-name="z02b_level_replace_script.sh" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/z02b_level_replace_script.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="369">
-              <caret line="37" column="18" lean-forward="false" selection-start-line="37" selection-start-column="18" selection-end-line="37" selection-end-column="18" />
+            <state relative-caret-position="290">
+              <caret line="50" column="33" lean-forward="true" selection-start-line="50" selection-start-column="33" selection-end-line="50" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -60,8 +61,8 @@
       <file leaf-file-name="z02_level_replace_script.sh" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/z02_level_replace_script.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="43" column="18" lean-forward="false" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="18" />
+            <state relative-caret-position="732">
+              <caret line="80" column="8" lean-forward="true" selection-start-line="80" selection-start-column="8" selection-end-line="80" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -97,11 +98,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="z18_dftb_runs.sh" pinned="false" current-in-tab="false">
+      <file leaf-file-name="z18_dftb_runs.sh" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/z18_dftb_runs.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3675">
-              <caret line="245" column="12" lean-forward="false" selection-start-line="245" selection-start-column="12" selection-end-line="245" selection-end-column="12" />
+            <state relative-caret-position="578">
+              <caret line="303" column="58" lean-forward="false" selection-start-line="303" selection-start-column="35" selection-end-line="303" selection-end-column="58" />
+              <caret line="304" column="58" lean-forward="false" selection-start-line="304" selection-start-column="35" selection-end-line="304" selection-end-column="58" />
+              <caret line="305" column="58" lean-forward="false" selection-start-line="305" selection-start-column="35" selection-end-line="305" selection-end-column="58" />
+              <caret line="306" column="58" lean-forward="false" selection-start-line="306" selection-start-column="35" selection-end-line="306" selection-end-column="58" />
+              <caret line="307" column="58" lean-forward="false" selection-start-line="307" selection-start-column="35" selection-end-line="307" selection-end-column="58" />
+              <caret line="308" column="58" lean-forward="false" selection-start-line="308" selection-start-column="35" selection-end-line="308" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -165,11 +171,11 @@
         <option value="$PROJECT_DIR$/z25_run_hartree_lmirc.sh" />
         <option value="$PROJECT_DIR$/z15_irc_run.sh" />
         <option value="$PROJECT_DIR$/z00_submit-batch.sh" />
-        <option value="$PROJECT_DIR$/z18_dftb_runs.sh" />
         <option value="$PROJECT_DIR$/z01_create-directory.sh" />
-        <option value="$PROJECT_DIR$/z02b_level_replace_script.sh" />
-        <option value="$PROJECT_DIR$/z02_level_replace_script.sh" />
         <option value="$PROJECT_DIR$/z13_TS_run.sh" />
+        <option value="$PROJECT_DIR$/z02_level_replace_script.sh" />
+        <option value="$PROJECT_DIR$/z02b_level_replace_script.sh" />
+        <option value="$PROJECT_DIR$/z18_dftb_runs.sh" />
       </list>
     </option>
   </component>
@@ -737,12 +743,12 @@
       <workItem from="1499977053357" duration="4397000" />
       <workItem from="1500588655453" duration="15027000" />
       <workItem from="1501471928952" duration="8777000" />
-      <workItem from="1503497794458" duration="4800000" />
+      <workItem from="1503497794458" duration="5524000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73807000" />
+    <option name="totallyTimeSpent" value="74531000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -755,6 +761,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="501" y="22" width="1419" height="1130" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -765,7 +772,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13776493" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16848221" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16848221" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24945533" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1102,14 +1109,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/z18_dftb_runs.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3675">
-          <caret line="245" column="12" lean-forward="false" selection-start-line="245" selection-start-column="12" selection-end-line="245" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/z00_submit-batch.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -1128,14 +1127,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="22" column="8" lean-forward="false" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/z19_dftb_irc.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="208" column="39" lean-forward="false" selection-start-line="208" selection-start-column="39" selection-end-line="208" selection-end-column="39" />
           <folding />
         </state>
       </provider>
@@ -1164,22 +1155,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/z02b_level_replace_script.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="37" column="18" lean-forward="false" selection-start-line="37" selection-start-column="18" selection-end-line="37" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/z02_level_replace_script.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="43" column="18" lean-forward="false" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/z13_TS_run.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
@@ -1190,8 +1165,45 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/z23_run_hartree_xyz_TS.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="75" column="12" lean-forward="false" selection-start-line="75" selection-start-column="12" selection-end-line="75" selection-end-column="12" />
+        <state relative-caret-position="328">
+          <caret line="88" column="50" lean-forward="true" selection-start-line="88" selection-start-column="50" selection-end-line="88" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/z02_level_replace_script.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="732">
+          <caret line="80" column="8" lean-forward="true" selection-start-line="80" selection-start-column="8" selection-end-line="80" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/z02b_level_replace_script.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="50" column="33" lean-forward="true" selection-start-line="50" selection-start-column="33" selection-end-line="50" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/z19_dftb_irc.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="208" column="39" lean-forward="false" selection-start-line="208" selection-start-column="39" selection-end-line="208" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/z18_dftb_runs.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="303" column="58" lean-forward="false" selection-start-line="303" selection-start-column="35" selection-end-line="303" selection-end-column="58" />
+          <caret line="304" column="58" lean-forward="false" selection-start-line="304" selection-start-column="35" selection-end-line="304" selection-end-column="58" />
+          <caret line="305" column="58" lean-forward="false" selection-start-line="305" selection-start-column="35" selection-end-line="305" selection-end-column="58" />
+          <caret line="306" column="58" lean-forward="false" selection-start-line="306" selection-start-column="35" selection-end-line="306" selection-end-column="58" />
+          <caret line="307" column="58" lean-forward="false" selection-start-line="307" selection-start-column="35" selection-end-line="307" selection-end-column="58" />
+          <caret line="308" column="58" lean-forward="false" selection-start-line="308" selection-start-column="35" selection-end-line="308" selection-end-column="58" />
           <folding />
         </state>
       </provider>
