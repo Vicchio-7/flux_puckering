@@ -197,6 +197,8 @@ elif [ ${status_build} == 0 ] ; then
                 remove_molecule='beta-xylose'
             fi
 
+            echo ${remove_molecule}
+
             job_number=${file#${remove_molecule}}
             if (( ${job_number#0} <= ${lm_number} )); then
                 echo ${job_number}
