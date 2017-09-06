@@ -29,21 +29,14 @@ total_memory=$(echo ${cores_per_node} ${memory_job} | awk '{ print $1*$2 }' )
 ## Input - Codes ##
 # Please update the following input commands depending on the user.
 
-#account=hbmayes_fluxod
-#user=vicchio
-
-account=ct560hp
+account=hbmayes_fluxod
 user=vicchio
 
 ## Additional Required Information ##
 # Additional information such as folder location that is required for the code to run properly.
 
-#scratch=/scratch/${account}/${user}
-#main=/home/${user}/1_puckering
-
-scratch=/pylon5/${account}/${user}
-main=/pylon2/${account}/${user}
-
+scratch=/scratch/${account}/${user}
+main=/home/${user}/1_puckering
 folder_type=2_freeze
 tpl=${main}/y_tpl
 
