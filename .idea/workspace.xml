@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6016564a-cc6d-43ee-9fcf-b702c3f51d9c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/z32_restart_job.sh" afterPath="$PROJECT_DIR$/z32_restart_job.sh" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -91,8 +90,8 @@
       <file leaf-file-name="z32_restart_job.sh" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/z32_restart_job.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="776">
-              <caret line="134" column="34" lean-forward="false" selection-start-line="134" selection-start-column="34" selection-end-line="134" selection-end-column="34" />
+            <state relative-caret-position="748">
+              <caret line="138" column="43" lean-forward="false" selection-start-line="138" selection-start-column="43" selection-end-line="138" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -741,12 +740,12 @@
       <workItem from="1501471928952" duration="8777000" />
       <workItem from="1503497794458" duration="9377000" />
       <workItem from="1504624195282" duration="42000" />
-      <workItem from="1504710405274" duration="1709000" />
+      <workItem from="1504710405274" duration="1773000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="80135000" />
+    <option name="totallyTimeSpent" value="80199000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1188,8 +1187,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/z32_restart_job.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="776">
-          <caret line="134" column="34" lean-forward="false" selection-start-line="134" selection-start-column="34" selection-end-line="134" selection-end-column="34" />
+        <state relative-caret-position="748">
+          <caret line="138" column="43" lean-forward="false" selection-start-line="138" selection-start-column="43" selection-end-line="138" selection-end-column="43" />
           <folding />
         </state>
       </provider>
