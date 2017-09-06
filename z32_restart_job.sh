@@ -84,9 +84,10 @@ elif [ ${status_build} == 0 ] ; then
 
     input=$(ls *.log)
 
-    echo ${input}
-
     for file_unedit in ${input}; do
+
+        echo ${file_unedit}
+
         termination_status=$(tail -n 1 ${file_unedit} | sed -e 's/ at.*//')
         expect=' Normal termination of Gaussian 09'
 
