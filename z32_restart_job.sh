@@ -136,7 +136,7 @@ elif [ ${status_build} == 0 ] ; then
             fi
 
             if [ ${job_status} == 1 ] ; then
-                file=${file_unedit%-freeze-dftb3-${job_type}_${level_short}.log}
+                file=${file_unedit%-freeze_dftb3-${job_type}_${level_short}.log}
             fi
         done
     fi
