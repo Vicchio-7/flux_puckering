@@ -166,6 +166,8 @@ elif [ ${status_build} == 0 ] ; then
                 sed -i "s/\$minutes/${minutes}/g" temp1.txt
                 mv temp1.txt pbs-${file}-RESTART.job
 
+                echo 'Now I am here'
+
                 qsub pbs-${file}-RESTART.job
             fi
         done
