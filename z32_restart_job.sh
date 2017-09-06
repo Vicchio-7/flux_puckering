@@ -100,7 +100,7 @@ elif [ ${status_build} == 0 ] ; then
 	    fi
 
         if [ ${job_status} == 0 ] ; then
-            break
+            exit
         elif [ ${job_status} == 1 ] ; then
             file=${file_unedit%-${job_type}_${level_short}.log}
 
