@@ -95,12 +95,8 @@ elif [ ${status_build} == 0 ] ; then
 
         for file_unedit in ${input}; do
 
-            echo ${file_unedit}
-
             termination_status=$(tail -n 1 ${file_unedit} | sed -e 's/ at.*//')
             expect=' Normal termination of Gaussian 09'
-
-            echo ${termination_status}
 
             if [ "$termination_status" = "${expect}" ]; then
                 job_status=0
@@ -127,7 +123,7 @@ elif [ ${status_build} == 0 ] ; then
         done
 
     #DFTB3 TS errors
-    elif [ ${sub_status} == 0 ] ; then
+    elif [ ${sub_status} == 1 ] ; then
 
         echo "WE HERE"
 
