@@ -148,7 +148,7 @@ elif [ ${status_build} == 0 ] ; then
 
                 rm *temp*
 
-                qsub pbs-${file}-RESTART.job
+                ls pbs-${file}-RESTART.job
             fi
         done
     fi
