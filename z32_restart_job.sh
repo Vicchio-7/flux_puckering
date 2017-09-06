@@ -134,6 +134,10 @@ elif [ ${status_build} == 0 ] ; then
                 job_status=1
                 echo ${file_unedit}
             fi
+
+            if [ ${job_status} == 1 ] ; then
+                file=${file_unedit%-freeze-dftb3-${job_type}_${level_short}.log}
+            fi
         done
     fi
 fi
