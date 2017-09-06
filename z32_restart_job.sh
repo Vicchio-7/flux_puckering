@@ -99,9 +99,7 @@ elif [ ${status_build} == 0 ] ; then
 		    job_status=1
 	    fi
 
-        if [ ${job_status} == 0 ] ; then
-            exit
-        elif [ ${job_status} == 1 ] ; then
+        if [ ${job_status} == 1 ] ; then
             file=${file_unedit%-${job_type}_${level_short}.log}
 
             cp ${file}.com ${file}-RESTARTtemp.com
