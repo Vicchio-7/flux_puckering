@@ -126,6 +126,10 @@ elif [ ${status_build} == 0 ] ; then
     elif [ ${sub_status} == 1 ] ; then
         input=$(ls *.log)
         expect=' Normal termination of Gaussian 09'
+
+        tpl_file=${main}/y_tpl/3_dftb_tpl/run_rerun_dftb3_TS.tpl
+        pbs_file=${main}/y_tpl/3_dftb_tpl/gaussian_pbs_script.job
+
         for file_unedit in ${input}; do
             termination_status=$(tail -n 1 ${file_unedit} | sed -e 's/ at.*//')
             if [ "$termination_status" = "${expect}" ]; then
@@ -138,15 +142,29 @@ elif [ ${status_build} == 0 ] ; then
             if [ ${job_status} == 1 ] ; then
                 file=${file_unedit%-freeze_dftb3-${job_type}_${level_short}.log}
 
-                cp ${file}.com ${file}-RESTARTtemp.com
-                cp pbs-${file}.job pbs-${file}-RESTARTtemp.job
 
-                sed -e '3d' ${file}-RESTARTtemp.com > ${file}-RESTART.com
-                sed -e '26d' pbs-${file}-RESTARTtemp.job > pbs-${file}-RESTART.job
+                sed -e "s/\$memory/${total_memory}/g" ${tpl_file} > temp1.temp
+                sed -i "s/\$num_procs/${cores_per_node}/g" temp1.temp
+                sed -i "s/\$folder_1/${folder}/g" temp1.temp
+                sed -i "s/\$folder_old/${molecule_type}-freeze_${level_short}/g" temp1.temp
+                sed -i "s/\$old_check/${molecule_type}-${file}-freeze_${level_short}.chk/g" temp1.temp
+                sed -i "s/\$folder_new/${molecule_type}-TS_${level_short}/g" temp1.temp
+                sed -i "s/\$chkfile/${file}-freeze_${level_short}-${job_type}_${level_short}.chk/g" temp1.temp
+                sed -i "s/\level_of_theory/${level_theory}/g" temp1.temp
 
-                echo "g09 < ${file}-RESTART.com > ${file_unedit%.log}-RESTART.log" >> pbs-${file}-RESTART.job
+                mv temp1.temp ${file}-RESTART.com
 
-                rm *temp*
+
+                sed -e "s/\$num_proc/${cores_per_node}/g"  > temp1.txt
+                sed -i "s/conform/${file}-RESTART/g" temp1.txt
+                sed -i "s/\$memory/${total_memory}/g" temp1.txt
+                sed -i "s/gauss-log/${file}-freeze_${3}-TS_${3}/g" temp1.txt
+                sed -i "s/\$molecule/${molecule_type}/g" temp1.txt
+                sed -i "s/\$test/${job_type}/g" temp1.txt
+                sed -i "s/\$level/${level_short}/g" temp1.txt
+                sed -i "s/\$hours/${hours}/g" temp1.txt
+                sed -i "s/\$minutes/${minutes}/g" temp1.txt
+                mv temp1.txt pbs-${file}-RESTART.job
 
                 ls pbs-${file}-RESTART.job
             fi
