@@ -137,7 +137,18 @@ elif [ ${status_build} == 0 ] ; then
 
             if [ ${job_status} == 1 ] ; then
                 file=${file_unedit%-freeze_dftb3-${job_type}_${level_short}.log}
-                echo ${file}
+
+                cp ${file}.com ${file}-RESTARTtemp.com
+                cp pbs-${file}.job pbs-${file}-RESTARTtemp.job
+
+                sed -e '3d' ${file}-RESTARTtemp.com > ${file}-RESTART.com
+                sed -e '26d' pbs-${file}-RESTARTtemp.job > pbs-${file}-RESTART.job
+
+                echo "g09 < ${file}-RESTART.com > ${file_unedit%.log}-RESTART.log" >> pbs-${file}-RESTART.job
+
+                rm *temp*
+
+                qsub pbs-${file}-RESTART.job
             fi
         done
     fi
