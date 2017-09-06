@@ -124,8 +124,16 @@ elif [ ${status_build} == 0 ] ; then
 
     #DFTB3 TS errors
     elif [ ${sub_status} == 1 ] ; then
-
-        echo "WE HERE"
-
+        input=$(ls *.log)
+        expect=' Normal termination of Gaussian 09'
+        for file_unedit in ${input}; do
+            termination_status=$(tail -n 1 ${file_unedit} | sed -e 's/ at.*//')
+            if [ "$termination_status" = "${expect}" ]; then
+                job_status=0
+            else
+                job_status=1
+                echo ${file_unedit}
+            fi
+        done
     fi
 fi
