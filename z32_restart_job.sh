@@ -76,45 +76,60 @@ else
 	status_build=1
 fi
 
+if [ "${level_short}" == 'dftb3' ] ; then
+    sub_status=1
+else
+    sub_status=0
+fi
+
+
 # --------------------------------------------------------------------------------------
 
 if [ ${status_build} == 1 ] ; then
 	exit
 elif [ ${status_build} == 0 ] ; then
 
-    input=$(ls *.log)
+    # Normal Code
+    if [ ${sub_status} == 0 ] ; then
+        input=$(ls *.log)
 
-    for file_unedit in ${input}; do
+        for file_unedit in ${input}; do
 
-        echo ${file_unedit}
+            echo ${file_unedit}
 
-        termination_status=$(tail -n 1 ${file_unedit} | sed -e 's/ at.*//')
-        expect=' Normal termination of Gaussian 09'
+            termination_status=$(tail -n 1 ${file_unedit} | sed -e 's/ at.*//')
+            expect=' Normal termination of Gaussian 09'
 
-        echo ${termination_status}
+            echo ${termination_status}
 
-	    if [ "$termination_status" = "${expect}" ]; then
-		    job_status=0
-	    else
-		    job_status=1
-	    fi
+            if [ "$termination_status" = "${expect}" ]; then
+                job_status=0
+            else
+                job_status=1
+            fi
 
-        if [ ${job_status} == 1 ] ; then
-            file=${file_unedit%-${job_type}_${level_short}.log}
+            if [ ${job_status} == 1 ] ; then
+                file=${file_unedit%-${job_type}_${level_short}.log}
 
-            cp ${file}.com ${file}-RESTARTtemp.com
-            cp pbs-${file}.job pbs-${file}-RESTARTtemp.job
+                cp ${file}.com ${file}-RESTARTtemp.com
+                cp pbs-${file}.job pbs-${file}-RESTARTtemp.job
 
-            sed -e '3d' ${file}-RESTARTtemp.com > ${file}-RESTART.com
-            sed -e '26d' pbs-${file}-RESTARTtemp.job > pbs-${file}-RESTART.job
+                sed -e '3d' ${file}-RESTARTtemp.com > ${file}-RESTART.com
+                sed -e '26d' pbs-${file}-RESTARTtemp.job > pbs-${file}-RESTART.job
 
-            echo "g09 < ${file}-RESTART.com > ${file_unedit%.log}-RESTART.log" >> pbs-${file}-RESTART.job
+                echo "g09 < ${file}-RESTART.com > ${file_unedit%.log}-RESTART.log" >> pbs-${file}-RESTART.job
 
-            rm *temp*
+                rm *temp*
 
-            qsub pbs-${file}-RESTART.job
+                qsub pbs-${file}-RESTART.job
 
-        fi
-    done
+            fi
+        done
 
+    #DFTB3 TS errors
+    elif [ ${sub_status} == 0 ] ; then
+
+        echo "WE HERE"
+
+    fi
 fi
