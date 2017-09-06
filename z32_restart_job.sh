@@ -140,8 +140,8 @@ elif [ ${status_build} == 0 ] ; then
             fi
 
             if [ ${job_status} == 1 ] ; then
+                echo 'I am here'
                 file=${file_unedit%-freeze_dftb3-${job_type}_${level_short}.log}
-
 
                 sed -e "s/\$memory/${total_memory}/g" ${tpl_file} > temp1.temp
                 sed -i "s/\$num_procs/${cores_per_node}/g" temp1.temp
