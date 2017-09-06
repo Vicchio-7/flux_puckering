@@ -155,7 +155,7 @@ elif [ ${status_build} == 0 ] ; then
                 mv temp1.temp ${file}-RESTART.com
 
 
-                sed -e "s/\$num_proc/${cores_per_node}/g"  > temp1.txt
+                sed -e "s/\$num_proc/${cores_per_node}/g" ${pbs_file} > temp1.txt
                 sed -i "s/conform/${file}-RESTART/g" temp1.txt
                 sed -i "s/\$memory/${total_memory}/g" temp1.txt
                 sed -i "s/gauss-log/${file}-freeze_${3}-TS_${3}/g" temp1.txt
@@ -165,8 +165,6 @@ elif [ ${status_build} == 0 ] ; then
                 sed -i "s/\$hours/${hours}/g" temp1.txt
                 sed -i "s/\$minutes/${minutes}/g" temp1.txt
                 mv temp1.txt pbs-${file}-RESTART.job
-
-                echo 'Now I am here'
 
                 qsub pbs-${file}-RESTART.job
             fi
