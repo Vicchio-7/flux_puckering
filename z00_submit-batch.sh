@@ -59,11 +59,6 @@ elif [[ ${run_type} == 'dftb3' ]]; then
 
         fi
     done
-
-
-	for file_sub in $(find . \( ! -name . -prune \) -type f -iname "pbs-*${keyword}*-RESTART.job"); do
-        qsub ${file_sub}
-	done
 else
 	for file_sub in $(find . \( ! -name . -prune \) -type f -iname 'pbs-*.job'); do
 		qsub ${file_sub}
