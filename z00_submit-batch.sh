@@ -36,6 +36,34 @@ elif [[ ${run_type} == 'renum' ]]; then
 	for file_sub in $(find . \( ! -name . -prune \) -type f -iname "pbs-*${keyword}*-RESTART.job"); do
         qsub ${file_sub}
 	done
+elif [[ ${run_type} == 'dftb3' ]]; then
+    keyword=$2
+
+    input=$(ls *.log)
+    expect=' Normal termination of Gaussian 09'
+
+
+    for file_unedit in ${input}; do
+        termination_status=$(tail -n 1 ${file_unedit} | sed -e 's/ at.*//')
+        if [ "$termination_status" = "${expect}" ]; then
+            job_status=0
+        else
+            job_status=1
+            echo ${file_unedit}
+        fi
+
+        if [ ${job_status} == 1 ] ; then
+            file=${file_unedit%-freeze_dftb3-${job_type}_${level_short}.log}
+
+            echo ${file}
+
+        fi
+    done
+
+
+	for file_sub in $(find . \( ! -name . -prune \) -type f -iname "pbs-*${keyword}*-RESTART.job"); do
+        qsub ${file_sub}
+	done
 else
 	for file_sub in $(find . \( ! -name . -prune \) -type f -iname 'pbs-*.job'); do
 		qsub ${file_sub}
