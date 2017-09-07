@@ -53,8 +53,8 @@ elif [[ ${run_type} == 'dftb3' ]]; then
 
         if [ ${job_status} == 1 ] ; then
             file=${file_unedit%-freeze_dftb3-TS_dftb3.log}
-
-            echo ${file}
+            num=${file#beta-glucose}
+            echo ${num}
 
         fi
     done
