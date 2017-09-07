@@ -56,6 +56,7 @@ elif [[ ${run_type} == 'dftb3' ]]; then
             num=${file#beta-glucose}
             echo ${num}
 
+            qsub pbs-beta-glucose${num}-RESTART.job
         fi
     done
 else
