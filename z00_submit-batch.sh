@@ -49,7 +49,6 @@ elif [[ ${run_type} == 'dftb3' ]]; then
             job_status=0
         else
             job_status=1
-            echo ${file_unedit}
         fi
 
         if [ ${job_status} == 1 ] ; then
