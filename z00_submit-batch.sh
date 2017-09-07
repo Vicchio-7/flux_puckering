@@ -52,7 +52,7 @@ elif [[ ${run_type} == 'dftb3' ]]; then
         fi
 
         if [ ${job_status} == 1 ] ; then
-            file=${file_unedit%-freeze_dftb3-${job_type}_${level_short}.log}
+            file=${file_unedit%-freeze_dftb3-TS_dftb3.log}
 
             echo ${file}
 
