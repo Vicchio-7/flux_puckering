@@ -84,9 +84,6 @@ else
     sub_status=0
 fi
 
-
-echo ${sub_status}
-
 # --------------------------------------------------------------------------------------
 
 if [ ${status_build} == 1 ] ; then
@@ -177,8 +174,6 @@ elif [ ${status_build} == 0 ] ; then
         input=$(ls *.log)
         expect=' Normal termination of Gaussian 09'
 
-        echo ${input}
-
         tpl_file=${main}/y_tpl/3_dftb_tpl/run_freq_only_dftb3.tpl
         pbs_file=${main}/y_tpl/3_dftb_tpl/gaussian_pbs_script.job
 
@@ -186,13 +181,12 @@ elif [ ${status_build} == 0 ] ; then
             termination_status=$(tail -n 1 ${file_unedit} | sed -e 's/ at.*//')
             if [ "$termination_status" = "${expect}" ]; then
                 job_status=1
-                echo ${file_unedit}
             else
                 job_status=0
             fi
 
             if [ ${job_status} == 1 ] ; then
-                file=${file_unedit%-freeze_dftb3-${job_type}_${level_short}.log}
+                file=${file_unedit%-freeze_dftb3-${job_type}_dftb3.log}
 
                 sed -e "s/\$memory/${total_memory}/g" ${tpl_file} > temp1.temp
                 sed -i "s/\$num_procs/${cores_per_node}/g" temp1.temp
