@@ -136,9 +136,9 @@ elif [ ${status_build} == 0 ] ; then
             termination_status=$(tail -n 1 ${file_unedit} | sed -e 's/ at.*//')
             if [ "$termination_status" = "${expect}" ]; then
                 job_status=1
+                echo ${file_unedit}
             else
                 job_status=0
-                echo ${file_unedit}
             fi
 
             if [ ${job_status} == 1 ] ; then
