@@ -175,6 +175,8 @@ elif [ ${status_build} == 0 ] ; then
         input=$(ls *.log)
         expect=' Normal termination of Gaussian 09'
 
+        echo ${input}
+
         tpl_file=${main}/y_tpl/3_dftb_tpl/run_freq_only_dftb3.tpl
         pbs_file=${main}/y_tpl/3_dftb_tpl/gaussian_pbs_script.job
 
