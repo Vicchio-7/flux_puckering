@@ -210,7 +210,7 @@ elif [ ${status_build} == 0 ] ; then
                 sed -i "s/\$minutes/${minutes}/g" temp1.txt
                 mv temp1.txt pbs-${file}-FREQ.job
 
-                qsub pbs-${file}-FREQ.job
+                echo pbs-${file}-FREQ.job
             fi
         done
     fi
