@@ -170,6 +170,7 @@ elif [ ${status_build} == 0 ] ; then
                 qsub pbs-${file}-RESTART.job
             fi
         done
+
     elif [ ${sub_status} == 2 ] ; then
         input=$(ls *.log)
         expect=' Normal termination of Gaussian 09'
@@ -181,6 +182,7 @@ elif [ ${status_build} == 0 ] ; then
             termination_status=$(tail -n 1 ${file_unedit} | sed -e 's/ at.*//')
             if [ "$termination_status" = "${expect}" ]; then
                 job_status=1
+                echo ${file_unedit}
             else
                 job_status=0
             fi
