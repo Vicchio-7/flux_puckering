@@ -78,7 +78,7 @@ fi
 
 if [ "${level_short}" == 'dftb3' ] ; then
     sub_status=1
-elif [ "${level_short}" == 'dftb3_test' ] ; then
+elif [ "${level_short}" == 'dftb3_freq' ] ; then
     sub_status=2
 else
     sub_status=0
@@ -135,9 +135,9 @@ elif [ ${status_build} == 0 ] ; then
         for file_unedit in ${input}; do
             termination_status=$(tail -n 1 ${file_unedit} | sed -e 's/ at.*//')
             if [ "$termination_status" = "${expect}" ]; then
-                job_status=0
-            else
                 job_status=1
+            else
+                job_status=0
                 echo ${file_unedit}
             fi
 
