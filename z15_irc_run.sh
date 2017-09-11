@@ -57,6 +57,16 @@ elif [ "${molecule_type}" == 'bglc' ] ;  then
 	tpl_folder=2_bxyl_tpl
 	status_build=0
 	input_list=../y0-input_list.txt
+elif [ "${molecule_type}" == 'levo' ] ; then
+    folder=7_levo
+    tpl_folder=7_levo_tpl
+   	input_list=../y0-input_list.txt
+    status_build=2
+elif [ "${molecule_type}" == 'dehy' ] ; then
+    folder=8_dehy
+    tpl_folder=8_dehy_tpl
+   	input_list=../y0-input_list.txt
+    status_build=3
 else
 	echo
 	echo "The molecule type is not found in this script"
@@ -178,4 +188,8 @@ elif [ ${status_build} == 0 ] ; then
 
              fi
     done
+elif [ ${status_build} == 2 ] ; then
+    echo 'passing!'
+elif [ ${status_build} == 3 ] ; then
+    echo 'starting here'
 fi
