@@ -191,5 +191,29 @@ elif [ ${status_build} == 0 ] ; then
 elif [ ${status_build} == 2 ] ; then
     echo 'passing!'
 elif [ ${status_build} == 3 ] ; then
-    echo 'starting here'
+    echo 'starting here with dehy'
+
+    level_theory=$(z02_level_replace_script.sh ${molecule_type} ${level_short})
+
+    if [ ${level_short} == 'ERROR' ] ; then
+        echo ''
+        echo 'The level of theory being studied is not found in z02_level_replace_script.sh'
+        echo ''
+        echo 'Please add the correct level of theory before restarting'
+        echo ''
+        break
+    fi
+
+    irc_forward=${scratch}/puckering/${folder}/${1}-${2}_${3}-forward
+    if [ ! -d ${irc_forward} ]; then
+        mkdir ${irc_forward}
+    fi
+
+    irc_backward=${scratch}/puckering/${folder}/${1}-${2}_${3}-reverse
+    if [ ! -d ${irc_backward} ]; then
+        mkdir ${irc_backward}
+    fi
+
+
+
 fi
