@@ -262,6 +262,6 @@ elif [ ${status_build} == 3 ] ; then
     sed -i "s/\$hours/${hours}/g" temp1.txt
     sed -i "s/\$minutes/${minutes}/g" temp1.txt
 
-    mv temp1.txt pbs-${new_filenamer}.job
+    mv temp1.txt pbs-${input_list}.job
 
 fi
