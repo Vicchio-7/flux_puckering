@@ -232,7 +232,7 @@ elif [ ${status_build} == 3 ] ; then
     sed -i "s/\$folder_old/${molecule_type}-TS_${level_short}/g" temp1.temp
     sed -i "s/\$folder_new/${1}-${2}_${3}-forward/g" temp1.temp
     sed -i "s/\$old_check/${input_list}.chk/g" temp1.temp
-    sed -i "s/\$chkfile/${new_filenamef}/g" temp1.temp
+    sed -i "s/\$chkfile/${new_filenamef}.chk/g" temp1.temp
     sed -i "s/\level_of_theory/${level_theory}/g" temp1.temp
     mv temp1.temp ${new_filenamef}.com
 
@@ -244,7 +244,7 @@ elif [ ${status_build} == 3 ] ; then
     sed -i "s/\$folder_old/${molecule_type}-TS_${level_short}/g" temp1.temp
     sed -i "s/\$folder_new/${1}-${2}_${3}-reverse/g" temp1.temp
     sed -i "s/\$old_check/${input_list}.chk/g" temp1.temp
-    sed -i "s/\$chkfile/${new_filenamer}/g" temp1.temp
+    sed -i "s/\$chkfile/${new_filenamer}.chk/g" temp1.temp
     sed -i "s/\level_of_theory/${level_theory}/g" temp1.temp
     mv temp1.temp ${new_filenamer}.com
 
