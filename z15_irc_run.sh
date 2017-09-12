@@ -192,11 +192,10 @@ elif [ ${status_build} == 0 ] ; then
 elif [ ${status_build} == 2 ] ; then
     echo 'passing!'
 elif [ ${status_build} == 3 ] ; then
-    echo 'starting here with dehy'
+
+    echo ''
 
     level_theory=$(z02_level_replace_script.sh ${molecule_type} ${level_short})
-
-    echo ${level_theory}
 
     if [ ${level_short} == 'ERROR' ] ; then
         echo ''
@@ -207,15 +206,17 @@ elif [ ${status_build} == 3 ] ; then
         break
     fi
 
+    # Creating the directories
     irc_forward=${scratch}/puckering/${folder}/${1}-${2}_${3}-forward
     if [ ! -d ${irc_forward} ]; then
         echo 'Creating IRC Foward Directory'
         mkdir ${irc_forward}
     fi
 
+    # Creating the directories
     irc_backward=${scratch}/puckering/${folder}/${1}-${2}_${3}-reverse
     if [ ! -d ${irc_backward} ]; then
-        echo 'Creating IRC Reverse Directory'
+        echo "Creating IRC Reverse Directory"
         mkdir ${irc_backward}
     fi
 
