@@ -220,6 +220,8 @@ elif [ ${status_build} == 3 ] ; then
         mkdir ${irc_backward}
     fi
 
+    input_list=TS_bglc_${1}-TS_${3}
 
+    echo ${input_list}
 
 fi

@@ -41,8 +41,8 @@
       <file leaf-file-name="z15_irc_run.sh" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/z15_irc_run.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="127" column="0" lean-forward="true" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
+            <state relative-caret-position="748">
+              <caret line="222" column="4" lean-forward="false" selection-start-line="222" selection-start-column="4" selection-end-line="222" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -713,12 +713,12 @@
       <workItem from="1503497794458" duration="9377000" />
       <workItem from="1504624195282" duration="42000" />
       <workItem from="1504710405274" duration="5380000" />
-      <workItem from="1504875737887" duration="4566000" />
+      <workItem from="1504875737887" duration="4603000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88372000" />
+    <option name="totallyTimeSpent" value="88409000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1157,8 +1157,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/z15_irc_run.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="127" column="0" lean-forward="true" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
+        <state relative-caret-position="748">
+          <caret line="222" column="4" lean-forward="false" selection-start-line="222" selection-start-column="4" selection-end-line="222" selection-end-column="4" />
           <folding />
         </state>
       </provider>
