@@ -234,8 +234,19 @@ elif [ ${status_build} == 3 ] ; then
     sed -i "s/\$old_check/${old_check_file}.chk/g" temp1.temp
     sed -i "s/\$chkfile/${new_check_file}/g" temp1.temp
     sed -i "s/\level_of_theory/${level_theory}/g" temp1.temp
-
     mv temp1.temp ${new_filenamef}.com
+
+    ##### IRC - Forward Direction! #####
+
+    sed -e "s/\$memory/${total_memory}/g" ${tpl}/${tpl_folder}/run_irc_reverse.tpl > temp1.temp
+    sed -i "s/\$num_procs/${cores_per_node}/g" temp1.temp
+    sed -i "s/\$folder_1/${folder}/g" temp1.temp
+    sed -i "s/\$folder_old/${molecule_type}-TS_${level_short}/g" temp1.temp
+    sed -i "s/\$folder_new/${1}-${2}_${3}-reverse/g" temp1.temp
+    sed -i "s/\$old_check/${old_check_file}.chk/g" temp1.temp
+    sed -i "s/\$chkfile/${new_check_file}/g" temp1.temp
+    sed -i "s/\level_of_theory/${level_theory}/g" temp1.temp
+    mv temp1.temp ${new_filenamer}.com
 
 
 
