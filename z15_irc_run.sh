@@ -221,7 +221,30 @@ elif [ ${status_build} == 3 ] ; then
     fi
 
     input_list=TS_bglc_${1}-TS_${3}
-    new_file_for=TS_bglc_${1}-TS_${3}-irc_forward
-    new_file_rev=TS_bglc_${1}-TS_${3}-irc_reverse
+    new_file_for=TS_bglc_${1}-TS_${3}-ircf_${3}
+    new_file_rev=TS_bglc_${1}-TS_${3}-ircr_${3}
+
+    ##### IRC - Forward Direction! #####
+
+    ls ${tpl}/${tpl_folder}/run_irc_forward.tpl
+
+#    sed -e "s/\$memory/${total_memory}/g" ${tpl}/${tpl_folder}/run_irc_forward.tpl > temp1.temp
+
+
+#    new_filenamef=${file_org}-ircf
+#    new_check_file=${new_filenamef}_${3}.chk
+#
+#    sed -e "s/\$memory/${total_memory}/g" ${tpl}/${tpl_folder}/run_irc_forward.tpl > temp1.temp
+#    sed -i "s/\$num_procs/${cores_per_node}/g" temp1.temp
+#    sed -i "s/\$folder_1/${folder}/g" temp1.temp
+#    sed -i "s/\$folder_old/${molecule_type}-TS_${level_short}/g" temp1.temp
+#    sed -i "s/\$folder_new/${1}-${2}_${3}-forward/g" temp1.temp
+#    sed -i "s/\$old_check/${old_check_file}.chk/g" temp1.temp
+#    sed -i "s/\$chkfile/${new_check_file}/g" temp1.temp
+#    sed -i "s/\level_of_theory/${level_theory}/g" temp1.temp
+#
+#    mv temp1.temp ${new_filenamef}.com
+
+
 
 fi
