@@ -248,6 +248,20 @@ elif [ ${status_build} == 3 ] ; then
     sed -i "s/\level_of_theory/${level_theory}/g" temp1.temp
     mv temp1.temp ${new_filenamer}.com
 
+    ##### PBS Script
 
+    sed -e "s/\$num_proc/${cores_per_node}/g" ${tpl}/gaussian_pbs_script_IRC.job > temp1.txt
+    sed -i "s/\$memory/${total_memory}/g" temp1.txt
+    sed -i "s/conform-f/${new_filenamef}/g" temp1.txt
+    sed -i "s/gauss-log-f/${new_filenamef}/g" temp1.txt
+    sed -i "s/conform-r/${new_filenamer}/g" temp1.txt
+    sed -i "s/gauss-log-r/${new_filenamer}/g" temp1.txt
+    sed -i "s/\$molecule/${molecule_type}/g" temp1.txt
+    sed -i "s/\$test/${job_type}/g" temp1.txt
+    sed -i "s/\$level/${level_short}/g" temp1.txt
+    sed -i "s/\$hours/${hours}/g" temp1.txt
+    sed -i "s/\$minutes/${minutes}/g" temp1.txt
+
+    mv temp1.txt pbs-${new_filenamer}.job
 
 fi
